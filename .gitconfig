@@ -1,0 +1,13 @@
+[user]
+	name = Brasco
+	email = brasco@brascoder.com
+[alias]
+  a = add .
+  co = checkout
+  cm = commit -m
+  st = status
+  br = branch
+[push]
+	default = simple
+[credential]
+	helper = osxkeychain
