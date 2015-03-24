@@ -12,8 +12,8 @@ set background=dark
 let g:solarized_termcolors = 256
 colorscheme solarized
 
-let mapleader="\<Space>"
-set number
+let mapleader=" "
+set relativenumber
 set ts=2 sts=2 sw=2 expandtab
 set autoindent
 set ignorecase
@@ -34,4 +34,6 @@ let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
 let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 
 
-" map <C-\> :NERDTreeToggle<CR>
+nmap <leader>\ :NERDTreeToggle<CR>
+nmap <leader>l :set list!<CR>
+set listchars=tab:▸\ ,eol:¬
