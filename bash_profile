@@ -22,3 +22,6 @@ alias denv='$(boot2docker shellinit)'
 alias drm='docker rm'
 alias dps='docker ps'
 alias dc='docker-compose'
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"

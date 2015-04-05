@@ -37,3 +37,4 @@ let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 nmap <leader>\ :NERDTreeToggle<CR>
 nmap <leader>l :set list!<CR>
 set listchars=tab:▸\ ,eol:¬
+
