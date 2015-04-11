@@ -13,6 +13,10 @@ let g:solarized_termcolors = 256
 colorscheme solarized
 
 let mapleader=" "
+map <C-h> <C-c>
+map! <C-h> <C-c>
+nmap <leader>w :w<CR>
+
 set relativenumber
 set ts=2 sts=2 sw=2 expandtab
 set autoindent
@@ -34,7 +38,8 @@ let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
 let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 
 
-nmap <leader>\ :NERDTreeToggle<CR>
 nmap <leader>l :set list!<CR>
+nmap <leader>\ :NERDTreeToggle<CR>
+let g:ctrlp_dont_split = 'netrw'
 set listchars=tab:▸\ ,eol:¬
 
