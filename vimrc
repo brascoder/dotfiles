@@ -13,8 +13,6 @@ let g:solarized_termcolors = 256
 colorscheme solarized
 
 let mapleader=" "
-map <C-h> <C-c>
-map! <C-h> <C-c>
 nmap <leader>w :w<CR>
 
 set relativenumber
