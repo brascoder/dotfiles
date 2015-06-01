@@ -5,6 +5,7 @@
   a = add .
   co = checkout
   cm = commit -m
+  cl = commit --amend -C HEAD
   st = status
   br = branch
 [push]
