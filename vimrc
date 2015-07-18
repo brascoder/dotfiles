@@ -1,12 +1,35 @@
 set nocompatible
 runtime macros/matchit.vim
 
-filetype on
+" Vundle
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
+
+" Plugins
+Plugin 'kien/ctrlp.vim'
+Plugin 'mattn/emmet-vim'
+Plugin 'othree/html5.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'bling/vim-airline'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-sensible'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
+Plugin 'kana/vim-textobj-user'
+Plugin 'nelstrom/vim-textobj-rubyblock'
+Plugin 'christoomey/vim-tmux-navigator'
+
+call vundle#end()
+
 filetype indent on
 filetype plugin on
 
-execute pathogen#infect()
-
+"Color Theme
 syntax enable
 set background=dark
 let g:solarized_termcolors = 256
@@ -27,6 +50,7 @@ set showmatch
 set noswapfile
 set visualbell
 set cursorline
+
 
 autocmd VimResized * :wincmd =
 nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
