@@ -17,6 +17,9 @@ alias ls='ls -GFh'
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
+#Node
+export PATH="$HOME/.node/bin:$PATH"
+
 # Docker
 alias bdu='boot2docker up'
 alias denv='$(boot2docker shellinit)'
