@@ -27,6 +27,7 @@ Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'szw/vim-tags'
 
 call vundle#end()
 
