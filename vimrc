@@ -42,6 +42,7 @@ colorscheme solarized
 
 let mapleader=" "
 nmap <leader>w :w<CR>
+nnoremap <leader>hl :noh
 
 set relativenumber
 set ts=2 sts=2 sw=2 expandtab
@@ -69,4 +70,4 @@ nmap <leader>l :set list!<CR>
 nmap <leader>\ :NERDTreeToggle<CR>
 let g:ctrlp_dont_split = 'netrw'
 set listchars=tab:▸\ ,eol:¬
-
+command! Resource source $MYVIMRC
