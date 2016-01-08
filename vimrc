@@ -7,7 +7,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
-" Plugins
+" - Plugins
 Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'othree/html5.vim'
@@ -34,16 +34,19 @@ call vundle#end()
 filetype indent on
 filetype plugin on
 
-"Color Theme
+" Cursor
+let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+
+
+" Color Theme
 syntax enable
 set background=dark
 let g:solarized_termcolors = 256
 colorscheme solarized
 
-let mapleader=" "
-nmap <leader>w :w<CR>
-nnoremap <leader>hl :noh
 
+" Options
 set relativenumber
 set ts=2 sts=2 sw=2 expandtab
 set autoindent
@@ -57,20 +60,34 @@ set noswapfile
 set visualbell
 set cursorline
 
-" Resize 
+
+" Key Mappings
+let mapleader=" "
+nmap <leader>w :w<CR>
+nnoremap <leader>hl :noh
+nnoremap <leader>l :set list!<CR>
+nnoremap <leader>\ :NERDTreeToggle<CR>
+let g:ctrlp_dont_split = 'netrw'
+set listchars=tab:▸\ ,eol:¬
+
+" - Resize 
 autocmd VimResized * :wincmd =
 nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
 nnoremap <leader>= :wincmd =<cr>
 
-" Cursor
-let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-
-nnoremap <leader>l :set list!<CR>
-nnoremap <leader>\ :NERDTreeToggle<CR>
+" - Ctags
 nnoremap <leader>f <C-]>
 nnoremap <leader>t <C-t>
 nnoremap <leader>p :CtrlPTag<CR>
-let g:ctrlp_dont_split = 'netrw'
-set listchars=tab:▸\ ,eol:¬
+
+" - Move lines
+nnoremap ∆ :m .+1<CR>==
+nnoremap ˚ :m .-2<CR>==
+inoremap ∆ <Esc>:m .+1<CR>==gi
+inoremap ˚ <Esc>:m .-2<CR>==gi
+vnoremap ∆ :m '>+1<CR>gv=gv
+vnoremap ˚ :m '<-2<CR>gv=gv
+
+
+" Commands
 command! Resource source $MYVIMRC
