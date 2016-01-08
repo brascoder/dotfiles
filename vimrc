@@ -57,17 +57,20 @@ set noswapfile
 set visualbell
 set cursorline
 
-
+" Resize 
 autocmd VimResized * :wincmd =
 nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
 nnoremap <leader>= :wincmd =<cr>
 
+" Cursor
 let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
 let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 
-
-nmap <leader>l :set list!<CR>
-nmap <leader>\ :NERDTreeToggle<CR>
+nnoremap <leader>l :set list!<CR>
+nnoremap <leader>\ :NERDTreeToggle<CR>
+nnoremap <leader>f <C-]>
+nnoremap <leader>t <C-t>
+nnoremap <leader>p :CtrlPTag<CR>
 let g:ctrlp_dont_split = 'netrw'
 set listchars=tab:▸\ ,eol:¬
 command! Resource source $MYVIMRC
