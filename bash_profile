@@ -8,6 +8,10 @@ export PS1="\e[0;36m\]\u:\e[0;32m\]\$(git_branch)\e[1;33m\] \w \e[m\n$ "
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 
+if [ -f $HOME/.private ]; then
+  source $HOME/.private
+fi
+
 # General
 export ALTERNATE_EDITOR=""
 export EDITOR=vim
