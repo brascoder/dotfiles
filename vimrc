@@ -42,8 +42,9 @@ let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 " Color Theme
 syntax enable
 set background=dark
-let g:solarized_termcolors = 256
-colorscheme solarized
+colorscheme grb256
+" let g:solarized_termcolors = 256
+" colorscheme solarized
 
 
 " Options
