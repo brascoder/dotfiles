@@ -8,6 +8,7 @@ export PS1="\e[0;36m\]\u:\e[0;32m\]\$(git_branch)\e[1;33m\] \w \e[m\n$ "
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 
+# Load privates
 if [ -f $HOME/.private ]; then
   source $HOME/.private
 fi
@@ -16,6 +17,11 @@ fi
 export ALTERNATE_EDITOR=""
 export EDITOR=vim
 alias ls='ls -GFh'
+
+# Vim
+if [ -f /usr/local/bin/vim ]; then
+  alias vim='/usr/local/bin/vim'
+fi
 
 # Ruby
 export PATH="$HOME/.rbenv/bin:$PATH"
