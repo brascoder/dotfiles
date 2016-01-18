@@ -65,7 +65,7 @@ set cursorline
 " Key Mappings
 let mapleader=" "
 nmap <leader>w :w<CR>
-nnoremap <leader>hl :noh
+nnoremap <leader>hl :nohls<CR>
 nnoremap <leader>l :set list!<CR>
 nnoremap <leader>\ :NERDTreeToggle<CR>
 let g:ctrlp_dont_split = 'netrw'
