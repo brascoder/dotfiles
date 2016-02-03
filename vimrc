@@ -80,7 +80,6 @@ nmap <leader>w :w<CR>
 nnoremap <leader>h :nohls<CR>
 nnoremap <leader>l :set list!<CR>
 nnoremap <leader>\ :NERDTreeToggle<CR>
-nnoremap <leader>] :NERDTreeFocus<CR>
 let g:ctrlp_dont_split = 'netrw'
 set listchars=tab:▸\ ,eol:¬,trail:·
 
