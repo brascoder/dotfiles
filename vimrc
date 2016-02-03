@@ -72,6 +72,8 @@ set showmatch
 set noswapfile
 set visualbell
 set cursorline
+set listchars=tab:▸\ ,eol:¬,trail:·
+let g:ctrlp_dont_split = 'netrw'
 
 
 " Key Mappings
@@ -80,8 +82,7 @@ nmap <leader>w :w<CR>
 nnoremap <leader>h :nohls<CR>
 nnoremap <leader>l :set list!<CR>
 nnoremap <leader>\ :NERDTreeToggle<CR>
-let g:ctrlp_dont_split = 'netrw'
-set listchars=tab:▸\ ,eol:¬,trail:·
+vnoremap ≠ :Tabularize / /l0<CR>
 
 " - Resize
 autocmd VimResized * :wincmd =
@@ -89,9 +90,7 @@ nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
 nnoremap <leader>= :wincmd =<cr>
 
 " - Ctags
-nnoremap <leader>f <C-]>
-nnoremap <leader>t <C-t>
-nnoremap <leader>p :CtrlPTag<CR>
+nnoremap <C-'> <C-t>
 
 " - Move lines
 nnoremap ∆ :m .+1<CR>==
