@@ -76,6 +76,7 @@ set noswapfile
 set visualbell
 set cursorline
 set listchars=tab:▸\ ,eol:¬,trail:·
+set list!
 let g:ctrlp_dont_split = 'netrw'
 
 
