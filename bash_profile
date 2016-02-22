@@ -24,6 +24,7 @@ if [ -f /usr/local/bin/mvim ]; then
 elif [ -f /usr/local/bin/vim ]; then
   alias vim='/usr/local/bin/vim'
 fi
+alias ctags="ctags -R --exclude=.git --exclude=log $1"
 
 # Ruby
 export PATH="$HOME/.rbenv/bin:$PATH"
