@@ -78,6 +78,8 @@ set cursorline
 set listchars=tab:▸\ ,eol:¬,trail:·
 set list!
 let g:ctrlp_dont_split = 'netrw'
+set guioptions-=L
+set guioptions-=r
 
 
 " Key Mappings
