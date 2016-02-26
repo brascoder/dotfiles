@@ -37,6 +37,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'rking/ag.vim'
 Plugin 'ervandew/supertab'
 Plugin 'godlygeek/tabular'
+Plugin 'elixir-lang/vim-elixir'
 
 call vundle#end()
 
