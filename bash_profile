@@ -30,8 +30,6 @@ alias ctags="ctags -R --exclude=.git --exclude=log $1"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
-#Node
-export PATH="$HOME/.node/bin:$PATH"
 
 # Docker
 alias bdu='boot2docker up'
@@ -48,5 +46,7 @@ alias dcr='docker-compose run'
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-export NVM_DIR="/Users/cooke/.nvm"
+#Node
+export PATH="$HOME/.node/bin:$PATH"
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
