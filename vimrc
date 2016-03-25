@@ -94,15 +94,12 @@ let mapleader=" "
 nnoremap <leader>h :nohls<CR>
 nnoremap <leader>l :set list!<CR>
 nnoremap <leader>\ :NERDTreeToggle<CR>
-vnoremap ≠ :Tabularize / /l0<CR>
 
 " - Resize
 autocmd VimResized * :wincmd =
-nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
-nnoremap <leader>= :wincmd =<cr>
-
-" - Ctags
-nnoremap <C-'> <C-t>
+nnoremap – :wincmd _<cr>:wincmd \|<cr>
+nnoremap ≠ :wincmd =<cr>
+nnoremap « :NERDTreeFocus<CR> :vertical resize 31<CR>
 
 " - Move lines
 nnoremap ∆ :m .+1<CR>==
