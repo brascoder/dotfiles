@@ -26,13 +26,13 @@ Plugin 'tpope/vim-bundler'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
 Plugin 'kana/vim-textobj-user'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'mxw/vim-jsx'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'szw/vim-tags'
 Plugin 'mileszs/ack.vim'
 Plugin 'rking/ag.vim'
 Plugin 'ervandew/supertab'
@@ -45,10 +45,15 @@ filetype indent on
 filetype plugin on
 
 " Cursor
-" let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-" let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-let &t_SI = "\<Esc>P\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-let &t_EI = "\<Esc>P\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+if exists('$TMUX')
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_SR = "\<Esc>]50;CursorShape=2\x7\<Esc>\\"
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+endif
 
 
 " Color Theme
@@ -81,11 +86,11 @@ set list!
 let g:ctrlp_dont_split = 'netrw'
 set guioptions-=L
 set guioptions-=r
+set shell=/usr/local/bin/zsh
 
 
 " Key Mappings
 let mapleader=" "
-nmap <leader>w :w<CR>
 nnoremap <leader>h :nohls<CR>
 nnoremap <leader>l :set list!<CR>
 nnoremap <leader>\ :NERDTreeToggle<CR>

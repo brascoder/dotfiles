@@ -19,9 +19,7 @@ export EDITOR=vim
 alias ls='ls -GFh'
 
 # Vim
-if [ -f /usr/local/bin/mvim ]; then
-  alias vim='/usr/local/bin/mvim'
-elif [ -f /usr/local/bin/vim ]; then
+if [ -f /usr/local/bin/vim ]; then
   alias vim='/usr/local/bin/vim'
 fi
 alias ctags="ctags -R --exclude=.git --exclude=log $1"
