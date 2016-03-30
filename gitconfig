@@ -8,9 +8,13 @@
   cl = commit --amend -C HEAD
   st = status
   br = branch
+[core]
+  excludesfile = ~/.gitignore
 [push]
 	default = simple
+[remote "origin"]
+  push = HEAD
+[merge]
+  tool = opendiff
 [credential]
 	helper = osxkeychain
-[core]
-	excludesfile = ~/.gitignore
