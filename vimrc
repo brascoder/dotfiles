@@ -21,6 +21,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'rizzatti/dash.vim'
 Plugin 'rking/ag.vim'
+Plugin 'nathanaelkane/vim-indent-guides'
 " Text operation
 Plugin 'mattn/emmet-vim'
 Plugin 'tpope/vim-commentary'
@@ -87,6 +88,7 @@ set visualbell
 set cursorline
 set listchars=tab:▸\ ,eol:¬,trail:·
 set list!
+set nohls
 let g:ctrlp_dont_split = 'netrw'
 set guioptions-=L
 set guioptions-=r
@@ -95,7 +97,7 @@ set shell=/usr/local/bin/zsh
 
 " Key Mappings
 let mapleader=" "
-nnoremap <leader>h :nohls<CR>
+nnoremap <leader>h :set hlsearch!<CR>
 nnoremap <leader>l :set list!<CR>
 nnoremap <leader>\ :NERDTreeToggle<CR>
 
