@@ -93,6 +93,7 @@ let g:ctrlp_dont_split = 'netrw'
 set guioptions-=L
 set guioptions-=r
 set shell=/usr/local/bin/zsh
+set mouse=a
 
 
 " Key Mappings
