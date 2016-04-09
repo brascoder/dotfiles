@@ -101,6 +101,7 @@ let mapleader=" "
 nnoremap <leader>h :set hlsearch!<CR>
 nnoremap <leader>l :set list!<CR>
 nnoremap <leader>\ :NERDTreeToggle<CR>
+nnoremap <leader>t :!
 
 " - Resize
 autocmd VimResized * :wincmd =
