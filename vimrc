@@ -68,8 +68,8 @@ colorscheme tomorrow-night-eighties
 
 " Airline
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'tomorrow'
-set guifont=droid_sans_mono_for_powerline:h12
+let g:airline_theme = 'raven'
+set guifont=dejavu_sans_mono_for_powerline:h12
 
 
 " Options
@@ -87,7 +87,7 @@ set noswapfile
 set visualbell
 set cursorline
 set listchars=tab:▸\ ,eol:¬,trail:·
-set list!
+set list
 set nohls
 let g:ctrlp_dont_split = 'netrw'
 set guioptions-=L
