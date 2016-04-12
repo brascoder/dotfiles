@@ -14,6 +14,7 @@ Plugin 'powerline/fonts'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'NLKNguyen/papercolor-theme'
 " General
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
@@ -64,7 +65,8 @@ endif
 " Color Theme
 syntax enable
 set background=dark
-colorscheme tomorrow-night-eighties
+" colorscheme tomorrow-night-eighties
+colorscheme PaperColor
 
 " Airline
 let g:airline_powerline_fonts = 1
