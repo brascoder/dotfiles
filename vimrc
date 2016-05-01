@@ -51,6 +51,7 @@ filetype indent on
 filetype plugin on
 
 " Cursor
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 if exists('$TMUX')
   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
   let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
@@ -96,6 +97,8 @@ set guioptions-=L
 set guioptions-=r
 set shell=/usr/local/bin/zsh
 set mouse=a
+set splitbelow
+set splitright
 
 
 " Key Mappings
