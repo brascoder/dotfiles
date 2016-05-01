@@ -26,12 +26,12 @@ Plugin 'nathanaelkane/vim-indent-guides'
 " Text operation
 Plugin 'mattn/emmet-vim'
 Plugin 'tpope/vim-commentary'
+Plugin 'ervandew/supertab'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 Plugin 'kana/vim-textobj-user'
-Plugin 'ervandew/supertab'
 Plugin 'godlygeek/tabular'
 " Language specific
 Plugin 'othree/html5.vim'
