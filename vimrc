@@ -122,6 +122,9 @@ inoremap ˚ <Esc>:m .-2<CR>==gi
 vnoremap ∆ :m '>+1<CR>gv=gv
 vnoremap ˚ :m '<-2<CR>gv=gv
 
+" - Enable Ctrl-h for Neovim
+nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
+
 
 " Commands
 command! Resource source $MYVIMRC
