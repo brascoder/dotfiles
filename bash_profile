@@ -32,8 +32,7 @@ eval "$(rbenv init -)"
 
 
 # Docker
-alias bdu='boot2docker up'
-alias denv='$(boot2docker shellinit)'
+alias denv='eval $(docker-machine env default)'
 alias drm='docker rm'
 alias dps='docker ps'
 alias dpa='docker ps -a'
