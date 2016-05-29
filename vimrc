@@ -99,6 +99,7 @@ set shell=/usr/local/bin/zsh
 set mouse=a
 set splitbelow
 set splitright
+let NERDTreeShowHidden=1
 
 
 " Key Mappings
