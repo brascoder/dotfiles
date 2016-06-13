@@ -51,4 +51,4 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # Misc
-alias weather='curl http://wttr.in/${1:-34695}'
+alias weather='curl http://wttr.in/'
