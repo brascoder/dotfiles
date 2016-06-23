@@ -26,6 +26,10 @@ elif [ -f /usr/local/bin/vim ]; then
 fi
 alias ctags="ctags -R --exclude=.git --exclude=log $1"
 
+# Tmux
+alias tmls='tmux list-sessions'
+alias tmks='tmux kill-session -t'
+
 # Ruby
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
