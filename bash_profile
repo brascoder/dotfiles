@@ -34,6 +34,10 @@ alias tmks='tmux kill-session -t'
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
+# Elixir/Phoenix
+alias iexm='iex -S mix'
+alias mps='mix phoenix.server'
+alias mpr='mix phoenix.routes'
 
 # Docker
 alias dmenv='eval $(docker-machine env default)'
