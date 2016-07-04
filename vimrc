@@ -18,6 +18,7 @@ Plugin 'NLKNguyen/papercolor-theme'
 " General
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic.git'
 Plugin 'tpope/vim-fugitive'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'rizzatti/dash.vim'
