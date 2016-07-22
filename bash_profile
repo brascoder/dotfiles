@@ -17,6 +17,7 @@ fi
 export ALTERNATE_EDITOR=""
 export EDITOR=vim
 alias ls='ls -GFh'
+alias cdot='cd ~/.dotfiles'
 
 # Vim
 if [ -f /usr/local/bin/nvim ]; then
@@ -57,7 +58,15 @@ export PATH="$HOME/.node/bin:$PATH"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-# Misc
+# Functions
 weather () {
   curl http://wttr.in/${1:-34695}
+}
+
+genv () {
+  if [ $1 ]; then
+    printenv | grep $1
+  else
+    printenv
+  fi
 }
