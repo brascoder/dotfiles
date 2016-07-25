@@ -24,6 +24,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'rizzatti/dash.vim'
 Plugin 'rking/ag.vim'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'Yggdroot/indentLine'
 " Text operation
 Plugin 'mattn/emmet-vim'
 Plugin 'tpope/vim-commentary'
