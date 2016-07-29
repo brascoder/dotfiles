@@ -41,8 +41,9 @@ alias mps='mix phoenix.server'
 alias mpr='mix phoenix.routes'
 
 # Docker
-alias dmenv='eval $(docker-machine env default)'
 alias dm='docker-machine'
+alias dmcrt='docker-machine create --driver virtualbox default'
+alias dmenv='eval $(docker-machine env default)'
 alias dc='docker-compose'
 alias drm='docker rm'
 alias dps='docker ps'
