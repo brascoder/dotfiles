@@ -43,13 +43,20 @@ alias mpr='mix phoenix.routes'
 # Docker
 alias dm='docker-machine'
 alias dmcrt='docker-machine create --driver virtualbox default'
-alias dmenv='eval $(docker-machine env default)'
 alias dc='docker-compose'
 alias drm='docker rm'
 alias dps='docker ps'
 alias dpa='docker ps -a'
 alias dka='docker kill $(docker ps -a -q)'
 alias dra='docker rm $(docker ps -a -q)'
+
+dmenv () {
+  eval $(docker-machine env ${1:-default})
+}
+
+dmcdo () {
+  docker-machine create -d digitalocean --digitalocean-access-token $DOTOK --digitalocean-image ubuntu-16-04-x64 $1
+}
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
