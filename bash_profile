@@ -17,6 +17,7 @@ fi
 export ALTERNATE_EDITOR=""
 export EDITOR=vim
 alias ls='ls -GFh'
+alias resource='source $HOME/.bash_profile'
 alias cdot='cd ~/.dotfiles'
 
 # Vim
