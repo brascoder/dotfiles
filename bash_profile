@@ -52,7 +52,7 @@ alias dka='docker kill $(docker ps -a -q)'
 alias dra='docker rm $(docker ps -a -q)'
 
 dmenv () {
-  eval $(docker-machine env ${1:-default})
+  eval $(docker-machine env ${1:--u})
 }
 
 dmcdo () {
