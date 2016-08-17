@@ -25,6 +25,7 @@ Plugin 'rizzatti/dash.vim'
 Plugin 'rking/ag.vim'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Yggdroot/indentLine'
+Plugin 'janko-m/vim-test'
 " Text operation
 Plugin 'mattn/emmet-vim'
 Plugin 'tpope/vim-commentary'
