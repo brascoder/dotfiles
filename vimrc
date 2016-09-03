@@ -56,9 +56,14 @@ call vundle#end()
 filetype indent on
 filetype plugin on
 
+let mapleader=" "
+
 " Cursor
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-if exists('$TMUX')
+if has('nvim')
+  let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+  tnoremap <ESC> <C-\><C-n>
+  nnoremap <leader>T :te<CR>
+elseif exists('$TMUX')
   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
   let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
   let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
@@ -109,11 +114,10 @@ let NERDTreeShowHidden=1
 
 
 " Key Mappings
-let mapleader=" "
 nnoremap <leader>h :set hlsearch!<CR>
 nnoremap <leader>l :set list!<CR>
 nnoremap <leader>\ :NERDTreeToggle<CR>
-nnoremap <leader>t :te<CR>
+nnoremap <leader>t :!
 
 " - Resize
 autocmd VimResized * :wincmd =
