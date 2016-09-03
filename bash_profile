@@ -15,17 +15,18 @@ fi
 
 # General
 export ALTERNATE_EDITOR=""
-export EDITOR=vim
 alias ls='ls -GFh'
 alias resource='source $HOME/.bash_profile'
 alias cdot='cd ~/.dotfiles'
 
 # Vim
-# if [ -f /usr/local/bin/nvim ]; then
-#   alias vim='/usr/local/bin/nvim'
-# elif [ -f /usr/local/bin/vim ]; then
-#   alias vim='/usr/local/bin/vim'
-# fi
+if [ -f /usr/local/bin/nvim ]; then
+  alias vim='/usr/local/bin/nvim'
+  export EDITOR=nvim
+elif [ -f /usr/local/bin/vim ]; then
+  alias vim='/usr/local/bin/vim'
+  export EDITOR=vim
+fi
 alias ctags="ctags -R --exclude=.git --exclude=log $1"
 
 # Tmux
