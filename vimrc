@@ -63,6 +63,8 @@ if has('nvim')
   let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
   tnoremap <ESC> <C-\><C-n>
   nnoremap <leader>T :te<CR>
+  nnoremap <leader>ts :sp term://.//zsh<CR>
+  nnoremap <leader>tv :vs term://.//zsh<CR>
 elseif exists('$TMUX')
   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
   let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
@@ -117,7 +119,6 @@ let NERDTreeShowHidden=1
 nnoremap <leader>h :set hlsearch!<CR>
 nnoremap <leader>l :set list!<CR>
 nnoremap <leader>\ :NERDTreeToggle<CR>
-nnoremap <leader>t :!
 
 " - Resize
 autocmd VimResized * :wincmd =
