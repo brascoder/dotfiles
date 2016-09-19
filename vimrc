@@ -1,23 +1,32 @@
-set nocompatible
 runtime macros/matchit.vim
+let mapleader=" "
 
-" Vundle
+"----- Setup Vundle --------------------
+set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
-" - Plugins
+"----- Plugins -------------------------
 " Config
 Plugin 'tpope/vim-sensible'
+
+"----- UI Plugins
 Plugin 'powerline/fonts'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+  let g:airline_powerline_fonts = 1
+  let g:airline_theme = 'raven'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'scrooloose/nerdtree'
+  let NERDTreeShowHidden=1
+  nnoremap <leader>\ :NERDTreeToggle<CR>
+  nnoremap « :NERDTreeFocus<CR> :vertical resize 31<CR>
+
 " General
 Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic.git'
 Plugin 'tpope/vim-fugitive'
 Plugin 'christoomey/vim-tmux-navigator'
@@ -29,6 +38,7 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'janko-m/vim-test'
 " Text operation
 Plugin 'mattn/emmet-vim'
+Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
 Plugin 'ervandew/supertab'
 Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -45,26 +55,66 @@ Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'slashmili/alchemist.vim'
 Plugin 'lambdatoast/elm.vim'
+Plugin 'pangloss/vim-javascript'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'isRuslan/vim-es6'
 Plugin 'mxw/vim-jsx'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'ekalinin/Dockerfile.vim'
 
 call vundle#end()
 
+
+"----- Environment ---------------------
 filetype indent on
 filetype plugin on
+set ts=2 sts=2 sw=2 expandtab
+set encoding=utf-8
+set noswapfile
+set visualbell
+set shell=/usr/local/bin/zsh
+set mouse=a
 
-let mapleader=" "
+"----- Search
+set nohls
+set ignorecase
+set hlsearch
+set smartcase
+set incsearch
+nnoremap <leader>h :set hlsearch!<CR>
 
-" Cursor
-if has('nvim')
+
+"----- UI ------------------------------
+syntax enable
+set background=dark
+" colorscheme tomorrow-night-eighties
+colorscheme PaperColor
+set guifont=dejavu_sans_mono_for_powerline:h12
+
+set autoindent
+set showmatch
+set relativenumber                  " show relative line numbers
+set backspace=indent,eol,start      " Backspace through anything
+set listchars=tab:▸\ ,eol:¬,trail:· " Define invisible sysbols
+set list                            " Start with symbols on
+nnoremap <leader>l :set list!<CR>
+
+"---- Remove scrollbars
+set guioptions-=L
+set guioptions-=r
+
+"----- Window
+autocmd VimResized * :wincmd =
+nnoremap – :wincmd _<cr>:wincmd \|<cr>
+nnoremap ≠ :wincmd =<cr>
+let g:ctrlp_dont_split = 'netrw'
+set splitbelow
+set splitright
+
+set cursorline
+if has('nvim') " Cursor shape
   let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-  tnoremap <ESC> <C-\><C-n>
-  nnoremap <leader>T :te<CR>
-  nnoremap <leader>ts :sp term://.//zsh<CR>
-  nnoremap <leader>tv :vs term://.//zsh<CR>
 elseif exists('$TMUX')
   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
   let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
@@ -76,55 +126,21 @@ else
 endif
 
 
-" Color Theme
-syntax enable
-set background=dark
-" colorscheme tomorrow-night-eighties
-colorscheme PaperColor
-
-" Airline
-let g:airline_powerline_fonts = 1
-let g:airline_theme = 'raven'
-set guifont=dejavu_sans_mono_for_powerline:h12
+"----- Neovim --------------------------
+if has('nvim') " Terminal
+  tnoremap <ESC> <C-\><C-n>
+  nnoremap <leader>T :te<CR>
+  nnoremap <leader>ts :sp term://.//zsh<CR>
+  nnoremap <leader>tv :vs term://.//zsh<CR>
+endif
 
 
 " Options
-set relativenumber
-set ts=2 sts=2 sw=2 expandtab
-set encoding=utf-8
-set autoindent
-set ignorecase
-set hlsearch
-set backspace=indent,eol,start
-set smartcase
-set incsearch
-set showmatch
-set noswapfile
-set visualbell
-set cursorline
-set listchars=tab:▸\ ,eol:¬,trail:·
-set list
-set nohls
-let g:ctrlp_dont_split = 'netrw'
-set guioptions-=L
-set guioptions-=r
-set shell=/usr/local/bin/zsh
-set mouse=a
-set splitbelow
-set splitright
-let NERDTreeShowHidden=1
 
 
 " Key Mappings
-nnoremap <leader>h :set hlsearch!<CR>
-nnoremap <leader>l :set list!<CR>
-nnoremap <leader>\ :NERDTreeToggle<CR>
 
 " - Resize
-autocmd VimResized * :wincmd =
-nnoremap – :wincmd _<cr>:wincmd \|<cr>
-nnoremap ≠ :wincmd =<cr>
-nnoremap « :NERDTreeFocus<CR> :vertical resize 31<CR>
 
 " - Move lines
 nnoremap ∆ :m .+1<CR>==
