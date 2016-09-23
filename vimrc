@@ -2,41 +2,48 @@ runtime macros/matchit.vim
 let mapleader=" "
 
 "----- Setup Vundle --------------------
-set nocompatible
-filetype off
+set nocompatible " Required
+filetype off     " Required
+
+"----- Initialize Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
 
 "----- Plugins -------------------------
-" Config
-Plugin 'tpope/vim-sensible'
 
-"----- UI Plugins
-Plugin 'powerline/fonts'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-  let g:airline_powerline_fonts = 1
+Plugin 'gmarik/Vundle.vim' " Use Vundle to manage Vundle
+
+"----- Config --------------------------
+Plugin 'tpope/vim-sensible'       " Set sensible defaults
+Plugin 'scrooloose/syntastic.git' " Syntax checking
+Plugin 'rizzatti/dash.vim'        " Dash integration
+Plugin 'rking/ag.vim'             " Silver Searcher
+Plugin 'janko-m/vim-test'         " Test runner
+Plugin 'tpope/vim-fugitive'       " Git integration
+"----- End Config ----------------------
+
+"----- UI Plugins ----------------------
+Plugin 'vim-airline/vim-airline'          " Airline statusbar
+Plugin 'vim-airline/vim-airline-themes'   " UI themes for Airline
   let g:airline_theme = 'raven'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'powerline/fonts'                  " UI Symbols for Airline
+  let g:airline_powerline_fonts = 1
+Plugin 'altercation/vim-colors-solarized' " Text color scheme
+Plugin 'NLKNguyen/papercolor-theme'       " Text color scheme
+Plugin 'Yggdroot/indentLine'              " Indent guide
+"----- End UI Plugins --------------------------
+
+"----- Navigation ----------------------
 Plugin 'scrooloose/nerdtree'
   let NERDTreeShowHidden=1
   nnoremap <leader>\ :NERDTreeToggle<CR>
   nnoremap « :NERDTreeFocus<CR> :vertical resize 31<CR>
-
-" General
 Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/syntastic.git'
-Plugin 'tpope/vim-fugitive'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'rizzatti/dash.vim'
-Plugin 'rking/ag.vim'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'Yggdroot/indentLine'
 Plugin 'easymotion/vim-easymotion'
-Plugin 'janko-m/vim-test'
-" Text operation
+"----- End Navigation ------------------
+
+"----- Text Operation ------------------
 Plugin 'mattn/emmet-vim'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
@@ -47,23 +54,46 @@ Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 Plugin 'kana/vim-textobj-user'
 Plugin 'godlygeek/tabular'
-" Language specific
+"----- End Text Operation --------------
+
+"----- File Types ----------------------
+
+"------- Markup
 Plugin 'othree/html5.vim'
+
+"------- Ruby
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-bundler'
 Plugin 'nelstrom/vim-textobj-rubyblock'
+
+"------- Elixir
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'slashmili/alchemist.vim'
+
+"------- Elm
 Plugin 'lambdatoast/elm.vim'
+
+"------- JavaScript
 Plugin 'pangloss/vim-javascript'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'isRuslan/vim-es6'
+
+"------- React
 Plugin 'mxw/vim-jsx'
+
+"------- Coffee Script
 Plugin 'kchmck/vim-coffee-script'
+
+"------- Sass
 Plugin 'cakebaker/scss-syntax.vim'
+
+"------- Docker
 Plugin 'ekalinin/Dockerfile.vim'
 
+"----- End File Types ------------------
+
 call vundle#end()
+"----- End Plugins ---------------------
 
 
 "----- Environment ---------------------
@@ -76,7 +106,7 @@ set visualbell
 set shell=/usr/local/bin/zsh
 set mouse=a
 
-"----- Search
+"----- Search --------------------------
 set nohls
 set ignorecase
 set hlsearch
@@ -91,7 +121,6 @@ set background=dark
 " colorscheme tomorrow-night-eighties
 colorscheme PaperColor
 set guifont=dejavu_sans_mono_for_powerline:h12
-
 set autoindent
 set showmatch
 set relativenumber                  " show relative line numbers
@@ -126,7 +155,7 @@ else
 endif
 
 
-"----- Neovim --------------------------
+"----- Neovim
 if has('nvim') " Terminal
   tnoremap <ESC> <C-\><C-n>
   nnoremap <leader>T :te<CR>
@@ -134,13 +163,15 @@ if has('nvim') " Terminal
   nnoremap <leader>tv :vs term://.//zsh<CR>
 endif
 
-
-" Options
+" - Enable Ctrl-h for Neovim
+nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
 
 
 " Key Mappings
-
-" - Resize
+nnoremap <leader>w :w<CR>
+nnoremap <leader>wq :wq<CR>
+nnoremap <leader>q :q<CR>
+nnoremap <leader>Q :q!<CR>
 
 " - Move lines
 nnoremap ∆ :m .+1<CR>==
@@ -149,9 +180,6 @@ inoremap ∆ <Esc>:m .+1<CR>==gi
 inoremap ˚ <Esc>:m .-2<CR>==gi
 vnoremap ∆ :m '>+1<CR>gv=gv
 vnoremap ˚ :m '<-2<CR>gv=gv
-
-" - Enable Ctrl-h for Neovim
-nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
 
 
 " Commands
