@@ -51,6 +51,7 @@ alias dps='docker ps'
 alias dpa='docker ps -a'
 alias dka='docker kill $(docker ps -a -q)'
 alias dra='docker rm $(docker ps -a -q)'
+alias dcdeploy="docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d"
 
 dmenv () {
   eval $(docker-machine env ${1:--u})
