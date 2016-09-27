@@ -168,11 +168,8 @@ nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
 
 
 " Key Mappings
-nnoremap <leader>w :w<CR>
-nnoremap <leader>wa :wa<CR>
-nnoremap <leader>wq :wq<CR>
-nnoremap <leader>q :q<CR>
-nnoremap <leader>qa :qa<CR>
+nnoremap <leader>w :w
+nnoremap <leader>q :q
 nnoremap <leader>Q :q!<CR>
 
 " - Move lines
