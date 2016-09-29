@@ -124,6 +124,7 @@ set guifont=dejavu_sans_mono_for_powerline:h12
 set autoindent
 set showmatch
 set relativenumber                  " show relative line numbers
+set number                          " show current line number with relative line numbers
 set backspace=indent,eol,start      " Backspace through anything
 set listchars=tab:▸\ ,eol:¬,trail:· " Define invisible sysbols
 set list                            " Start with symbols on
@@ -159,8 +160,8 @@ endif
 if has('nvim') " Terminal
   tnoremap <ESC> <C-\><C-n>
   nnoremap <leader>T :te<CR>
-  nnoremap <leader>ts :sp term://.//zsh<CR>
-  nnoremap <leader>tv :vs term://.//zsh<CR>
+  nnoremap <leader>ts :sp term://.//zsh<CR>i
+  nnoremap <leader>tv :vs term://.//zsh<CR>i
 endif
 
 " - Enable Ctrl-h for Neovim
