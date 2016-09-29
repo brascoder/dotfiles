@@ -106,6 +106,7 @@ set noswapfile
 set visualbell
 set shell=/usr/local/bin/zsh
 set mouse=a
+nnoremap ® :bufdo e!<CR>:syntax enable<CR>
 
 "----- Search --------------------------
 set nohls
