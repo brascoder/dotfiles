@@ -39,6 +39,7 @@ Plugin 'scrooloose/nerdtree'
   nnoremap <leader>\ :NERDTreeToggle<CR>
   nnoremap « :NERDTreeFocus<CR> :vertical resize 31<CR>
 Plugin 'kien/ctrlp.vim'
+  nnoremap π :CtrlPBuffer<CR>
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'easymotion/vim-easymotion'
 "----- End Navigation ------------------
