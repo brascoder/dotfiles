@@ -170,7 +170,9 @@ endif
 nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
 
 
-" Key Mappings
+" Editing
+nnoremap <leader>o o<ESC>
+nnoremap <leader>O O<ESC>
 nnoremap <leader>w :w
 nnoremap <leader>q :q
 nnoremap <leader>Q :q!<CR>
