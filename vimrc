@@ -115,6 +115,7 @@ set hlsearch
 set smartcase
 set incsearch
 nnoremap <leader>h :set hlsearch!<CR>
+nnoremap <leader>s :Ag<Space>
 
 
 "----- UI ------------------------------
