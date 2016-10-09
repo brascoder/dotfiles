@@ -172,6 +172,7 @@ nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
 
 
 " Editing
+vnoremap <C-@> <ESC>
 inoremap <C-@> <ESC>
 inoremap <C-_> <ESC>O
 nnoremap <leader>o o<ESC>
