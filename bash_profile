@@ -75,3 +75,6 @@ genv () {
     printenv
   fi
 }
+
+### AWS CLI Command Completion
+source /usr/local/bin/aws_zsh_completer.sh
