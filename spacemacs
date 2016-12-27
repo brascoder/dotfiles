@@ -338,6 +338,8 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   ;; (define-key evil-visual-state-map (kbd ".d") (kbd "\"_d"))
   ;; (spacemacs/set-leader-keys "od" (kbd "\"_d"))
+  ;; (setq ns-use-srgb-colorspace nil)
+  (setq powerline-default-separator 'slant)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
