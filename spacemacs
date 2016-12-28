@@ -154,11 +154,11 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Source Code Pro"
-                               :size 13
+   dotspacemacs-default-font '("DejaVu Sans Mono for Powerline"
+                               :size 12
                                :weight normal
                                :width normal
-                               :powerline-scale 1.1)
+                               :powerline-scale 1.4)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
    ;; The key used for Emacs commands (M-x) (after pressing on the leader key).
@@ -339,6 +339,7 @@ you should place your code here."
   ;; (define-key evil-visual-state-map (kbd ".d") (kbd "\"_d"))
   ;; (spacemacs/set-leader-keys "od" (kbd "\"_d"))
   ;; (setq ns-use-srgb-colorspace nil)
+  ;; '(helm-ag-base-command "ag --nocolor --nogroup --ignore-case")
   (setq powerline-default-separator 'slant)
   )
 
