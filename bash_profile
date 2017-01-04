@@ -74,7 +74,7 @@ export NVM_DIR="$HOME/.nvm"
 
 # Functions
 weather () {
-  curl http://wttr.in/${1:-34695}
+  curl http://wttr.in/${1:-33763}
 }
 
 genv () {
