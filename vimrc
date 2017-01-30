@@ -25,7 +25,8 @@ Plugin 'tpope/vim-fugitive'       " Git integration
 "----- UI Plugins ----------------------
 Plugin 'vim-airline/vim-airline'          " Airline statusbar
 Plugin 'vim-airline/vim-airline-themes'   " UI themes for Airline
-  let g:airline_theme = 'raven'
+  " let g:airline_theme = 'raven'
+  let g:airline_theme = 'solarized'
 Plugin 'powerline/fonts'                  " UI Symbols for Airline
   let g:airline_powerline_fonts = 1
 Plugin 'altercation/vim-colors-solarized' " Text color scheme
@@ -122,8 +123,9 @@ nnoremap <leader>s :Ag<Space>
 syntax enable
 set background=dark
 " colorscheme tomorrow-night-eighties
-colorscheme PaperColor
-set guifont=dejavu_sans_mono_for_powerline:h12
+" set guifont=dejavu_sans_mono_for_powerline:h12
+" colorscheme PaperColor
+colorscheme solarized
 set autoindent
 set showmatch
 set relativenumber                  " show relative line numbers
