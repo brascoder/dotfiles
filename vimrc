@@ -2,7 +2,7 @@ runtime macros/matchit.vim
 let mapleader=" "
 
 "----- Initialize Plug
-call plug#begin('~/.local/share/nvim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 
 "----- Plugins -------------------------
 
