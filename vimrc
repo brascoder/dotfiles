@@ -1,5 +1,6 @@
 runtime macros/matchit.vim
 let mapleader=" "
+set nocompatible
 
 "----- Initialize Plug
 call plug#begin('~/.config/nvim/plugged')
@@ -11,6 +12,7 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   let g:deoplete#enable_at_startup = 1
   inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+Plug 'tpope/vim-projectionist'
 " Plug 'tpope/vim-sensible'       " Set sensible defaults
 " Plug 'scrooloose/syntastic.git' " Syntax checking
 " Plug 'rizzatti/dash.vim'        " Dash integration
@@ -67,13 +69,13 @@ Plug 'sheerun/vim-polyglot'   "Load language support when needed
 " Plug 'othree/html5.vim'
 
 "------- Ruby
-" Plug 'tpope/vim-rails'
-" Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-bundler'
 " Plug 'nelstrom/vim-textobj-rubyblock'
 
 "------- Elixir
-" Plug 'elixir-lang/vim-elixir'
-" Plug 'slashmili/alchemist.vim'
+Plug 'c-brenn/phoenix.vim'
+Plug 'slashmili/alchemist.vim'
 
 "------- Elm
 " Plug 'lambdatoast/elm.vim'
