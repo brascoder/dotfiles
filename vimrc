@@ -1,100 +1,103 @@
 runtime macros/matchit.vim
 let mapleader=" "
 
-"----- Setup Vundle --------------------
-set nocompatible " Required
-filetype off     " Required
-
-"----- Initialize Vundle
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+"----- Initialize Plug
+call plug#begin('~/.local/share/nvim/plugged')
 
 "----- Plugins -------------------------
 
-Plugin 'gmarik/Vundle.vim' " Use Vundle to manage Vundle
-
 "----- Config --------------------------
-Plugin 'tpope/vim-sensible'       " Set sensible defaults
-Plugin 'scrooloose/syntastic.git' " Syntax checking
-Plugin 'rizzatti/dash.vim'        " Dash integration
-Plugin 'rking/ag.vim'             " Silver Searcher
-Plugin 'janko-m/vim-test'         " Test runner
-Plugin 'tpope/vim-fugitive'       " Git integration
+" Tab completion
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  let g:deoplete#enable_at_startup = 1
+  inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+" Plug 'tpope/vim-sensible'       " Set sensible defaults
+" Plug 'scrooloose/syntastic.git' " Syntax checking
+" Plug 'rizzatti/dash.vim'        " Dash integration
+Plug 'rking/ag.vim'             " Silver Searcher
+" Plug 'janko-m/vim-test'         " Test runner
+Plug 'tpope/vim-fugitive'       " Git integration
+Plug 'neomake/neomake'
+  " Run Neomake on save
+  augroup localneomake
+    autocmd! BufWritePost * Neomake
+  augroup END
+  " No smartquotes in markdown
+  let g:neomake_markdown_enabled_makers = []
 "----- End Config ----------------------
 
 "----- UI Plugins ----------------------
-Plugin 'vim-airline/vim-airline'          " Airline statusbar
-Plugin 'vim-airline/vim-airline-themes'   " UI themes for Airline
-  " let g:airline_theme = 'raven'
+Plug 'vim-airline/vim-airline'          " Airline statusbar
+Plug 'vim-airline/vim-airline-themes'   " UI themes for Airline
   let g:airline_theme = 'solarized'
-Plugin 'powerline/fonts'                  " UI Symbols for Airline
+Plug 'powerline/fonts'                  " UI Symbols for Airline
   let g:airline_powerline_fonts = 1
-Plugin 'altercation/vim-colors-solarized' " Text color scheme
-Plugin 'NLKNguyen/papercolor-theme'       " Text color scheme
-Plugin 'Yggdroot/indentLine'              " Indent guide
+Plug 'altercation/vim-colors-solarized' " Text color scheme
+" Plug 'Yggdroot/indentLine'              " Indent guide
 "----- End UI Plugins --------------------------
 
 "----- Navigation ----------------------
-Plugin 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
   let NERDTreeShowHidden=1
   nnoremap <leader>\ :NERDTreeToggle<CR>
   nnoremap « :NERDTreeFocus<CR> :vertical resize 31<CR>
-Plugin 'kien/ctrlp.vim'
+Plug 'kien/ctrlp.vim'
   nnoremap π :CtrlPBuffer<CR>
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'easymotion/vim-easymotion'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'easymotion/vim-easymotion'
 "----- End Navigation ------------------
 
 "----- Text Operation ------------------
-Plugin 'mattn/emmet-vim'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-commentary'
-Plugin 'ervandew/supertab'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
-Plugin 'kana/vim-textobj-user'
-Plugin 'godlygeek/tabular'
+Plug 'sheerun/vim-polyglot'   "Load language support when needed
+" Plug 'mattn/emmet-vim'
+" Plug 'tpope/vim-surround'
+" Plug 'tpope/vim-commentary'
+" Plug 'ervandew/supertab'
+" Plug 'MarcWeber/vim-addon-mw-utils'
+" Plug 'tomtom/tlib_vim'
+" Plug 'garbas/vim-snipmate'
+" Plug 'honza/vim-snippets'
+" Plug 'kana/vim-textobj-user'
+" Plug 'godlygeek/tabular'
 "----- End Text Operation --------------
 
 "----- File Types ----------------------
 
 "------- Markup
-Plugin 'othree/html5.vim'
+" Plug 'othree/html5.vim'
 
 "------- Ruby
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-bundler'
-Plugin 'nelstrom/vim-textobj-rubyblock'
+" Plug 'tpope/vim-rails'
+" Plug 'tpope/vim-bundler'
+" Plug 'nelstrom/vim-textobj-rubyblock'
 
 "------- Elixir
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'slashmili/alchemist.vim'
+" Plug 'elixir-lang/vim-elixir'
+" Plug 'slashmili/alchemist.vim'
 
 "------- Elm
-Plugin 'lambdatoast/elm.vim'
+" Plug 'lambdatoast/elm.vim'
 
 "------- JavaScript
-Plugin 'pangloss/vim-javascript'
-Plugin 'othree/javascript-libraries-syntax.vim'
-Plugin 'isRuslan/vim-es6'
+" Plug 'pangloss/vim-javascript'
+" Plug 'othree/javascript-libraries-syntax.vim'
+" Plug 'isRuslan/vim-es6'
 
 "------- React
-Plugin 'mxw/vim-jsx'
+" Plug 'mxw/vim-jsx'
 
 "------- Coffee Script
-Plugin 'kchmck/vim-coffee-script'
+" Plug 'kchmck/vim-coffee-script'
 
 "------- Sass
-Plugin 'cakebaker/scss-syntax.vim'
+" Plug 'cakebaker/scss-syntax.vim'
 
 "------- Docker
-Plugin 'ekalinin/Dockerfile.vim'
+" Plug 'ekalinin/Dockerfile.vim'
 
 "----- End File Types ------------------
 
-call vundle#end()
+call plug#end()
 "----- End Plugins ---------------------
 
 
@@ -115,17 +118,16 @@ set ignorecase
 set hlsearch
 set smartcase
 set incsearch
-nnoremap <leader>h :set hlsearch!<CR>
+map <CR> :nohl<CR>
+nnoremap <leader>h :set hlsearch<CR>
 nnoremap <leader>s :Ag<Space>
 
 
 "----- UI ------------------------------
 syntax enable
 set background=dark
-" colorscheme tomorrow-night-eighties
-" set guifont=dejavu_sans_mono_for_powerline:h12
-" colorscheme PaperColor
 colorscheme solarized
+set title
 set autoindent
 set showmatch
 set relativenumber                  " show relative line numbers
@@ -148,6 +150,7 @@ set splitbelow
 set splitright
 
 set cursorline
+set cursorcolumn
 if has('nvim') " Cursor shape
   let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 elseif exists('$TMUX')
