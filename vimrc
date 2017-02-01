@@ -76,6 +76,7 @@ Plug 'tpope/vim-bundler'
 "------- Elixir
 Plug 'c-brenn/phoenix.vim'
 Plug 'slashmili/alchemist.vim'
+Plug 'elixir-lang/vim-elixir'
 
 "------- Elm
 " Plug 'lambdatoast/elm.vim'
