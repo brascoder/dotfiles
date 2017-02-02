@@ -13,12 +13,13 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   let g:deoplete#enable_at_startup = 1
   inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 Plug 'tpope/vim-projectionist'
+Plug 'rking/ag.vim'             " Silver Searcher
+Plug 'tpope/vim-fugitive'       " Git integration
+Plug 'mtth/scratch.vim'         " Scratch buffer
 " Plug 'tpope/vim-sensible'       " Set sensible defaults
 " Plug 'scrooloose/syntastic.git' " Syntax checking
 " Plug 'rizzatti/dash.vim'        " Dash integration
-Plug 'rking/ag.vim'             " Silver Searcher
 " Plug 'janko-m/vim-test'         " Test runner
-Plug 'tpope/vim-fugitive'       " Git integration
 Plug 'neomake/neomake'
   " Run Neomake on save
   augroup localneomake
@@ -52,7 +53,7 @@ Plug 'easymotion/vim-easymotion'
 "----- Text Operation ------------------
 Plug 'sheerun/vim-polyglot'   "Load language support when needed
 " Plug 'mattn/emmet-vim'
-" Plug 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 " Plug 'tpope/vim-commentary'
 " Plug 'ervandew/supertab'
 " Plug 'MarcWeber/vim-addon-mw-utils'
@@ -130,7 +131,8 @@ nnoremap <leader>s :Ag<Space>
 syntax enable
 set background=dark
 colorscheme solarized
-set title
+set title                           " show file name in tab title
+" set hidden                          " hide buffer when opening new buffer
 set autoindent
 set showmatch
 set relativenumber                  " show relative line numbers
