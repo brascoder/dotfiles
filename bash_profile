@@ -17,7 +17,6 @@ elif [ -f /usr/local/bin/vim ]; then
   alias vim='/usr/local/bin/vim'
   export EDITOR=vim
 fi
-alias ctags="ctags -R --exclude=.git --exclude=log $1"
 
 # Spacemacs
 alias emd="emacs --daemon"
