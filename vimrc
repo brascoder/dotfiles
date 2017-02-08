@@ -43,7 +43,8 @@ Plug 'altercation/vim-colors-solarized' " Text color scheme
 Plug 'scrooloose/nerdtree'
   let NERDTreeShowHidden=1
   nnoremap <leader>\ :NERDTreeToggle<CR>
-  nnoremap « :NERDTreeFocus<CR> :vertical resize 31<CR>
+  nnoremap « :NERDTreeFind<CR>
+  nnoremap » :NERDTreeFocus<CR> :vertical resize 31<CR>
 Plug 'kien/ctrlp.vim'
   nnoremap π :CtrlPBuffer<CR>
 Plug 'christoomey/vim-tmux-navigator'
