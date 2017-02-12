@@ -11,7 +11,7 @@ call plug#begin('~/.config/nvim/plugged')
 " Tab completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   let g:deoplete#enable_at_startup = 1
-  inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+  " inoremap <EXPR><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 Plug 'tpope/vim-projectionist'
 Plug 'rking/ag.vim'             " Silver Searcher
 Plug 'tpope/vim-fugitive'       " Git integration
@@ -56,12 +56,12 @@ Plug 'sheerun/vim-polyglot'   "Load language support when needed
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'godlygeek/tabular'
-" Plug 'mattn/emmet-vim'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
+Plug 'mattn/emmet-vim'
 " Plug 'ervandew/supertab'
-" Plug 'MarcWeber/vim-addon-mw-utils'
-" Plug 'tomtom/tlib_vim'
-" Plug 'garbas/vim-snipmate'
-" Plug 'honza/vim-snippets'
 " Plug 'kana/vim-textobj-user'
 "----- End Text Operation --------------
 
