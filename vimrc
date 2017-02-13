@@ -123,8 +123,7 @@ set ignorecase
 set hlsearch
 set smartcase
 set incsearch
-map <CR> :nohl<CR>
-nnoremap <leader>h :set hlsearch<CR>
+nnoremap <leader>h :set hlsearch!<CR>
 nnoremap <leader>s :Ag<Space>
 
 
