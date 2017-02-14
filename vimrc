@@ -16,9 +16,9 @@ Plug 'tpope/vim-projectionist'
 Plug 'rking/ag.vim'             " Silver Searcher
 Plug 'tpope/vim-fugitive'       " Git integration
 Plug 'mtth/scratch.vim'         " Scratch buffer
+Plug 'rizzatti/dash.vim'        " Dash integration
 " Plug 'tpope/vim-sensible'       " Set sensible defaults
 " Plug 'scrooloose/syntastic.git' " Syntax checking
-" Plug 'rizzatti/dash.vim'        " Dash integration
 " Plug 'janko-m/vim-test'         " Test runner
 Plug 'neomake/neomake'
   " Run Neomake on save
