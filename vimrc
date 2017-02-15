@@ -52,10 +52,11 @@ Plug 'easymotion/vim-easymotion'
 "----- End Navigation ------------------
 
 "----- Text Operation ------------------
-Plug 'sheerun/vim-polyglot'   "Load language support when needed
+Plug 'sheerun/vim-polyglot'   " Load language support when needed
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'godlygeek/tabular'
+  vnoremap <leader>t :Tab /
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
 Plug 'garbas/vim-snipmate'
@@ -115,7 +116,10 @@ set noswapfile
 set visualbell
 set shell=/usr/local/bin/zsh
 set mouse=a
-nnoremap ® :bufdo e!<CR>:syntax enable<CR>
+set complete+=i,kspell
+nnoremap <leader>a :setlocal spell!<cr>
+nnoremap <leader>r :e!<cr>
+nnoremap <leader>R :bufdo e!<cr>:syntax enable<cr>
 
 "----- Search --------------------------
 set nohls
@@ -123,8 +127,8 @@ set ignorecase
 set hlsearch
 set smartcase
 set incsearch
-nnoremap <leader>h :set hlsearch!<CR>
-nnoremap <leader>s :Ag<Space>
+nnoremap <leader>h :set hlsearch!<cr>
+nnoremap <leader>s :Ag<space>
 
 
 "----- UI ------------------------------
@@ -140,7 +144,7 @@ set number                          " show current line number with relative lin
 set backspace=indent,eol,start      " Backspace through anything
 set listchars=tab:▸\ ,eol:¬,trail:· " Define invisible sysbols
 set list                            " Start with symbols on
-nnoremap <leader>l :set list!<CR>
+nnoremap <leader>l :set list!<cr>
 
 "---- Remove scrollbars
 set guioptions-=L
