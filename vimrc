@@ -120,6 +120,9 @@ set complete+=i,kspell
 nnoremap <leader>a :setlocal spell!<cr>
 nnoremap <leader>r :e!<cr>
 nnoremap <leader>R :bufdo e!<cr>:syntax enable<cr>
+nnoremap <leader>bb :b<space>
+nnoremap <leader>bd :bd<space>
+nnoremap <leader>bl :ls<cr>
 
 "----- Search --------------------------
 set nohls
