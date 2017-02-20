@@ -17,9 +17,6 @@ Plug 'rking/ag.vim'             " Silver Searcher
 Plug 'tpope/vim-fugitive'       " Git integration
 Plug 'mtth/scratch.vim'         " Scratch buffer
 Plug 'rizzatti/dash.vim'        " Dash integration
-" Plug 'tpope/vim-sensible'       " Set sensible defaults
-" Plug 'scrooloose/syntastic.git' " Syntax checking
-" Plug 'janko-m/vim-test'         " Test runner
 Plug 'neomake/neomake'
   " Run Neomake on save
   augroup localneomake
@@ -27,6 +24,9 @@ Plug 'neomake/neomake'
   augroup END
   " No smartquotes in markdown
   let g:neomake_markdown_enabled_makers = []
+" Plug 'tpope/vim-sensible'       " Set sensible defaults
+" Plug 'scrooloose/syntastic.git' " Syntax checking
+" Plug 'janko-m/vim-test'         " Test runner
 "----- End Config ----------------------
 
 "----- UI Plugins ----------------------
@@ -37,7 +37,7 @@ Plug 'powerline/fonts'                  " UI Symbols for Airline
   let g:airline_powerline_fonts = 1
 Plug 'altercation/vim-colors-solarized' " Text color scheme
 " Plug 'Yggdroot/indentLine'              " Indent guide
-"----- End UI Plugins --------------------------
+"----- End UI Plugins ------------------
 
 "----- Navigation ----------------------
 Plug 'scrooloose/nerdtree'
@@ -52,7 +52,6 @@ Plug 'easymotion/vim-easymotion'
 "----- End Navigation ------------------
 
 "----- Text Operation ------------------
-Plug 'sheerun/vim-polyglot'   " Load language support when needed
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'godlygeek/tabular'
@@ -66,42 +65,24 @@ Plug 'mattn/emmet-vim'
 " Plug 'kana/vim-textobj-user'
 "----- End Text Operation --------------
 
-"----- File Types ----------------------
+"----- Languages/Frameworks ------------
 
-"------- Markup
-" Plug 'othree/html5.vim'
+Plug 'sheerun/vim-polyglot'   " Load language support when needed
 
-"------- Ruby
+"------- Ruby/Rails
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-bundler'
 " Plug 'nelstrom/vim-textobj-rubyblock'
 
-"------- Elixir
+"------- Elixir/Phoenix
 Plug 'c-brenn/phoenix.vim'
 Plug 'slashmili/alchemist.vim'
-Plug 'elixir-lang/vim-elixir'
-
-"------- Elm
-" Plug 'lambdatoast/elm.vim'
 
 "------- JavaScript
-" Plug 'pangloss/vim-javascript'
 " Plug 'othree/javascript-libraries-syntax.vim'
 " Plug 'isRuslan/vim-es6'
 
-"------- React
-" Plug 'mxw/vim-jsx'
-
-"------- Coffee Script
-" Plug 'kchmck/vim-coffee-script'
-
-"------- Sass
-" Plug 'cakebaker/scss-syntax.vim'
-
-"------- Docker
-" Plug 'ekalinin/Dockerfile.vim'
-
-"----- End File Types ------------------
+"----- End Languages/Frameworks --------
 
 call plug#end()
 "----- End Plugins ---------------------
