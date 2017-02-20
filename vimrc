@@ -130,8 +130,9 @@ set ignorecase
 set hlsearch
 set smartcase
 set incsearch
-nnoremap <leader>h :set hlsearch!<cr>
-nnoremap <leader>s :Ag<space>
+nnoremap <leader>hh :nohl<cr>
+nnoremap <leader>ht :set hlsearch!<cr>
+nnoremap <leader>sa :Ag!<space>
 
 
 "----- UI ------------------------------
@@ -175,13 +176,11 @@ else
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 
-nnoremap <leader>bd :bd<space>
-
 
 "----- Neovim
 if has('nvim') " Terminal
   tnoremap <ESC> <C-\><C-n>
-  nnoremap <leader>T :te<CR>
+  nnoremap <leader>tt :te<CR>
   nnoremap <leader>ts :sp term://.//zsh<CR>i
   nnoremap <leader>tv :vs term://.//zsh<CR>i
 endif
@@ -196,9 +195,11 @@ inoremap <C-j> <ESC>o
 inoremap <C-k> <ESC>O
 nnoremap <leader>o o<ESC>
 nnoremap <leader>O O<ESC>
-nnoremap <leader>w :w
-nnoremap <leader>q :q
-nnoremap <leader>Q :q!<CR>
+nnoremap <leader>ww :w<cr>
+nnoremap <leader>wa :wa<cr>
+nnoremap <leader>qq :q<cr>
+nnoremap <leader>qa :qa<cr>
+nnoremap <leader>xx :x<CR>
 
 " - Move lines
 nnoremap ∆ :m .+1<CR>==
