@@ -160,14 +160,14 @@ endif
 
 "----- Neovim
 if has('nvim') " Terminal
-  tnoremap <ESC> <C-\><C-n>
-  nnoremap <leader>tt :te<CR>
-  nnoremap <leader>ts :sp term://.//zsh<CR>i
-  nnoremap <leader>tv :vs term://.//zsh<CR>i
+  tnoremap <esC> <C-\><C-n>
+  nnoremap <leader>tt :te<space>
+  nnoremap <leader>ts :sp term://.//zsh<cr>i
+  nnoremap <leader>tv :vs term://.//zsh<cr>i
 endif
 
 " - Enable Ctrl-h for Neovim
-nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
+nnoremap <silent> <bs> :TmuxNavigateLeft<cr>
 
 
 " Editing
