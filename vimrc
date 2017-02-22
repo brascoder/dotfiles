@@ -184,10 +184,10 @@ inoremap <C-j> <ESC>o
 inoremap <C-k> <ESC>O
 nnoremap <leader>o o<ESC>
 nnoremap <leader>O O<ESC>
-nnoremap <leader>ww :w<cr>
-nnoremap <leader>wa :wa<cr>
-nnoremap <leader>qq :q<cr>
-nnoremap <leader>qa :qa<cr>
+nnoremap <leader>fs :w<cr>
+nnoremap <leader>fS :wa<cr>
+nnoremap <leader>qz :q<cr>
+nnoremap <leader>qq :qa<cr>
 nnoremap <leader>xx :x<CR>
 
 " - Move lines
