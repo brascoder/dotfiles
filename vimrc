@@ -36,7 +36,8 @@ Plug 'vim-airline/vim-airline-themes'   " UI themes for Airline
   let g:airline_theme = 'solarized'
 Plug 'powerline/fonts'                  " UI Symbols for Airline
   let g:airline_powerline_fonts = 1
-Plug 'altercation/vim-colors-solarized' " Text color scheme
+Plug 'lifepillar/vim-solarized8' " Text color scheme
+" Plug 'altercation/vim-colors-solarized' " Text color scheme
 " Plug 'Yggdroot/indentLine'              " Indent guide
 "----- End UI Plugins ------------------
 
@@ -125,7 +126,8 @@ nnoremap <leader>bp :bp<cr>
 "----- UI ------------------------------
 syntax enable
 set background=dark
-colorscheme solarized
+colorscheme solarized8_dark
+" colorscheme solarized
 set title                           " show file name in tab title
 " set hidden                          " hide buffer when opening new buffer
 set autoindent
@@ -169,7 +171,7 @@ endif
 "----- Neovim
 if has('nvim') " Terminal
   tnoremap <esC> <C-\><C-n>
-  nnoremap <leader>tt :te<space>
+  nnoremap <leader>tt :tabnew<bar>te <space>
   nnoremap <leader>ts :sp term://.//zsh<cr>i
   nnoremap <leader>tv :vs term://.//zsh<cr>i
 endif
