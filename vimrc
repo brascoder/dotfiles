@@ -99,12 +99,7 @@ set visualbell
 set shell=/usr/local/bin/zsh
 set mouse=a
 set complete+=i,kspell
-nnoremap <leader>a :setlocal spell!<cr>
-nnoremap <leader>r :e!<cr>
-nnoremap <leader>R :bufdo e!<cr>:syntax enable<cr>
-nnoremap <leader>bb :b<space>
-nnoremap <leader>bd :bd<space>
-nnoremap <leader>bl :ls<cr>
+nnoremap <leader>aa :setlocal spell!<cr>
 
 "----- Search --------------------------
 set nohls
@@ -115,6 +110,16 @@ set incsearch
 nnoremap <leader>hh :nohl<cr>
 nnoremap <leader>ht :set hlsearch!<cr>
 nnoremap <leader>sa :Ag!<space>
+
+"---- Buffers --------------------------
+
+nnoremap <leader>br :e!<cr>
+nnoremap <leader>bR :bufdo e!<cr>:syntax enable<cr>
+nnoremap <leader>bb :ls<cr>
+nnoremap <leader>bd :bd<space>
+nnoremap <leader>b. :b<space>
+nnoremap <leader>bn :bn<cr>
+nnoremap <leader>bp :bp<cr>
 
 
 "----- UI ------------------------------
@@ -143,6 +148,8 @@ nnoremap ≠ :wincmd =<cr>
 let g:ctrlp_dont_split = 'netrw'
 set splitbelow
 set splitright
+nnoremap <leader>wv :vsp<cr>
+nnoremap <leader>ws :sp<cr>
 
 set cursorline
 set cursorcolumn
