@@ -117,8 +117,7 @@ nnoremap <leader>sa :Ag!<space>
 nnoremap <leader>br :e!<cr>
 nnoremap <leader>bR :bufdo e!<cr>:syntax enable<cr>
 nnoremap <leader>bb :ls<cr>
-nnoremap <leader>bd :bd<space>
-nnoremap <leader>b. :b<space>
+nnoremap <leader>bd :bd<cr>
 nnoremap <leader>bn :bn<cr>
 nnoremap <leader>bp :bp<cr>
 
@@ -150,6 +149,7 @@ nnoremap ≠ :wincmd =<cr>
 let g:ctrlp_dont_split = 'netrw'
 set splitbelow
 set splitright
+nnoremap <leader>wd :q<cr>
 nnoremap <leader>wv :vsp<cr>
 nnoremap <leader>ws :sp<cr>
 
@@ -186,9 +186,9 @@ inoremap <C-j> <ESC>o
 inoremap <C-k> <ESC>O
 nnoremap <leader>o o<ESC>
 nnoremap <leader>O O<ESC>
+nnoremap <leader>ff :CtrlP<cr>
 nnoremap <leader>fs :w<cr>
 nnoremap <leader>fS :wa<cr>
-nnoremap <leader>qz :q<cr>
 nnoremap <leader>qq :qa<cr>
 nnoremap <leader>xx :x<CR>
 
