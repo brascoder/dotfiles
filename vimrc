@@ -24,6 +24,7 @@ Plug 'neomake/neomake'
   augroup END
   " No smartquotes in markdown
   let g:neomake_markdown_enabled_makers = []
+  let g:neomake_elixir_enabled_makers = ['mix', 'credo']
 " Plug 'tpope/vim-sensible'       " Set sensible defaults
 " Plug 'scrooloose/syntastic.git' " Syntax checking
 " Plug 'janko-m/vim-test'         " Test runner
