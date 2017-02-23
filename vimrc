@@ -110,7 +110,7 @@ set smartcase
 set incsearch
 nnoremap <leader>hh :nohl<cr>
 nnoremap <leader>ht :set hlsearch!<cr>
-nnoremap <leader>sa :Ag!<space>
+nnoremap <leader>/ :Ag!<space>
 
 "---- Buffers --------------------------
 
