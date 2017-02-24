@@ -79,6 +79,7 @@ Plug 'tpope/vim-bundler'
 "------- Elixir/Phoenix
 Plug 'c-brenn/phoenix.vim'
 Plug 'slashmili/alchemist.vim'
+Plug 'elixir-lang/vim-elixir'
 
 "------- JavaScript
 " Plug 'othree/javascript-libraries-syntax.vim'
