@@ -57,7 +57,6 @@ Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'godlygeek/tabular'
-  vnoremap <leader>ta :Tab /
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
 Plug 'garbas/vim-snipmate'
@@ -187,11 +186,14 @@ inoremap <C-j> <ESC>o
 inoremap <C-k> <ESC>O
 nnoremap <leader>o o<ESC>
 nnoremap <leader>O O<ESC>
+nnoremap <leader>xs i<cr><esc>
+nnoremap <leader>xj Jx
+vnoremap <leader>xa :Tab /
 nnoremap <leader>ff :CtrlP<cr>
 nnoremap <leader>fs :w<cr>
 nnoremap <leader>fS :wa<cr>
+nnoremap <leader>fx :x<CR>
 nnoremap <leader>qq :qa<cr>
-nnoremap <leader>xx :x<CR>
 
 " - Move lines
 nnoremap ∆ :m .+1<CR>==
