@@ -25,6 +25,7 @@ Plug 'neomake/neomake'
   " No smartquotes in markdown
   let g:neomake_markdown_enabled_makers = []
   let g:neomake_elixir_enabled_makers = ['mix', 'credo']
+Plug 'kassio/neoterm'
 " Plug 'tpope/vim-sensible'       " Set sensible defaults
 " Plug 'scrooloose/syntastic.git' " Syntax checking
 " Plug 'janko-m/vim-test'         " Test runner
@@ -171,10 +172,13 @@ endif
 
 "----- Neovim
 if has('nvim') " Terminal
-  tnoremap <esC> <C-\><C-n>
-  nnoremap <leader>tt :tabnew<bar>te <space>
-  nnoremap <leader>ts :sp term://.//zsh<cr>i
-  nnoremap <leader>tv :vs term://.//zsh<cr>i
+  tnoremap <esc> <c-\><c-n>
+  nnoremap <leader>tt :T <space>
+  nnoremap <leader>th :call neoterm#toggle()<cr>
+  nnoremap <leader>tl :call neoterm#clear()<cr>
+  nnoremap <leader>tc :call neoterm#kill()<cr>
+  " nnoremap <leader>ts :sp term://.//zsh<cr>i
+  " nnoremap <leader>tv :vs term://.//zsh<cr>i
 endif
 
 " - Enable Ctrl-h for Neovim
