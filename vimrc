@@ -11,7 +11,7 @@ call plug#begin('~/.config/nvim/plugged')
 " Tab completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   let g:deoplete#enable_at_startup = 1
-  " inoremap <EXPR><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+  inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 Plug 'tpope/vim-projectionist'
 Plug 'rking/ag.vim'             " Silver Searcher
 Plug 'tpope/vim-fugitive'       " Git integration
@@ -61,8 +61,8 @@ Plug 'tpope/vim-commentary'
 Plug 'godlygeek/tabular'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
-Plug 'garbas/vim-snipmate'
-Plug 'honza/vim-snippets'
+" Plug 'garbas/vim-snipmate'
+" Plug 'honza/vim-snippets'
 Plug 'mattn/emmet-vim'
 " Plug 'ervandew/supertab'
 " Plug 'kana/vim-textobj-user'
@@ -173,7 +173,7 @@ endif
 "----- Neovim
 if has('nvim') " Terminal
   tnoremap <esc> <c-\><c-n>
-  nnoremap <leader>tt :T <space>
+  nnoremap <leader>tt :T<space>
   nnoremap <leader>th :call neoterm#toggle()<cr>
   nnoremap <leader>tl :call neoterm#clear()<cr>
   nnoremap <leader>tc :call neoterm#kill()<cr>
