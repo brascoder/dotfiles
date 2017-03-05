@@ -192,7 +192,7 @@ inoremap <C-k> <ESC>O
 nnoremap <leader>o o<ESC>
 nnoremap <leader>O O<ESC>
 nnoremap <leader>xs i<cr><esc>
-nnoremap <leader>xj Jx
+nnoremap <leader>xj J
 vnoremap <leader>xa :Tab /
 nnoremap <leader>ff :CtrlP<cr>
 nnoremap <leader>fs :w<cr>
