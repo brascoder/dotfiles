@@ -103,6 +103,7 @@ set shell=/usr/local/bin/zsh
 set mouse=a
 set complete+=i,kspell
 nnoremap <leader>aa :setlocal spell!<cr>
+nnoremap <leader>rr :reg<cr>
 
 "----- Search --------------------------
 set nohls
