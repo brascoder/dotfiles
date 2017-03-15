@@ -119,7 +119,7 @@ nnoremap <leader>/ :Ag!<space>
 
 nnoremap <leader>br :e!<cr>
 nnoremap <leader>bR :bufdo e!<cr>:syntax enable<cr>
-nnoremap <leader>bb :ls<cr>
+nnoremap <leader>bb :ls<cr>:b<space>
 nnoremap <leader>bd :bd<cr>
 nnoremap <leader>bn :bn<cr>
 nnoremap <leader>bp :bp<cr>
