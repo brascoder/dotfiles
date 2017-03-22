@@ -36,7 +36,9 @@ values."
      nginx
      docker
      sql
-     elm
+     (elm :variables
+          elm-format-command "elm-format-0.18"
+          elm-format-on-save t)
      vimscript
      javascript
      erlang
