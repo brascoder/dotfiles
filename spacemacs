@@ -50,6 +50,7 @@ values."
      colors
      (ruby :variables
         ruby-version-manager 'rbenv
+        ruby-test-runner 'minitest
         ruby-enable-ruby-on-rails-support t)
      ruby-on-rails
      (ranger :variables
