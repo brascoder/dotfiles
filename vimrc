@@ -61,8 +61,9 @@ Plug 'tpope/vim-commentary'
 Plug 'godlygeek/tabular'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
-" Plug 'garbas/vim-snipmate'
-" Plug 'honza/vim-snippets'
+Plug 'garbas/vim-snipmate'
+  imap <c-space> <plug>snipMateNextOrTrigger
+Plug 'honza/vim-snippets'
 Plug 'mattn/emmet-vim'
 " Plug 'ervandew/supertab'
 " Plug 'kana/vim-textobj-user'
@@ -203,6 +204,7 @@ nnoremap <leader>fs :w<cr>
 nnoremap <leader>fS :wa<cr>
 nnoremap <leader>fx :x<CR>
 nnoremap <leader>qq :qa<cr>
+nnoremap <leader>qQ :qa!<cr>
 
 " - Move lines
 nnoremap ∆ :m .+1<CR>==
