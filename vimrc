@@ -15,7 +15,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-projectionist'
 Plug 'rking/ag.vim'             " Silver Searcher
 Plug 'tpope/vim-fugitive'       " Git integration
-Plug 'mtth/scratch.vim'         " Scratch buffer
+" Plug 'mtth/scratch.vim'         " Scratch buffer
 Plug 'rizzatti/dash.vim'        " Dash integration
 Plug 'neomake/neomake'
   " Run Neomake on save
@@ -45,12 +45,11 @@ Plug 'lifepillar/vim-solarized8' " Text color scheme
 "----- Navigation ----------------------
 Plug 'scrooloose/nerdtree'
   let NERDTreeShowHidden=1
-  nnoremap <leader>\ :NERDTreeToggle<CR>
-  nnoremap « :NERDTreeFind<CR>
-  nnoremap » :NERDTreeFocus<CR> :vertical resize 31<CR>
+  nnoremap <leader>pt :NERDTreeToggle<CR>
+  nnoremap <leader>ft :NERDTreeFind<CR>
+  nnoremap <leader>0 :NERDTreeFocus<CR> :vertical resize 31<CR>
 Plug 'kien/ctrlp.vim'
   let g:ctrlp_show_hidden = 1
-  nnoremap π :CtrlPBuffer<CR>
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'easymotion/vim-easymotion'
 "----- End Navigation ------------------
@@ -93,39 +92,6 @@ call plug#end()
 "----- End Plugins ---------------------
 
 
-"----- Environment ---------------------
-filetype indent on
-filetype plugin on
-set ts=2 sts=2 sw=2 expandtab
-set encoding=utf-8
-set noswapfile
-set visualbell
-set shell=/usr/local/bin/zsh
-set mouse=a
-set complete+=i,kspell
-nnoremap <leader>aa :setlocal spell!<cr>
-nnoremap <leader>rr :reg<cr>
-
-"----- Search --------------------------
-set nohls
-set ignorecase
-set hlsearch
-set smartcase
-set incsearch
-nnoremap <leader>hh :nohl<cr>
-nnoremap <leader>ht :set hlsearch!<cr>
-nnoremap <leader>/ :Ag!<space>
-
-"---- Buffers --------------------------
-
-nnoremap <leader>br :e!<cr>
-nnoremap <leader>bR :bufdo e!<cr>:syntax enable<cr>
-nnoremap <leader>bb :ls<cr>:b<space>
-nnoremap <leader>bd :bd<cr>
-nnoremap <leader>bn :bn<cr>
-nnoremap <leader>bp :bp<cr>
-
-
 "----- UI ------------------------------
 syntax enable
 set background=dark
@@ -157,6 +123,24 @@ nnoremap <leader>wd :q<cr>
 nnoremap <leader>wv :vsp<cr>
 nnoremap <leader>ws :sp<cr>
 
+
+"----- Environment ---------------------
+
+filetype indent on
+filetype plugin on
+set ts=2 sts=2 sw=2 expandtab
+set encoding=utf-8
+set noswapfile
+set visualbell
+set shell=/usr/local/bin/zsh
+set mouse=a
+set complete+=i,kspell
+nnoremap <leader>aa :setlocal spell!<cr>
+nnoremap <leader>rr :reg<cr>
+nnoremap <leader>qq :qa<cr>
+nnoremap <leader>qQ :qa!<cr>
+
+"----- Cursor
 set cursorline
 set cursorcolumn
 if has('nvim') " Cursor shape
@@ -171,8 +155,35 @@ else
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 
+"----- Files
+nnoremap <leader>ff :CtrlP<cr>
+nnoremap <leader>fs :w<cr>
+nnoremap <leader>fS :wa<cr>
+nnoremap <leader>fx :x<CR>
 
-"----- Neovim
+"----- Search
+set nohls
+set ignorecase
+set hlsearch
+set smartcase
+set incsearch
+nnoremap <leader>hh :nohl<cr>
+nnoremap <leader>ht :set hlsearch!<cr>
+nnoremap <leader>/ :Ag!<space>
+
+"----- Buffers
+nnoremap <leader>br :e!<cr>
+nnoremap <leader>bR :bufdo e!<cr>:syntax enable<cr>
+nnoremap <leader>bd :bd<cr>
+nnoremap <leader>bn :bn<cr>
+nnoremap <leader>bp :bp<cr>
+nnoremap <leader>bb :CtrlPBuffer<CR>
+
+"----- Git
+nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>gb :Gblame<cr>
+
+"----- Terminal
 if has('nvim') " Terminal
   tnoremap <esc> <c-\><c-n>
   nnoremap <leader>tt :T<space>
@@ -187,26 +198,23 @@ endif
 nnoremap <silent> <bs> :TmuxNavigateLeft<cr>
 
 
-" Editing
+"----- Editing -------------------------
 
+"----- Insert lines
 inoremap <C-j> <ESC>o
 inoremap <C-k> <ESC>O
-nnoremap <leader>o o<ESC>
-nnoremap <leader>O O<ESC>
+nnoremap <leader>ij o<ESC>
+nnoremap <leader>ik O<ESC>
 
-nnoremap <leader>xs i<cr><esc>
+"----- Split/Join
+nnoremap <leader>xn i<cr><esc>
 nnoremap <leader>xj J
+
+"----- Align
 vnoremap <leader>xaa :Tab /
 vnoremap <leader>xa: :Tab /:\zs<cr>
 
-nnoremap <leader>ff :CtrlP<cr>
-nnoremap <leader>fs :w<cr>
-nnoremap <leader>fS :wa<cr>
-nnoremap <leader>fx :x<CR>
-nnoremap <leader>qq :qa<cr>
-nnoremap <leader>qQ :qa!<cr>
-
-" - Move lines
+"----- Move lines
 nnoremap ∆ :m .+1<CR>==
 nnoremap ˚ :m .-2<CR>==
 inoremap ∆ <Esc>:m .+1<CR>==gi
