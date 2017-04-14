@@ -225,3 +225,4 @@ vnoremap ˚ :m '<-2<CR>gv=gv
 
 " Commands
 command! Resource source $MYVIMRC
+nnoremap <leader>feR :Resource<cr>
