@@ -183,6 +183,8 @@ nnoremap <leader>bb :CtrlPBuffer<CR>
 "----- Git
 nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>gb :Gblame<cr>
+nnoremap <leader>gp :Gpush<cr>
+nnoremap <leader>gl :Gpull<cr>
 
 "----- Terminal
 if has('nvim') " Terminal
