@@ -48,6 +48,7 @@ Plug 'scrooloose/nerdtree'
   nnoremap <leader>pt :NERDTreeToggle<CR>
   nnoremap <leader>ft :NERDTreeFind<CR>
   nnoremap <leader>0 :NERDTreeFocus<CR> :vertical resize 31<CR>
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'kien/ctrlp.vim'
   let g:ctrlp_show_hidden = 1
 Plug 'christoomey/vim-tmux-navigator'
