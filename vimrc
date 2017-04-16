@@ -26,9 +26,15 @@ Plug 'neomake/neomake'
   let g:neomake_markdown_enabled_makers = []
   let g:neomake_elixir_enabled_makers = ['mix', 'credo']
 Plug 'kassio/neoterm'
+Plug 'janko-m/vim-test'         " Test runner
+  let test#strategy = "neoterm"
+  nnoremap <leader>tt :TestNearest<cr>
+  nnoremap <leader>tT :TestFile<cr>
+  nnoremap <leader>ta :TestSuite<cr>
+  nnoremap <leader>tl :TestLast<cr>
+  nnoremap <leader>tg :TestVisit<cr>
 " Plug 'tpope/vim-sensible'       " Set sensible defaults
 " Plug 'scrooloose/syntastic.git' " Syntax checking
-" Plug 'janko-m/vim-test'         " Test runner
 "----- End Config ----------------------
 
 "----- UI Plugins ----------------------
@@ -189,10 +195,10 @@ nnoremap <leader>gl :Gpull<cr>
 "----- Terminal
 if has('nvim') " Terminal
   tnoremap <esc> <c-\><c-n>
-  nnoremap <leader>tt :T<space>
-  nnoremap <leader>th :call neoterm#toggle()<cr>
-  nnoremap <leader>tl :call neoterm#clear()<cr>
-  nnoremap <leader>tc :call neoterm#kill()<cr>
+  nnoremap <leader>'' :T<space>
+  nnoremap <leader>'h :call neoterm#toggle()<cr>
+  nnoremap <leader>'l :call neoterm#clear()<cr>
+  nnoremap <leader>'c :call neoterm#kill()<cr>
   " nnoremap <leader>ts :sp term://.//zsh<cr>i
   " nnoremap <leader>tv :vs term://.//zsh<cr>i
 endif
