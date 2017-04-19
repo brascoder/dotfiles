@@ -17,6 +17,7 @@ Plug 'rking/ag.vim'             " Silver Searcher
 Plug 'tpope/vim-fugitive'       " Git integration
 " Plug 'mtth/scratch.vim'         " Scratch buffer
 Plug 'rizzatti/dash.vim'        " Dash integration
+  nnoremap <leader>dd :Dash<cr>
 Plug 'neomake/neomake'
   " Run Neomake on save
   augroup localneomake
