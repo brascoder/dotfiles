@@ -24,3 +24,6 @@ Style/DocumentationMethod:
 
 Style/EmptyMethod:
   Enabled: false
+
+Style/RescueModifier:
+  Enabled: false
