@@ -41,7 +41,8 @@ Plug 'janko-m/vim-test'         " Test runner
 "----- UI Plugins ----------------------
 Plug 'vim-airline/vim-airline'          " Airline statusbar
 Plug 'vim-airline/vim-airline-themes'   " UI themes for Airline
-  let g:airline_theme = 'solarized'
+  " let g:airline_theme = 'solarized'
+  let g:airline_theme = 'badwolf'
 Plug 'powerline/fonts'                  " UI Symbols for Airline
   let g:airline_powerline_fonts = 1
 Plug 'lifepillar/vim-solarized8' " Text color scheme
