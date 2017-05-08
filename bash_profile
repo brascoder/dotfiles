@@ -8,6 +8,7 @@ export ALTERNATE_EDITOR=""
 alias ls='ls -GFh'
 alias resource='source $HOME/.bash_profile'
 alias cdot='cd ~/.dotfiles'
+alias sshfix='ssh-add -A'
 
 # Vim
 if [ -f /usr/local/bin/nvim ]; then
