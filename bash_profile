@@ -31,19 +31,10 @@ alias tmks='tmux kill-session -t'
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
-# Refinery CMS
-refview () {
-    if [ $1 ]; then
-      bundle exec rake refinery:override view=$1
-    else
-      echo "Enter path to view."
-    fi
-}
-
 # Elixir/Phoenix
 alias iexm='iex -S mix'
-alias mps='mix phoenix.server'
-alias mpr='mix phoenix.routes'
+alias mps='mix phx.server'
+alias mpr='mix phx.routes'
 
 # Docker
 alias dm='docker-machine'
