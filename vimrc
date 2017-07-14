@@ -189,10 +189,11 @@ nnoremap <leader>bp :bp<cr>
 nnoremap <leader>bb :CtrlPBuffer<CR>
 
 "----- Git
-nnoremap <leader>gs :Gstatus<cr>
-nnoremap <leader>gb :Gblame<cr>
-nnoremap <leader>gp :Gpush<cr>
-nnoremap <leader>gl :Gpull<cr>
+nnoremap <leader>gst :Gstatus<cr>
+nnoremap <leader>gbl :Gblame<cr>
+nnoremap <leader>gpp :Gpush<cr>
+nnoremap <leader>gll :Gpull<cr>
+nnoremap <leader>gcm :Gcommit<cr>
 
 "----- Terminal
 if has('nvim') " Terminal
