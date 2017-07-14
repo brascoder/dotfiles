@@ -148,6 +148,7 @@ nnoremap <leader>aa :setlocal spell!<cr>
 nnoremap <leader>rr :reg<cr>
 nnoremap <leader>qq :qa<cr>
 nnoremap <leader>qQ :qa!<cr>
+nnoremap <leader>qo :only<cr>
 
 "----- Cursor
 set cursorline
@@ -189,11 +190,21 @@ nnoremap <leader>bp :bp<cr>
 nnoremap <leader>bb :CtrlPBuffer<CR>
 
 "----- Git
-nnoremap <leader>gst :Gstatus<cr>
-nnoremap <leader>gbl :Gblame<cr>
-nnoremap <leader>gpp :Gpush<cr>
-nnoremap <leader>gll :Gpull<cr>
+nnoremap <leader>gg  :Git<space>
+nnoremap <leader>ga  :Gwrite<cr>
+nnoremap <leader>gr  :Gread<cr>
+nnoremap <leader>gs  :Gstatus<cr>
+nnoremap <leader>gb  :Gblame<cr>
+nnoremap <leader>gPp :Gpush<cr>
+nnoremap <leader>gFf :Gpull<cr>
+nnoremap <leader>gff :Gfetch<cr>
 nnoremap <leader>gcm :Gcommit<cr>
+nnoremap <leader>glg :Git log<cr>
+nnoremap <leader>gdd  :Gdiff<cr>
+nnoremap <leader>gdo :diffget<cr>
+nnoremap <leader>gdO :diffget //
+nnoremap <leader>gdp :diffput<cr>
+nnoremap <leader>gdP :diffput //
 
 "----- Terminal
 if has('nvim') " Terminal
