@@ -200,7 +200,7 @@ nnoremap <leader>gFf :Gpull<cr>
 nnoremap <leader>gff :Gfetch<cr>
 nnoremap <leader>gcm :Gcommit<cr>
 nnoremap <leader>glg :Git log<cr>
-nnoremap <leader>gdd  :Gdiff<cr>
+nnoremap <leader>gdd :Gdiff<cr>
 nnoremap <leader>gdo :diffget<cr>
 nnoremap <leader>gdO :diffget //
 nnoremap <leader>gdp :diffput<cr>
