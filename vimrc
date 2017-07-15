@@ -190,21 +190,21 @@ nnoremap <leader>bp :bp<cr>
 nnoremap <leader>bb :CtrlPBuffer<CR>
 
 "----- Git
-nnoremap <leader>gg  :Git<space>
-nnoremap <leader>ga  :Gwrite<cr>
-nnoremap <leader>gr  :Gread<cr>
-nnoremap <leader>gs  :Gstatus<cr>
-nnoremap <leader>gb  :Gblame<cr>
-nnoremap <leader>gPp :Gpush<cr>
-nnoremap <leader>gFf :Gpull<cr>
-nnoremap <leader>gff :Gfetch<cr>
-nnoremap <leader>gcm :Gcommit<cr>
-nnoremap <leader>glg :Git log<cr>
-nnoremap <leader>gdd :Gdiff<cr>
-nnoremap <leader>gdo :diffget<cr>
-nnoremap <leader>gdO :diffget //
-nnoremap <leader>gdp :diffput<cr>
-nnoremap <leader>gdP :diffput //
+nnoremap <leader><leader>gg  :Git<space>
+nnoremap <leader><leader>ga  :Gwrite<cr>
+nnoremap <leader><leader>gr  :Gread<cr>
+nnoremap <leader><leader>gs  :Gstatus<cr>
+nnoremap <leader><leader>gb  :Gblame<cr>
+nnoremap <leader><leader>gP  :Gpush<cr>
+nnoremap <leader><leader>gF  :Gpull<cr>
+nnoremap <leader><leader>gf  :Gfetch<cr>
+nnoremap <leader><leader>gc  :Gcommit<cr>
+nnoremap <leader><leader>glg :Git log<cr>
+nnoremap <leader><leader>gdd :Gdiff<cr>
+nnoremap <leader><leader>gdo :diffget<cr>
+nnoremap <leader><leader>gdO :diffget //
+nnoremap <leader><leader>gdp :diffput<cr>
+nnoremap <leader><leader>gdP :diffput //
 
 "----- Terminal
 if has('nvim') " Terminal
