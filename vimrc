@@ -226,8 +226,8 @@ nnoremap <silent> <bs> :TmuxNavigateLeft<cr>
 "----- Insert lines
 inoremap <C-j> <ESC>o
 inoremap <C-k> <ESC>O
-nnoremap <leader>ij o<ESC>
-nnoremap <leader>ik O<ESC>
+nnoremap <leader>ij o<ESC>k
+nnoremap <leader>ik O<ESC>j
 
 "----- Split/Join
 nnoremap <leader>xn i<cr><esc>
