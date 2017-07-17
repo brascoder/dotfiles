@@ -47,7 +47,8 @@ Plug 'powerline/fonts'                  " UI Symbols for Airline
   let g:airline_powerline_fonts = 1
 Plug 'lifepillar/vim-solarized8' " Text color scheme
 " Plug 'altercation/vim-colors-solarized' " Text color scheme
-" Plug 'Yggdroot/indentLine'              " Indent guide
+Plug 'Yggdroot/indentLine'              " Indent guide
+  nnoremap <leader>ig :IndentLinesToggle<cr>
 "----- End UI Plugins ------------------
 
 "----- Navigation ----------------------
