@@ -60,6 +60,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'kien/ctrlp.vim'
   let g:ctrlp_show_hidden = 1
+  let g:ctrlp_custom_ignore = '\v[\/](\.git|node_modules)$'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'easymotion/vim-easymotion'
 "----- End Navigation ------------------
