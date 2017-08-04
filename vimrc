@@ -27,6 +27,7 @@ Plug 'neomake/neomake'
   let g:neomake_markdown_enabled_makers = []
   let g:neomake_elixir_enabled_makers = ['mix', 'credo']
 Plug 'kassio/neoterm'
+  let g:neoterm_autoscroll = 1
 Plug 'janko-m/vim-test'         " Test runner
   let test#strategy = "neoterm"
   nnoremap <leader>tt :TestNearest<cr>
