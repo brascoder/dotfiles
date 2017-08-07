@@ -250,7 +250,9 @@ vnoremap ˚ :m '<-2<CR>gv=gv
 
 "----- Utility
 nnoremap <leader><leader>s V:s/
-nnoremap <leader><leader>yy V"*y
+vnoremap <leader><leader>s :s/
+nnoremap <leader><leader>y V"*y
+vnoremap <leader><leader>y "*y
 
 
 " Commands
