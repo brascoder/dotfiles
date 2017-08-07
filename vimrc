@@ -248,6 +248,10 @@ inoremap ˚ <Esc>:m .-2<CR>==gi
 vnoremap ∆ :m '>+1<CR>gv=gv
 vnoremap ˚ :m '<-2<CR>gv=gv
 
+"----- Utility
+nnoremap <leader><leader>s V:s/
+nnoremap <leader><leader>yy V"*y
+
 
 " Commands
 command! Resource source $MYVIMRC
