@@ -1,6 +1,9 @@
 Bundler/OrderedGems:
   Enabled: false
 
+Layout/IndentArray:
+  EnforcedStyle: consistent
+
 Metrics/AbcSize:
   Enabled: false
 
@@ -23,6 +26,9 @@ Style/DocumentationMethod:
   Enabled: false
 
 Style/EmptyMethod:
+  Enabled: false
+
+Style/TrailingCommaInLiteral:
   Enabled: false
 
 Style/RescueModifier:
