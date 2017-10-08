@@ -115,6 +115,7 @@ set autoindent
 set showmatch
 set relativenumber                  " show relative line numbers
 set number                          " show current line number with relative line numbers
+set inccommand=nosplit
 set backspace=indent,eol,start      " Backspace through anything
 set listchars=tab:▸\ ,eol:¬,trail:· " Define invisible sysbols
 set list                            " Start with symbols on
