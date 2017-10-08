@@ -131,6 +131,11 @@ nnoremap ≠ :wincmd =<cr>
 let g:ctrlp_dont_split = 'netrw'
 set splitbelow
 set splitright
+nnoremap ≥ <c-w>>
+nnoremap ≤ <c-w><
+nnoremap ˘ <c-w>+
+nnoremap ¯ <c-w>-
+nnoremap ¯ <c-w>-
 nnoremap <leader>wd :q<cr>
 nnoremap <leader>wv :vsp<cr>
 nnoremap <leader>ws :sp<cr>
@@ -191,6 +196,7 @@ nnoremap <leader>bd :bd<cr>
 nnoremap <leader>bn :bn<cr>
 nnoremap <leader>bp :bp<cr>
 nnoremap <leader>bb :CtrlPBuffer<CR>
+nnoremap <leader>ls :ls<cr>
 
 "----- Git
 nnoremap <leader><leader>gg  :Git<space>
@@ -213,9 +219,12 @@ nnoremap <leader><leader>gdP :diffput //
 if has('nvim') " Terminal
   tnoremap <esc> <c-\><c-n>
   nnoremap <leader>'' :T<space>
-  nnoremap <leader>'h :call neoterm#toggle()<cr>
-  nnoremap <leader>'l :call neoterm#clear()<cr>
-  nnoremap <leader>'c :call neoterm#kill()<cr>
+  nnoremap <leader>'n :Tnew<cr>
+  nnoremap <leader>'o :Topen
+  nnoremap <leader>'c :Tclose
+  nnoremap <leader>'h :Ttoggle<cr><cr>
+  nnoremap <leader>'l :Tclear
+  nnoremap <leader>'k :Tkill
   " nnoremap <leader>ts :sp term://.//zsh<cr>i
   " nnoremap <leader>tv :vs term://.//zsh<cr>i
 endif
