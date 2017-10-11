@@ -198,6 +198,7 @@ nnoremap <leader>bn :bn<cr>
 nnoremap <leader>bp :bp<cr>
 nnoremap <leader>bb :CtrlPBuffer<CR>
 nnoremap <leader>ls :ls<cr>
+nnoremap <leader>bk :bd!<space>
 
 "----- Git
 nnoremap <leader><leader>gg  :Git<space>
