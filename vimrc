@@ -137,6 +137,10 @@ nnoremap ≤ <c-w><
 nnoremap ˘ <c-w>+
 nnoremap ¯ <c-w>-
 nnoremap ¯ <c-w>-
+nnoremap <leader>wH <c-w>H
+nnoremap <leader>wJ <c-w>J
+nnoremap <leader>wK <c-w>K
+nnoremap <leader>wL <c-w>L
 nnoremap <leader>wd :q<cr>
 nnoremap <leader>wv :vsp<cr>
 nnoremap <leader>ws :sp<cr>
