@@ -17,7 +17,7 @@ Metrics/MethodLength:
   Enabled: false
 
 Style/ClassAndModuleChildren:
-  EnforcedStyle: compact
+  EnforcedStyle: nested
 
 Style/Documentation:
   Enabled: false
