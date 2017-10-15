@@ -137,6 +137,10 @@ nnoremap ≤ <c-w><
 nnoremap ˘ <c-w>+
 nnoremap ¯ <c-w>-
 nnoremap ¯ <c-w>-
+nnoremap <leader>wH <c-w>H
+nnoremap <leader>wJ <c-w>J
+nnoremap <leader>wK <c-w>K
+nnoremap <leader>wL <c-w>L
 nnoremap <leader>wd :q<cr>
 nnoremap <leader>wv :vsp<cr>
 nnoremap <leader>ws :sp<cr>
@@ -198,6 +202,7 @@ nnoremap <leader>bn :bn<cr>
 nnoremap <leader>bp :bp<cr>
 nnoremap <leader>bb :CtrlPBuffer<CR>
 nnoremap <leader>ls :ls<cr>
+nnoremap <leader>bk :bd!<space>
 
 "----- Git
 nnoremap <leader><leader>gg  :Git<space>
