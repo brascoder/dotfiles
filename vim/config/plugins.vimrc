@@ -27,4 +27,4 @@ let NERDTreeShowHidden=1
 
 "----- CrtlP
 let g:ctrlp_show_hidden = 1
-let g:ctrlp_custom_ignore = '\v[\/](\.git|node_modules)$'
+let g:ctrlp_custom_ignore = '\v[\/](\.git|tmp|node_modules)$'
