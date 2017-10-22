@@ -16,6 +16,9 @@ nnoremap ¯ <c-w>-
 " Enable Ctrl-h
 nnoremap <silent> <bs> :TmuxNavigateLeft<cr>
 
+"----- Terminal
+tnoremap <esc> <c-\><c-n>
+
 "----- Editing
 inoremap <C-j> <ESC>o
 inoremap <C-k> <ESC>O
