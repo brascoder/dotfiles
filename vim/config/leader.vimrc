@@ -60,8 +60,11 @@ let g:lmap.g = { 'name' : '+Git',
                \}
 
 " Project
+command! GoToDef call feedkeys('<c-]>', 't')
 let g:lmap.p = { 'name' : '+Project',
                \ 'a' : ['A', 'Alternate File'],
+               \ 'c' : ['! ctags', 'Generate Ctags'],
+               \ 'g' : ['GoToDef', 'Go To Definition'],
                \ 't' : ['NERDTreeToggle', 'Toggle File Tree'],
                \}
 
