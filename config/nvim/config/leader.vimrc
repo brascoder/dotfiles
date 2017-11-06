@@ -15,7 +15,7 @@ let g:lmap.a = { 'name' : '+Application',
 
 " Buffer
 let g:lmap.b = { 'name' : '+Buffer',
-               \ 'b' : [':CtrlPBuffer', 'Switch Buffers'],
+               \ 'b' : ['CtrlPBuffer', 'Switch Buffers'],
                \ 'd' : ['bd', 'Delete Buffer'],
                \ 'l' : ['ls', 'List Buffers'],
                \ 'n' : ['bn', 'Next Buffer'],
@@ -25,9 +25,8 @@ let g:lmap.b = { 'name' : '+Buffer',
 " Environment
 command! Resource source $MYVIMRC
 command! ResetNerdTree NERDTreeFocus | vertical resize 31
-command! ToggleSpelling setlocal spell!
 let g:lmap.e = { 'name' : '+Environment',
-               \ 'a' : ['ToggleSpelling', 'Toggle Spell Check'],
+               \ 'a' : ['setlocal spell!', 'Toggle Spell Check'],
                \ 'h' : ['set hlsearch!', 'Toggle Search Highlight'],
                \ 'i' : ['IndentLinesToggle', 'Toggle Indent Lines'],
                \ 'l' : ['set list!', 'Toggle List Chars'],
@@ -46,7 +45,7 @@ let g:lmap.f = { 'name' : '+File',
                \}
 
 " Git
-nnoremap <leader>gg :Git<space>
+command! GitRun call feedkeys(':Git<space>', 't')
 let g:lmap.g = { 'name' : '+Git',
                \ 'a' : ['Gwrite', 'Git Add File'],
                \ 'b' : ['Gblame', 'Git Blame'],
@@ -54,6 +53,7 @@ let g:lmap.g = { 'name' : '+Git',
                \ 'd' : ['Gdiff', 'Git Diff'],
                \ 'f' : ['Gfetch', 'Git Fetch'],
                \ 'F' : ['Gpull', 'Git Pull'],
+               \ 'g' : ['GitRun', 'Run Git Command'],
                \ 'P' : ['Gpush', 'Git Push'],
                \ 'r' : ['Gread', 'Git Reset File'],
                \ 's' : ['Gstatus', 'Git Status'],
