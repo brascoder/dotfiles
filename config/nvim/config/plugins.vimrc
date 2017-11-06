@@ -12,8 +12,6 @@ let g:neomake_elixir_enabled_makers = ['mix', 'credo']
 
 "----- Neoterm
 let g:neoterm_autoscroll = 1
-
-"----- Neoterm
 let test#strategy = "neoterm"
 
 "----- Airline Theme
