@@ -78,19 +78,21 @@ let g:lmap.T = { 'name' : '+Test',
                \}
 
 " Terminal
+command! ShellSend call feedkeys(':!<space>', 't')
 command! TermSend call feedkeys(':T<space>', 't')
 command! TermClose call feedkeys(':Tclose', 't')
 command! TermKill call feedkeys(':Tkill', 't')
 command! TermClear call feedkeys(':Tclear', 't')
 command! TermOpen call feedkeys(':Topen', 't')
 let g:lmap.t = { 'name' : '+Terminal',
-               \ 't' : ['TermSend', 'Terminal Send'],
                \ 'c' : ['TermClose', 'Close Terminal(n)'],
                \ 'h' : ['Ttoggle', 'Toggle Terminal'],
                \ 'k' : ['TermKill', 'Kill Process'],
                \ 'l' : ['TermClear', 'Clear Terminal'],
                \ 'n' : ['Tnew', 'New Terminal'],
                \ 'o' : ['TermOpen', 'Open Terminal'],
+               \ 's' : ['ShellSend', 'Shell Send'],
+               \ 't' : ['TermSend', 'Terminal Send'],
                \}
 
 " Window
