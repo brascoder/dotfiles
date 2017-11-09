@@ -23,16 +23,19 @@ let g:lmap.b = { 'name' : '+Buffer',
                \}
 
 " Environment
+command! ShowHelp call feedkeys(':h<space>', 't')
 command! Resource source $MYVIMRC
 command! ResetNerdTree NERDTreeFocus | vertical resize 31
 let g:lmap.e = { 'name' : '+Environment',
                \ 'a' : ['setlocal spell!', 'Toggle Spell Check'],
+               \ 'e' : ['ShowHelp', 'Help'],
                \ 'h' : ['set hlsearch!', 'Toggle Search Highlight'],
                \ 'i' : ['IndentLinesToggle', 'Toggle Indent Lines'],
                \ 'l' : ['set list!', 'Toggle List Chars'],
-               \ 't' : ['ResetNerdTree', 'Reset File Tree'],
+               \ 'P' : ['PlugInstall', 'Install Plugins'],
                \ 'r' : ['registers', 'Show Registers'],
                \ 'R' : ['Resource', 'Reload Config'],
+               \ 't' : ['ResetNerdTree', 'Reset File Tree'],
                \}
 
 " File
@@ -100,18 +103,6 @@ let g:lmap.t = { 'name' : '+Terminal',
                \ 'w' : ['TermKillWindow', 'Kill Process Window'],
                \}
 
-" Window
-let g:lmap.w = { 'name' : '+Window',
-               \ 'd' : ['close', 'Close Window'],
-               \ 's' : ['split', 'Horizontal Split'],
-               \ 'v' : ['vsplit', 'Vertical Split'],
-               \ 'h' : ['wincmd H', 'Move Window Left'],
-               \ 'j' : ['wincmd J', 'Move Window Down'],
-               \ 'k' : ['wincmd K', 'Move Window Up'],
-               \ 'l' : ['wincmd L', 'Move Window Right'],
-               \ 'o' : ['only', 'Close Other Windows'],
-               \}
-
 " Text
 command! JoinLine call feedkeys('J', 't') 
 command! SplitNewline call feedkeys('i<cr><esc>', 't') 
@@ -142,6 +133,18 @@ command! InsertBelow call feedkeys('O<esc>j', 't')
 let g:lmap.x.i = { 'name' : '+Insert',
                \ 'j' : ['InsertAbove', 'Insert Line Above'],
                \ 'k' : ['InsertBelow', 'Insert Line Below'],
+               \}
+
+" Window
+let g:lmap.w = { 'name' : '+Window',
+               \ 'd' : ['close', 'Close Window'],
+               \ 's' : ['split', 'Horizontal Split'],
+               \ 'v' : ['vsplit', 'Vertical Split'],
+               \ 'h' : ['wincmd H', 'Move Window Left'],
+               \ 'j' : ['wincmd J', 'Move Window Down'],
+               \ 'k' : ['wincmd K', 'Move Window Up'],
+               \ 'l' : ['wincmd L', 'Move Window Right'],
+               \ 'o' : ['only', 'Close Other Windows'],
                \}
 
 " Quit

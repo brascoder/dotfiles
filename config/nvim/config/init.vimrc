@@ -36,13 +36,13 @@ Plug 'tomtom/tlib_vim'
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 Plug 'mattn/emmet-vim'
-" Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-user'
 
 "----- Languages/Frameworks
 Plug 'sheerun/vim-polyglot'   " Load language support when needed
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-bundler'
-" Plug 'nelstrom/vim-textobj-rubyblock'
+Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'c-brenn/phoenix.vim'
 Plug 'slashmili/alchemist.vim'
 Plug 'elixir-lang/vim-elixir'
