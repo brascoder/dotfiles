@@ -63,7 +63,8 @@ let g:lmap.g = { 'name' : '+Git',
 command! GoToDef call feedkeys('<c-]>', 't')
 let g:lmap.p = { 'name' : '+Project',
                \ 'a' : ['A', 'Alternate File'],
-               \ 'c' : ['! ctags', 'Generate Ctags'],
+               \ 'c' : ['TagbarToggle', 'Show Ctags'],
+               \ 'C' : ['! ctags', 'Generate Ctags'],
                \ 'g' : ['GoToDef', 'Go To Definition'],
                \ 't' : ['NERDTreeToggle', 'Toggle File Tree'],
                \}
@@ -84,15 +85,19 @@ command! TermClose call feedkeys(':Tclose', 't')
 command! TermKill call feedkeys(':Tkill', 't')
 command! TermClear call feedkeys(':Tclear', 't')
 command! TermOpen call feedkeys(':Topen', 't')
+command! TermFocus Topen | wincmd b | call feedkeys('i', 't')
+command! TermKillWindow Topen | wincmd b | close
 let g:lmap.t = { 'name' : '+Terminal',
                \ 'c' : ['TermClose', 'Close Terminal(n)'],
                \ 'h' : ['Ttoggle', 'Toggle Terminal'],
+               \ 'i' : ['TermFocus', 'Terminal Focus'],
                \ 'k' : ['TermKill', 'Kill Process'],
                \ 'l' : ['TermClear', 'Clear Terminal'],
                \ 'n' : ['Tnew', 'New Terminal'],
                \ 'o' : ['TermOpen', 'Open Terminal'],
                \ 's' : ['ShellSend', 'Shell Send'],
                \ 't' : ['TermSend', 'Terminal Send'],
+               \ 'w' : ['TermKillWindow', 'Kill Process Window'],
                \}
 
 " Window
