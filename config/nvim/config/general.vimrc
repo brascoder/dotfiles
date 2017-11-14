@@ -38,4 +38,5 @@ set splitbelow
 set splitright
 set cursorline
 set cursorcolumn
+set termguicolors
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
