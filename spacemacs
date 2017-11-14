@@ -74,6 +74,7 @@ values."
      git
      org
      (shell :variables
+            shell-default-shell ansi-term
             shell-default-height 30
             shell-default-position 'bottom)
      (spell-checking :variables
@@ -355,6 +356,7 @@ you should place your code here."
   (setq powerline-default-separator 'slant)
   (define-key evil-insert-state-map (kbd "C-k") (kbd "C-o O"))
   (define-key evil-insert-state-map (kbd "C-l") 'sp-up-sexp)
+  (setq projectile-globally-ignored-directories '(".git" "node_modules" "assets/node_modules" "_build"))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
