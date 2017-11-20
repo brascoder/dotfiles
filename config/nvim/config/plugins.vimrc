@@ -29,7 +29,7 @@ let g:airline_powerline_fonts = 1
 
 "----- Tagbar
 let g:tagbar_type_ruby = {
-  \ 'kinds' : [
+    \ 'kinds' : [
         \ 'm:modules',
         \ 'c:classes',
         \ 'd:describes',
@@ -37,5 +37,22 @@ let g:tagbar_type_ruby = {
         \ 'f:methods',
         \ 'F:singleton methods',
         \ 'i:tests'
-  \ ]
+    \ ]
+\ }
+let g:tagbar_type_elixir = {
+    \ 'ctagstype' : 'elixir',
+    \ 'kinds' : [
+        \ 'f:functions',
+        \ 'functions:functions',
+        \ 'c:callbacks',
+        \ 'd:delegates',
+        \ 'e:exceptions',
+        \ 'i:implementations',
+        \ 'a:macros',
+        \ 'o:operators',
+        \ 'm:modules',
+        \ 'p:protocols',
+        \ 'r:records',
+        \ 't:tests'
+    \ ]
 \ }
