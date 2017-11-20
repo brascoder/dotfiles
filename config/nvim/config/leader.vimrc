@@ -15,7 +15,7 @@ let g:lmap.a = { 'name' : '+Application',
 
 " Buffer
 let g:lmap.b = { 'name' : '+Buffer',
-               \ 'b' : ['CtrlPBuffer', 'Switch Buffers'],
+               \ 'b' : ['CtrlPBuffer', 'Find Buffer'],
                \ 'd' : ['bd', 'Delete Buffer'],
                \ 'l' : ['ls', 'List Buffers'],
                \ 'n' : ['bn', 'Next Buffer'],
@@ -66,9 +66,10 @@ let g:lmap.g = { 'name' : '+Git',
 command! GoToDef call feedkeys('<c-]>', 't')
 let g:lmap.p = { 'name' : '+Project',
                \ 'a' : ['A', 'Alternate File'],
-               \ 'c' : ['TagbarToggle', 'Show Ctags'],
-               \ 'C' : ['! ctags', 'Generate Ctags'],
+               \ 'b' : ['TagbarToggle', 'Toggle Tagbar'],
+               \ 'c' : ['CtrlPBufTag', 'Find Tag'],
                \ 'g' : ['GoToDef', 'Go To Definition'],
+               \ 'G' : ['! ctags', 'Generate Tags'],
                \ 't' : ['NERDTreeToggle', 'Toggle File Tree'],
                \}
 
@@ -104,12 +105,12 @@ let g:lmap.t = { 'name' : '+Terminal',
                \}
 
 " Text
-command! JoinLine call feedkeys('J', 't') 
-command! SplitNewline call feedkeys('i<cr><esc>', 't') 
-command! NSubstitute call feedkeys('V:s/', 't') 
-command! VSubstitute call feedkeys(':s/', 't') 
-command! NYankToClip call feedkeys('V"*y', 't') 
-command! VYankToClip call feedkeys('"*y', 't') 
+command! JoinLine call feedkeys('J', 't')
+command! SplitNewline call feedkeys('i<cr><esc>', 't')
+command! NSubstitute call feedkeys('V:s/', 't')
+command! VSubstitute call feedkeys(':s/', 't')
+command! NYankToClip call feedkeys('V"*y', 't')
+command! VYankToClip call feedkeys('"*y', 't')
 let g:lmap.x = { 'name' : '+Text',
                \ 'j' : ['JoinLine', 'Join Lines'],
                \ 'n' : ['SplitNewline', 'Split Newline'],
