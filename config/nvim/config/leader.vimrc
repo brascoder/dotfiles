@@ -32,11 +32,19 @@ let g:lmap.e = { 'name' : '+Environment',
                \ 'h' : ['set hlsearch!', 'Toggle Search Highlight'],
                \ 'i' : ['IndentLinesToggle', 'Toggle Indent Lines'],
                \ 'l' : ['set list!', 'Toggle List Chars'],
-               \ 'P' : ['PlugInstall', 'Install Plugins'],
                \ 'r' : ['registers', 'Show Registers'],
                \ 'R' : ['Resource', 'Reload Config'],
                \ 't' : ['ResetNerdTree', 'Reset File Tree'],
                \}
+
+" Plugins
+let g:lmap.e.P = { 'name' : '+Plugins',
+                 \ 'c' : ['PlugClean', 'Clean Plugins'],
+                 \ 'p' : ['PlugInstall', 'Install Plugins'],
+                 \ 's' : ['PlugStatus', 'Plugin Status'],
+                 \ 'u' : ['PlugUpdate', 'Update Plugins'],
+                 \ 'U' : ['PlugUpgrade', 'Upgrade vim-plug'],
+                 \}
 
 " File
 let g:lmap.f = { 'name' : '+File',
@@ -124,17 +132,17 @@ let g:lmap.x = { 'name' : '+Text',
 command! AlignColon call feedkeys(':Tab /:\zs<cr>', 't')
 command! Align call feedkeys(':Tab /', 't')
 let g:lmap.x.a = { 'name' : '+Text',
-               \ ':' : ['AlignColon', 'Align :'],
-               \ 'a' : ['Align', 'Align'],
-               \}
+                 \ ':' : ['AlignColon', 'Align :'],
+                 \ 'a' : ['Align', 'Align'],
+                 \}
 
 " Text/Insert
 command! InsertAbove call feedkeys('o<esc>k', 't')
 command! InsertBelow call feedkeys('O<esc>j', 't')
 let g:lmap.x.i = { 'name' : '+Insert',
-               \ 'j' : ['InsertAbove', 'Insert Line Above'],
-               \ 'k' : ['InsertBelow', 'Insert Line Below'],
-               \}
+                 \ 'j' : ['InsertAbove', 'Insert Line Above'],
+                 \ 'k' : ['InsertBelow', 'Insert Line Below'],
+                 \}
 
 " Window
 let g:lmap.w = { 'name' : '+Window',
