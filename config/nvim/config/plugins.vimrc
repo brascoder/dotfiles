@@ -1,3 +1,10 @@
+"----- Airline Theme
+let g:airline_theme = 'badwolf'
+
+"----- CrtlP
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_custom_ignore = '\v[\/](\.git|tmp|node_modules|_build)$'
+
 "----- Deoplete
 let g:deoplete#enable_at_startup = 1
 
@@ -14,15 +21,21 @@ let g:neomake_elixir_enabled_makers = ['mix', 'credo']
 let g:neoterm_autoscroll = 1
 let test#strategy = "neoterm"
 
-"----- Airline Theme
-let g:airline_theme = 'badwolf'
+"----- NERDTree
+let NERDTreeShowHidden=1
 
 "----- Powerline Fonts
 let g:airline_powerline_fonts = 1
 
-"----- NERDTree
-let NERDTreeShowHidden=1
-
-"----- CrtlP
-let g:ctrlp_show_hidden = 1
-let g:ctrlp_custom_ignore = '\v[\/](\.git|tmp|node_modules|_build)$'
+"----- Tagbar
+let g:tagbar_type_ruby = {
+  \ 'kinds' : [
+        \ 'm:modules',
+        \ 'c:classes',
+        \ 'd:describes',
+        \ 'C:constants',
+        \ 'f:methods',
+        \ 'F:singleton methods',
+        \ 'i:tests'
+  \ ]
+\ }
