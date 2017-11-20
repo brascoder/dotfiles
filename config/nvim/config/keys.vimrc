@@ -5,12 +5,9 @@ inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 imap <c-space> <plug>snipMateNextOrTrigger
 
 " Window
-nnoremap – :wincmd _<cr>:wincmd \|<cr>
-nnoremap ≠ :wincmd =<cr>
 nnoremap ≥ <c-w>>
 nnoremap ≤ <c-w><
 nnoremap ˘ <c-w>+
-nnoremap ¯ <c-w>-
 nnoremap ¯ <c-w>-
 
 " Enable Ctrl-h

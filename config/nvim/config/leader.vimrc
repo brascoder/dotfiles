@@ -37,7 +37,7 @@ let g:lmap.e = { 'name' : '+Environment',
                \ 't' : ['ResetNerdTree', 'Reset File Tree'],
                \}
 
-" Plugins
+" Environment/Plugins
 let g:lmap.e.P = { 'name' : '+Plugins',
                  \ 'c' : ['PlugClean', 'Clean Plugins'],
                  \ 'p' : ['PlugInstall', 'Install Plugins'],
@@ -145,16 +145,29 @@ let g:lmap.x.i = { 'name' : '+Insert',
                  \}
 
 " Window
+command! MaximizeWindow wincmd _ | wincmd |
 let g:lmap.w = { 'name' : '+Window',
                \ 'd' : ['close', 'Close Window'],
-               \ 's' : ['split', 'Horizontal Split'],
-               \ 'v' : ['vsplit', 'Vertical Split'],
                \ 'h' : ['wincmd H', 'Move Window Left'],
                \ 'j' : ['wincmd J', 'Move Window Down'],
                \ 'k' : ['wincmd K', 'Move Window Up'],
                \ 'l' : ['wincmd L', 'Move Window Right'],
+               \ 'm' : ['MaximizeWindow', 'Maximize Window'],
                \ 'o' : ['only', 'Close Other Windows'],
+               \ 'r' : ['wincmd =', 'Reset Windows'],
+               \ 's' : ['split', 'Horizontal Split'],
+               \ 'v' : ['vsplit', 'Vertical Split'],
                \}
+
+" Window/Tab
+let g:lmap.w.t = { 'name' : '+Tab',
+                 \ 'c' : ['tabclose', 'Close Tab'],
+                 \ 'l' : ['tabs', 'List Tabs'],
+                 \ 'n' : ['tabnext', 'Next Tab'],
+                 \ 'o' : ['tabother', 'Close Other Tabs'],
+                 \ 'p' : ['tabprevious', 'Previous Tab'],
+                 \ 't' : ['tab sp', 'Open in Tab'],
+                 \}
 
 " Quit
 let g:lmap.q = { 'name' : '+Quit',
