@@ -5,6 +5,7 @@
 --exclude=db/*
 --exclude=vendor/*
 --exclude=node_modules/*
+--exclude=*/node_modules/*
 
 --regex-ruby=/^[ \t]*describe ['"](.*)['"] do/\1/d,rspec describe/
 --regex-ruby=/^[ \t]*context ['"](.*)['"] do/\1/C,rspec context/
