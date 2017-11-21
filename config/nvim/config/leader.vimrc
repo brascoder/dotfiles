@@ -82,13 +82,13 @@ let g:lmap.p = { 'name' : '+Project',
                \}
 
 " Test
-let g:lmap.T = { 'name' : '+Test',
-               \ 't' : ['TestNearest', 'Test Nearest'],
-               \ 'T' : ['TestFile', 'Test File'],
-               \ 'a' : ['TestSuite', 'Test Suite'],
-               \ 'l' : ['TestLast', 'Test Last'],
-               \ 'g' : ['TestVisit', 'Go To Test'],
-               \}
+let g:lmap["'"] = { 'name' : '+Test',
+                  \ 't' : ['TestNearest', 'Test Nearest'],
+                  \ 'f' : ['TestFile', 'Test File'],
+                  \ 'a' : ['TestSuite', 'Test Suite'],
+                  \ "'" : ['TestLast', 'Test Last'],
+                  \ 'g' : ['TestVisit', 'Go To Test'],
+                  \}
 
 " Terminal
 command! ShellSend call feedkeys(':!<space>', 't')
