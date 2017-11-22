@@ -3,7 +3,7 @@ call plug#begin('~/.config/nvim/plugged')
 "----- Config
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-projectionist'
-Plug 'rking/ag.vim'             " Silver Searcher
+" Plug 'rking/ag.vim'             " Silver Searcher
 Plug 'tpope/vim-fugitive'       " Git integration
 Plug 'rizzatti/dash.vim'        " Dash integration
 Plug 'neomake/neomake'

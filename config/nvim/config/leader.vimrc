@@ -5,8 +5,7 @@ vnoremap <silent> <leader> :<c-u>LeaderGuideVisual '<space>'<cr>
 let g:lmap = {}
 
 " Top Level
-command! SilverSearch call feedkeys(':Ag! ', 't')
-let g:lmap['/'] = ['SilverSearch', 'Silver Search']
+let g:lmap['/'] = ['Ag', 'Ag Search']
 
 " Application
 let g:lmap.a = { 'name' : '+Application',
@@ -15,7 +14,7 @@ let g:lmap.a = { 'name' : '+Application',
 
 " Buffer
 let g:lmap.b = { 'name' : '+Buffer',
-               \ 'b' : ['CtrlPBuffer', 'Find Buffer'],
+               \ 'b' : ['Buffers', 'Show Buffer'],
                \ 'd' : ['bd', 'Delete Buffer'],
                \ 'l' : ['ls', 'List Buffers'],
                \ 'n' : ['bn', 'Next Buffer'],
@@ -48,7 +47,7 @@ let g:lmap.e.P = { 'name' : '+Plugins',
 
 " File
 let g:lmap.f = { 'name' : '+File',
-               \ 'f' : ['CtrlP', 'Find File'],
+               \ 'f' : ['FZF', 'Find File'],
                \ 's' : ['w', 'Save'],
                \ 'S' : ['wa', 'Save All'],
                \ 't' : ['NERDTreeFind', 'Open File Tree'],
@@ -75,7 +74,8 @@ command! GoToDef call feedkeys('<c-]>', 't')
 let g:lmap.p = { 'name' : '+Project',
                \ 'a' : ['A', 'Alternate File'],
                \ 'b' : ['TagbarToggle', 'Toggle Tagbar'],
-               \ 'c' : ['CtrlPBufTag', 'Find Tag'],
+               \ 'c' : ['BTags', 'Find Tag in File'],
+               \ 'C' : ['Tags', 'Find Tag in Project'],
                \ 'g' : ['GoToDef', 'Go To Definition'],
                \ 'G' : ['! ctags', 'Generate Tags'],
                \ 't' : ['NERDTreeToggle', 'Toggle File Tree'],
@@ -157,6 +157,7 @@ let g:lmap.w = { 'name' : '+Window',
                \ 'r' : ['wincmd =', 'Reset Windows'],
                \ 's' : ['split', 'Horizontal Split'],
                \ 'v' : ['vsplit', 'Vertical Split'],
+               \ 'w' : ['Windows', 'Show Windows'],
                \}
 
 " Window/Tab
