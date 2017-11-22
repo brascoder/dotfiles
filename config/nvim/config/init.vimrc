@@ -9,6 +9,8 @@ Plug 'rizzatti/dash.vim'        " Dash integration
 Plug 'neomake/neomake'
 Plug 'kassio/neoterm'
 Plug 'janko-m/vim-test'         " Test runner
+Plug '/usr/local/opt/fzf'       " FZF utility
+Plug 'junegunn/fzf.vim'         " FZF plugin
 
 "----- UI
 Plug 'vim-airline/vim-airline'        " Airline statusbar

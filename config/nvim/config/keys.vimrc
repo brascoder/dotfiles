@@ -1,3 +1,6 @@
+" FZF
+au FileType fzf tnoremap <buffer> <esc> <c-c>
+
 " Tab completion
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
