@@ -4,9 +4,6 @@ au FileType fzf tnoremap <buffer> <esc> <c-c>
 " Tab completion
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
-" SnipMate
-imap <c-space> <plug>snipMateNextOrTrigger
-
 " Window
 nnoremap ≥ <c-w>>
 nnoremap ≤ <c-w><

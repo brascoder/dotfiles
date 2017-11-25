@@ -2,8 +2,6 @@ call plug#begin('~/.config/nvim/plugged')
 
 "----- Config
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'tpope/vim-projectionist'
-" Plug 'rking/ag.vim'             " Silver Searcher
 Plug 'tpope/vim-fugitive'       " Git integration
 Plug 'rizzatti/dash.vim'        " Dash integration
 Plug 'neomake/neomake'
@@ -33,9 +31,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'godlygeek/tabular'
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
-Plug 'garbas/vim-snipmate'
+Plug 'sirver/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'mattn/emmet-vim'
 Plug 'kana/vim-textobj-user'
@@ -48,5 +44,7 @@ Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'c-brenn/phoenix.vim'
 Plug 'slashmili/alchemist.vim'
 Plug 'elixir-lang/vim-elixir'
+Plug 'mmorearty/elixir-ctags'
+Plug 'tpope/vim-projectionist'
 
 call plug#end()

@@ -8,6 +8,9 @@ let g:ctrlp_custom_ignore = '\v[\/](\.git|tmp|node_modules|_build)$'
 "----- Deoplete
 let g:deoplete#enable_at_startup = 1
 
+"----- FZF
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+
 "----- Neomake
 " Run Neomake on save
 augroup localneomake
@@ -56,3 +59,6 @@ let g:tagbar_type_elixir = {
         \ 't:tests'
     \ ]
 \ }
+
+"----- Ultisnips
+let g:UltiSnipsExpandTrigger="<c-space>"
