@@ -56,9 +56,15 @@ let g:lmap.f = { 'name' : '+File',
 
 " Git
 command! GitAdd call fzf#run({
-               \ 'source' : 'git ls-files -dmo',
-               \ 'sink' : '! git add',
+               \ 'source' : 'git ls-files -dmo --exclude-standard',
+               \ 'sink' : 'silent ! git add',
                \ 'options' : '-m',
+               \ 'down' : '40%',
+               \})
+command! GitCO call fzf#run({
+               \ 'source' : 'git branch -vv',
+               \ 'sink' : 'echo ',
+               \ 'options' : '+m',
                \ 'down' : '40%',
                \})
 command! GitRun call feedkeys(':Git<space>', 't')
@@ -70,6 +76,7 @@ let g:lmap.g = { 'name' : '+Git',
                \ 'f' : ['Gfetch', 'Git Fetch'],
                \ 'F' : ['Gpull', 'Git Pull'],
                \ 'g' : ['GitRun', 'Run Git Command'],
+               \ 'o' : ['GitCO', 'Checkout'],
                \ 'P' : ['Gpush', 'Git Push'],
                \ 'r' : ['Gread', 'Git Reset File'],
                \ 's' : ['Gstatus', 'Git Status'],

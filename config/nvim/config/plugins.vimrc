@@ -11,6 +11,9 @@ let g:deoplete#enable_at_startup = 1
 "----- FZF
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
+"----- IndentLine
+let g:indentLine_color_gui = '#4c4c4b'
+
 "----- Neomake
 " Run Neomake on save
 augroup localneomake
