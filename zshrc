@@ -25,11 +25,11 @@ ZSH_THEME="agnoster"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-DISABLE_AUTO_TITLE="true"
-function precmd () {
-  TITLE="\e]0;${PWD##*/}\007"
-  echo -ne ${TITLE}
-}
+# DISABLE_AUTO_TITLE="true"
+# function precmd () {
+#   TITLE="\e]0;${PWD##*/}\007"
+#   echo -ne ${TITLE}
+# }
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
