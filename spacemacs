@@ -74,7 +74,8 @@ values."
      git
      org
      (shell :variables
-            shell-default-shell ansi-term
+            shell-default-shell 'ansi-term
+            shell-default-term-shell "/usr/local/bin/zsh"
             shell-default-height 30
             shell-default-position 'bottom)
      (spell-checking :variables
