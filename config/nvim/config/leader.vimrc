@@ -55,9 +55,15 @@ let g:lmap.f = { 'name' : '+File',
                \}
 
 " Git
+command! GitAdd call fzf#run({
+               \ 'source' : 'git ls-files -dmo',
+               \ 'sink' : '! git add',
+               \ 'options' : '-m',
+               \ 'down' : '40%',
+               \})
 command! GitRun call feedkeys(':Git<space>', 't')
 let g:lmap.g = { 'name' : '+Git',
-               \ 'a' : ['Gwrite', 'Git Add File'],
+               \ 'a' : ['GitAdd', 'Git Add File(s)'],
                \ 'b' : ['Gblame', 'Git Blame'],
                \ 'c' : ['Gcommit', 'Git Commit'],
                \ 'd' : ['Gdiff', 'Git Diff'],
