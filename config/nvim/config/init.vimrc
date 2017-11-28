@@ -44,7 +44,6 @@ Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'c-brenn/phoenix.vim'
 Plug 'slashmili/alchemist.vim'
 Plug 'elixir-lang/vim-elixir'
-Plug 'mmorearty/elixir-ctags'
 Plug 'tpope/vim-projectionist'
 
 call plug#end()
