@@ -88,5 +88,9 @@ fgco() {
   git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
 }
 
+frbi() {
+  rbenv install $(rbenv install --list | FZF)
+}
+
 ### AWS CLI Command Completion
 # source /usr/local/bin/aws_zsh_completer.sh
