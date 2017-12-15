@@ -129,8 +129,8 @@ command! VYankToClip call feedkeys('"*y', 't')
 let g:lmap.x = { 'name' : '+Text',
                \ 'j' : ['JoinLine', 'Join Lines'],
                \ 'n' : ['SplitNewline', 'Split Newline'],
-               \ 's' : ['NSubstitute', 'Normal Substitute'],
-               \ 'S' : ['VSubstitute', 'Visual Substitute'],
+               \ 's' : ['VSubstitute', 'Visual Substitute'],
+               \ 'S' : ['NSubstitute', 'Normal Substitute'],
                \ 'y' : ['NYankToClip', 'Normal Yank to Clipboard'],
                \ 'Y' : ['VYankToClip', 'Visual Yank to Clipboard'],
                \}
