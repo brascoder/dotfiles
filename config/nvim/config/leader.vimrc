@@ -138,8 +138,16 @@ let g:lmap.x = { 'name' : '+Text',
 " Text/Align
 command! AlignColon call feedkeys(':Tab /:\zs<cr>', 't')
 command! Align call feedkeys(':Tab /', 't')
-let g:lmap.x.a = { 'name' : '+Text',
+let g:lmap.x.a = { 'name' : '+Align',
                  \ ':' : ['AlignColon', 'Align :'],
+                 \ 'a' : ['Align', 'Align'],
+                 \}
+
+" Text/Copy-Paste
+command! CopyToSystem call feedkeys('"*y', 't')
+command! PasteFromSystem call feedkeys('"+p', 't')
+let g:lmap.x.c = { 'name' : '+Copy/Paste',
+                 \ 'c' : ['CopyToSystem', 'Copy to system clipboard'],
                  \ 'a' : ['Align', 'Align'],
                  \}
 
