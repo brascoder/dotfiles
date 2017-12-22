@@ -147,8 +147,8 @@ let g:lmap.x.a = { 'name' : '+Align',
 command! CopyToSystem call feedkeys('"*y', 't')
 command! PasteFromSystem call feedkeys('"+p', 't')
 let g:lmap.x.c = { 'name' : '+Copy/Paste',
-                 \ 'c' : ['CopyToSystem', 'Copy to system clipboard'],
-                 \ 'a' : ['Align', 'Align'],
+                 \ 'c' : ['CopyToSystem', 'Copy to System Clipboard'],
+                 \ 'p' : ['PasteFromSystem', 'Paste from System Clipboard'],
                  \}
 
 " Text/Insert
