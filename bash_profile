@@ -49,7 +49,7 @@ alias dcr='docker-compose run --rm'
 alias drm='docker rm'
 alias dps='docker ps'
 alias dpa='docker ps -a'
-alias dka='docker kill $(docker ps -a -q)'
+alias dsa='docker stop $(docker ps -a -q)'
 alias dra='docker rm $(docker ps -a -q)'
 alias dcdeploy="docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d"
 
