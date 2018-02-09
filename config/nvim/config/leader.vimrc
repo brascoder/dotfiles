@@ -122,17 +122,17 @@ let g:lmap.t = { 'name' : '+Terminal',
 " Text
 command! JoinLine call feedkeys('J', 't')
 command! SplitNewline call feedkeys('i<cr><esc>', 't')
-command! LSubstitute call feedkeys('V:s/', 't')
 command! NSubstitute call feedkeys(':s/', 't')
-command! NYankToClip call feedkeys('V"*y', 't')
-command! VYankToClip call feedkeys('"*y', 't')
+command! LSubstitute call feedkeys('V:s/', 't')
+command! NYankToClip call feedkeys('"*y', 't')
+command! LYankToClip call feedkeys('V"*y', 't')
 let g:lmap.x = { 'name' : '+Text',
                \ 'j' : ['JoinLine', 'Join Lines'],
                \ 'n' : ['SplitNewline', 'Split Newline'],
-               \ 's' : ['LSubstitute', 'Line Substitute'],
-               \ 'S' : ['NSubstitute', 'Substitute'],
-               \ 'y' : ['NYankToClip', 'Normal Yank to Clipboard'],
-               \ 'Y' : ['VYankToClip', 'Visual Yank to Clipboard'],
+               \ 's' : ['NSubstitute', 'Substitute'],
+               \ 'S' : ['LSubstitute', 'Line Substitute'],
+               \ 'y' : ['NYankToClip', 'Yank to Clipboard'],
+               \ 'Y' : ['LYankToClip', 'Line Yank to Clipboard'],
                \}
 
 " Text/Align
