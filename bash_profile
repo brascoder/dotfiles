@@ -4,8 +4,7 @@ if [ -f $HOME/.private ]; then
 fi
 
 # General
-export ALTERNATE_EDITOR=""
-export EDITOR="vi"
+export ALTERNATE_EDITOR="vi"
 alias ls='ls -GFh'
 alias resource='source $HOME/.bash_profile'
 alias cdot='cd ~/.dotfiles'
@@ -14,6 +13,7 @@ alias sshfix='ssh-add -A'
 # Vim
 if [ -f /usr/local/bin/nvim ]; then
   alias vim='/usr/local/bin/nvim'
+  export EDITOR=nvim
   export VISUAL=nvim
   # if [ -f /usr/local/bin/nvr ]; then
   #   export VISUAL="nvr -cc split --remote-wait +'set bufhidden=wipe'"
@@ -22,6 +22,7 @@ if [ -f /usr/local/bin/nvim ]; then
   # fi
 elif [ -f /usr/local/bin/vim ]; then
   alias vim='/usr/local/bin/vim'
+  export EDITOR=nvim
   export VISUAL=vim
 fi
 
