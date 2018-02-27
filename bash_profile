@@ -14,11 +14,12 @@ alias sshfix='ssh-add -A'
 # Vim
 if [ -f /usr/local/bin/nvim ]; then
   alias vim='/usr/local/bin/nvim'
-  if [ -f /usr/local/bin/nvr ]; then
-    export VISUAL="nvr -cc split --remote-wait +'set bufhidden=wipe'"
-  else
-    export VISUAL=nvim
-  fi
+  export VISUAL=nvim
+  # if [ -f /usr/local/bin/nvr ]; then
+  #   export VISUAL="nvr -cc split --remote-wait +'set bufhidden=wipe'"
+  # else
+  #   export VISUAL=nvim
+  # fi
 elif [ -f /usr/local/bin/vim ]; then
   alias vim='/usr/local/bin/vim'
   export VISUAL=vim
