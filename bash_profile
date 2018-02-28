@@ -30,10 +30,6 @@ fi
 alias emd="emacs --daemon"
 alias emc="emacsclient -c"
 
-# Tmux
-alias tmls='tmux list-sessions'
-alias tmks='tmux kill-session -t'
-
 # Ruby
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
