@@ -6,6 +6,7 @@ Plug 'tpope/vim-fugitive'       " Git integration
 Plug 'rhysd/devdocs.vim'        " DevDocs integration
 Plug 'neomake/neomake'
 Plug 'kassio/neoterm'
+Plug 'tpope/vim-repeat'         " Extra repeat support
 Plug 'janko-m/vim-test'         " Test runner
 Plug '/usr/local/opt/fzf'       " FZF utility
 Plug 'junegunn/fzf.vim'         " FZF plugin
