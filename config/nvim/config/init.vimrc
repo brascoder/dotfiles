@@ -3,7 +3,7 @@ call plug#begin('~/.config/nvim/plugged')
 "----- Config
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-fugitive'       " Git integration
-Plug 'rizzatti/dash.vim'        " Dash integration
+Plug 'rhysd/devdocs.vim'        " DevDocs integration
 Plug 'neomake/neomake'
 Plug 'kassio/neoterm'
 Plug 'janko-m/vim-test'         " Test runner

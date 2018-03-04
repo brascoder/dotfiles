@@ -9,7 +9,7 @@ let g:lmap['/'] = ['Ag', 'Ag Search']
 
 " Application
 let g:lmap.a = { 'name' : '+Application',
-               \ 'd' : ['Dash', 'Dash'],
+               \ 'd' : ['DevDocsUnderCursor', 'DevDocs'],
                \}
 
 " Buffer
