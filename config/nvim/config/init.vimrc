@@ -15,6 +15,7 @@ Plug 'junegunn/fzf.vim'         " FZF plugin
 Plug 'vim-airline/vim-airline'        " Airline statusbar
 Plug 'vim-airline/vim-airline-themes' " UI themes for Airline
 Plug 'powerline/fonts'                " UI Symbols for Airline
+Plug 'airblade/vim-gitgutter'         " Git status in the gutter
 Plug 'lifepillar/vim-solarized8'      " Text color scheme
 Plug 'Yggdroot/indentLine'            " Indent guide
 Plug 'hecal3/vim-leader-guide'

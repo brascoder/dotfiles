@@ -76,6 +76,15 @@ let g:lmap.g = { 'name' : '+Git',
                \ 'S' : ['Gstatus', 'Git Status'],
                \}
 
+" Git Hunk
+let g:lmap.h = { 'name' : '+Git Hunk',
+               \ 'j' : ['GitGutterNextHunk', 'Next Hunk'],
+               \ 'k' : ['GitGutterPrevHunk', 'Previous Hunk'],
+               \ 'p' : ['GitGutterPreviewHunk', 'Preview Hunk'],
+               \ 's' : ['GitGutterStageHunk', 'Stage Hunk'],
+               \ 'u' : ['GitGutterUndoHunk', 'Undo Hunk'],
+               \}
+
 " Project
 command! GoToDef call feedkeys('<c-]>', 't')
 let g:lmap.p = { 'name' : '+Project',
