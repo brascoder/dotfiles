@@ -10,6 +10,7 @@ Plug 'tpope/vim-repeat'         " Extra repeat support
 Plug 'janko-m/vim-test'         " Test runner
 Plug '/usr/local/opt/fzf'       " FZF utility
 Plug 'junegunn/fzf.vim'         " FZF plugin
+Plug 'vim-scripts/bufonly.vim'      " Kill all other buffers
 
 "----- UI
 Plug 'vim-airline/vim-airline'        " Airline statusbar
