@@ -148,10 +148,12 @@ let g:lmap.x = { 'name' : '+Text',
 " Text/Align
 command! AlignColon call feedkeys(':Tab /:\zs<cr>', 't')
 command! AlignEqual call feedkeys(':Tab /=/<cr>', 't')
+command! AlignComma call feedkeys(':Tab /,\zs<cr>', 't')
 command! Align call feedkeys(':Tab /', 't')
 let g:lmap.x.a = { 'name' : '+Align',
                  \ ':' : ['AlignColon', 'Align (:)'],
                  \ '=' : ['AlignEqual', 'Align (=)'],
+                 \ ',' : ['AlignComma', 'Align (,)'],
                  \ 'a' : ['Align', 'Align...'],
                  \}
 
