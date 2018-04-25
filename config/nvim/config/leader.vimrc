@@ -49,6 +49,7 @@ let g:lmap.e.P = { 'name' : '+Plugins',
 " File
 let g:lmap.f = { 'name' : '+File',
                \ 'f' : ['FZF', 'Find File'],
+               \ 'g' : ['e#', 'Go To Previous'],
                \ 's' : ['w', 'Save'],
                \ 'S' : ['wa', 'Save All'],
                \ 't' : ['NERDTreeFind', 'Open File Tree'],
