@@ -28,7 +28,13 @@ Style/DocumentationMethod:
 Style/EmptyMethod:
   Enabled: false
 
-Style/TrailingCommaInLiteral:
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: never
+
+Style/TrailingCommaInArrayLiteral:
+  Enabled: false
+
+Style/TrailingCommaInHashLiteral:
   Enabled: false
 
 Style/RescueModifier:
