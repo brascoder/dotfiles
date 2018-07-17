@@ -67,6 +67,9 @@ export PATH="$HOME/.node/bin:$PATH"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
+# Python
+export PATH="/Users/cooke/Library/Python/3.6/bin:$PATH"
+
 # Functions
 weather () {
   curl http://wttr.in/${1:-33763}
