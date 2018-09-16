@@ -48,5 +48,6 @@ Plug 'c-brenn/phoenix.vim'
 Plug 'slashmili/alchemist.vim'
 Plug 'elixir-lang/vim-elixir'
 Plug 'tpope/vim-projectionist'
+Plug 'mmorearty/elixir-ctags'
 
 call plug#end()
