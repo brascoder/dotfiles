@@ -21,7 +21,7 @@ augroup localneomake
 augroup END
 " No smartquotes in markdown
 let g:neomake_markdown_enabled_makers = []
-let g:neomake_elixir_enabled_makers = ['mix', 'credo']
+let g:neomake_elixir_enabled_makers = []
 
 "----- Neoterm
 let g:neoterm_autoscroll = 1
