@@ -18,10 +18,34 @@ let g:indentLine_color_gui = '#4c4c4b'
 " Run Neomake on save
 augroup localneomake
   autocmd! BufWritePost * Neomake
+  autocmd! BufRead * Neomake
 augroup END
 " No smartquotes in markdown
 let g:neomake_markdown_enabled_makers = []
-let g:neomake_elixir_enabled_makers = []
+let g:neomake_ruby_enabled_makers = ['mri', 'rubocop']
+let g:neomake_elixir_enabled_makers = ['mix', 'mycredo']
+function! NeomakeCredoErrorType(entry)
+  if a:entry.type ==# 'F'      " Refactoring opportunities
+    let l:type = 'W'
+  elseif a:entry.type ==# 'D'  " Software design suggestions
+    let l:type = 'I'
+  elseif a:entry.type ==# 'W'  " Warnings
+    let l:type = 'W'
+  elseif a:entry.type ==# 'R'  " Readability suggestions
+    let l:type = 'I'
+  elseif a:entry.type ==# 'C'  " Convention violation
+    let l:type = 'W'
+  else
+    let l:type = 'M'           " Everything else is a message
+  endif
+  let a:entry.type = l:type
+endfunction
+let g:neomake_elixir_mycredo_maker = {
+    \ 'exe': 'mix',
+    \ 'args': ['credo', 'list', '%:p', '--format=oneline'],
+    \ 'errorformat': '[%t] %. %f:%l:%c %m,[%t] %. %f:%l %m',
+    \ 'postprocess': function('NeomakeCredoErrorType')
+\ }
 
 "----- Neoterm
 let g:neoterm_autoscroll = 1
