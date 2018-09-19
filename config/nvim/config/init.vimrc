@@ -46,7 +46,7 @@ Plug 'tpope/vim-bundler'
 Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'c-brenn/phoenix.vim'
 Plug 'slashmili/alchemist.vim'
-Plug 'elixir-lang/vim-elixir'
+Plug 'elixir-editors/vim-elixir'
 Plug 'tpope/vim-projectionist'
 Plug 'mmorearty/elixir-ctags'
 
