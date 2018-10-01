@@ -18,7 +18,7 @@ let g:lmap.b = { 'name' : '+Buffer',
                \ 'd' : ['bd', 'Delete Buffer'],
                \ 'l' : ['ls', 'List Buffers'],
                \ 'n' : ['bn', 'Next Buffer'],
-               \ 'o' : ['BufOnly', 'Delete Other Buffers'],
+               \ 'o' : ['BufOnly!', 'Delete Other Buffers'],
                \ 'p' : ['bp', 'Previous Buffer'],
                \}
 
