@@ -8,6 +8,7 @@ export ALTERNATE_EDITOR="vi"
 alias ls='ls -GFh'
 alias resource='source $HOME/.bash_profile'
 alias cdot='cd ~/.dotfiles'
+alias cdcode='cd ~/code'
 alias sshfix='ssh-add -A'
 
 # Vim
