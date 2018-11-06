@@ -135,7 +135,7 @@ command! JoinLine call feedkeys('J', 't')
 command! SplitNewline call feedkeys('i<cr><esc>', 't')
 command! NSubstitute call feedkeys(':s/', 't')
 command! LSubstitute call feedkeys('V:s/', 't')
-command! NYankToClip call feedkeys('"*y', 't')
+command! NYankToClip call feedkeys('"*y<esc>', 't')
 command! LYankToClip call feedkeys('V"*y', 't')
 let g:lmap.x = { 'name' : '+Text',
                \ 'j' : ['JoinLine', 'Join Lines'],
