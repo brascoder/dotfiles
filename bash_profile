@@ -40,6 +40,9 @@ alias iexm='iex -S mix'
 alias mps='mix phx.server'
 alias mpr='mix phx.routes'
 
+#Postgresql
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
+
 # Docker
 alias dm='docker-machine'
 alias dmcrt='docker-machine create --driver virtualbox default'
