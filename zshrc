@@ -61,8 +61,8 @@ plugins=(git brew bundler docker gem rails tmux)
 export PATH="$HOME/.bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
-source $HOME/.bash_profile
 source $ZSH/oh-my-zsh.sh
+source $HOME/.bash_profile
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -88,9 +88,5 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -31,9 +31,9 @@ fi
 alias emd="emacs --daemon"
 alias emc="emacsclient -c"
 
-# Ruby
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+# ASDF
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
 
 # Elixir/Phoenix
 alias iexm='iex -S mix'
@@ -66,11 +66,6 @@ dmcdo () {
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-#Node
-export PATH="$HOME/.node/bin:$PATH"
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
 # Python
 export PATH="/Users/cooke/Library/Python/3.6/bin:$PATH"
 
@@ -92,10 +87,6 @@ fgco() {
   branches=$(git branch -vv) &&
   branch=$(echo "$branches" | fzf +m) &&
   git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
-}
-
-frbi() {
-  rbenv install $(rbenv install --list | FZF)
 }
 
 ### AWS CLI Command Completion
