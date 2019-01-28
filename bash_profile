@@ -35,6 +35,11 @@ alias emc="emacsclient -c"
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
 
+# ngrok
+if [ -f $HOME/ngrok ]; then
+  alias ngrok='$HOME/ngrok'
+fi
+
 # Elixir/Phoenix
 alias iexm='iex -S mix'
 alias mps='mix phx.server'
