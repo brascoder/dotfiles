@@ -32,10 +32,10 @@ Style/FrozenStringLiteralComment:
   EnforcedStyle: never
 
 Style/TrailingCommaInArrayLiteral:
-  Enabled: false
+  EnforcedStyleForMultiline: consistent_comma
 
 Style/TrailingCommaInHashLiteral:
-  Enabled: false
+  EnforcedStyleForMultiline: consistent_comma
 
 Style/RescueModifier:
   Enabled: false
