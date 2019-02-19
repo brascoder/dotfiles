@@ -71,9 +71,6 @@ dmcdo () {
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-# Python
-export PATH="/Users/cooke/Library/Python/3.6/bin:$PATH"
-
 # Functions
 weather () {
   curl http://wttr.in/${1:-33763}
