@@ -1,6 +1,10 @@
 Bundler/OrderedGems:
   Enabled: false
 
+Layout/AlignHash:
+  EnforcedHashRocketStyle: table
+  EnforcedColonStyle: table
+
 Layout/IndentArray:
   EnforcedStyle: consistent
 
