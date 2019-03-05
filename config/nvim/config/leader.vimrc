@@ -147,7 +147,7 @@ let g:lmap.x = { 'name' : '+Text',
                \}
 
 " Text/Align
-command! AlignColon call feedkeys(':Tab /:\zs<cr>', 't')
+command! AlignColon call feedkeys(':Tab /:\zs/l0l1<cr>', 't')
 command! AlignEqual call feedkeys(':Tab /=/<cr>', 't')
 command! AlignComma call feedkeys(':Tab /,\zs<cr>', 't')
 command! Align call feedkeys(':Tab /', 't')
