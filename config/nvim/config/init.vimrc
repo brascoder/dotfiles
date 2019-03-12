@@ -22,6 +22,7 @@ Plug 'Yggdroot/indentLine'            " Indent guide
 Plug 'hecal3/vim-leader-guide'
 Plug 'majutsushi/tagbar'
 Plug 'junegunn/vim-peekaboo'
+Plug 'ap/vim-css-color'
 
 "----- Navigation
 Plug 'scrooloose/nerdtree'
