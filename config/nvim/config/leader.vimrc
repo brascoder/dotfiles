@@ -97,6 +97,7 @@ let g:lmap.p = { 'name' : '+Project',
                \ 'g' : ['GoToDef', 'Go To Definition'],
                \ 'G' : ['! ctags', 'Generate Tags'],
                \ 't' : ['NERDTreeToggle', 'Toggle File Tree'],
+               \ 'T' : ['NERDTreeFocus', 'Focus File Tree'],
                \}
 
 " Test
