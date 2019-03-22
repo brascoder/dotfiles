@@ -11,6 +11,7 @@ alias cdot='cd ~/.dotfiles'
 alias cdcode='cd ~/code'
 alias sshfix='ssh-add -A'
 
+
 # Vim
 if [ -f /usr/local/bin/nvim ]; then
   alias vim='/usr/local/bin/nvim'
@@ -82,6 +83,10 @@ genv () {
   else
     printenv
   fi
+}
+
+gh() {
+  git config --get remote.origin.url | ruby -ne 'puts %{https://github.com/#{$_.split(/.com[\:\/]/)[-1].gsub(".git","")}}' | xargs open
 }
 
 fgco() {
