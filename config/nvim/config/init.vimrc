@@ -39,6 +39,7 @@ Plug 'sirver/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'mattn/emmet-vim'
 Plug 'kana/vim-textobj-user'
+Plug 'terryma/vim-multiple-cursors'
 
 "----- Languages/Frameworks
 Plug 'sheerun/vim-polyglot'   " Load language support when needed
