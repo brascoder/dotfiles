@@ -24,7 +24,7 @@ if [ -f /usr/local/bin/nvim ]; then
   # fi
 elif [ -f /usr/local/bin/vim ]; then
   alias vim='/usr/local/bin/vim'
-  export EDITOR=nvim
+  export EDITOR=vim
   export VISUAL=vim
 fi
 
