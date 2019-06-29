@@ -5,10 +5,10 @@ Layout/AlignHash:
   EnforcedHashRocketStyle: table
   EnforcedColonStyle: table
 
-Layout/IndentArray:
+Layout/IndentFirstArrayElement:
   EnforcedStyle: consistent
 
-Layout/IndentHash:
+Layout/IndentFirstHashElement:
   EnforcedStyle: consistent
 
 Metrics/AbcSize:
