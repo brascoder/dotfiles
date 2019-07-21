@@ -14,6 +14,11 @@ let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 "----- IndentLine
 let g:indentLine_color_gui = '#4c4c4b'
 
+"----- LanguageClient
+let g:LanguageClient_serverCommands = {
+    \ 'elixir': ['~/.elixir-ls/language_server.sh']
+\ }
+
 "----- Neomake
 " Run Neomake on save
 augroup localneomake

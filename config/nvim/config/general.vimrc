@@ -24,6 +24,7 @@ set termguicolors
 " let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
 set background=dark
 colorscheme solarized8
+set hidden
 set title                           " show file name in tab title
 set autoindent
 set showmatch

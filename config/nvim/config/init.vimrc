@@ -51,6 +51,6 @@ Plug 'slashmili/alchemist.vim'
 Plug 'elixir-editors/vim-elixir'
 Plug 'tpope/vim-projectionist'
 Plug 'mmorearty/elixir-ctags'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': './install.sh' }
 
 call plug#end()
