@@ -56,6 +56,14 @@ let g:lmap.f = { 'name' : '+File',
                \ 'x' : ['x', 'Save & Close'],
                \}
 
+" Linter
+command! LinterNext call CocActionAsync('diagnosticNext')
+command! LinterPrev call CocActionAsync('diagnosticPrevious')
+let g:lmap.f.l = { 'name' : '+Linter',
+                 \ 'n' : ['LinterNext', 'Next'],
+                 \ 'p' : ['LinterPrev', 'Previous'],
+                 \}
+
 " Git
 command! GitAdd call fzf#run({
                \ 'source' : 'git ls-files -dmo --exclude-standard',
@@ -88,7 +96,7 @@ let g:lmap.h = { 'name' : '+Git Hunk',
                \}
 
 " Project
-command! GoToDef call feedkeys('<c-]>', 't')
+command! GoToDef call CocAction('jumpDeclaration')
 let g:lmap.p = { 'name' : '+Project',
                \ 'a' : ['A', 'Alternate File'],
                \ 'b' : ['TagbarToggle', 'Toggle Tagbar'],
