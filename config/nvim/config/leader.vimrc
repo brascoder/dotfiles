@@ -96,7 +96,7 @@ let g:lmap.h = { 'name' : '+Git Hunk',
                \}
 
 " Project
-command! GoToDef call CocAction('jumpDeclaration')
+command! GoToDef call CocAction('jumpDefinition')
 let g:lmap.p = { 'name' : '+Project',
                \ 'a' : ['A', 'Alternate File'],
                \ 'b' : ['TagbarToggle', 'Toggle Tagbar'],
