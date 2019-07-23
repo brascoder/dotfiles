@@ -1,0 +1,4 @@
+{
+  "solargraph.diagnostics": true,
+  "elixir.pathToElixirLS": "~/.elixir-ls/language_server.sh"
+}
