@@ -22,6 +22,26 @@ let g:lmap.b = { 'name' : '+Buffer',
                \ 'p' : ['bp', 'Previous Buffer'],
                \}
 
+" CoC
+command! InstallCocPackage call feedkeys(':CocInstall<space>', 't')
+let g:lmap.c = { 'name' : '+CoC',
+               \ 'c' : ['CocList commands', 'Commands'],
+               \ 'e' : ['CocList extensions', 'Extensions'],
+               \ 'i' : ['InstallCocPackage', 'Install'],
+               \ 'o' : ['CocList outline', 'Outline'],
+               \ 'r' : ['CocListResume', 'Resume'],
+               \ 's' : ['CocList -I symbols', 'Symbols'],
+               \}
+
+" CoC/Linter
+command! LinterNext call CocActionAsync('diagnosticNext')
+command! LinterPrev call CocActionAsync('diagnosticPrevious')
+let g:lmap.c.l = { 'name' : '+Linter',
+                 \ 'l' : ['CocList diagnostics', 'List'],
+                 \ 'n' : ['LinterNext', 'Next'],
+                 \ 'p' : ['LinterPrev', 'Previous'],
+                 \}
+
 " Environment
 command! ShowHelp call feedkeys(':h<space>', 't')
 command! Resource source $MYVIMRC
@@ -55,14 +75,6 @@ let g:lmap.f = { 'name' : '+File',
                \ 't' : ['NERDTreeFind', 'Open File Tree'],
                \ 'x' : ['x', 'Save & Close'],
                \}
-
-" Linter
-command! LinterNext call CocActionAsync('diagnosticNext')
-command! LinterPrev call CocActionAsync('diagnosticPrevious')
-let g:lmap.f.l = { 'name' : '+Linter',
-                 \ 'n' : ['LinterNext', 'Next'],
-                 \ 'p' : ['LinterPrev', 'Previous'],
-                 \}
 
 " Git
 command! GitAdd call fzf#run({
