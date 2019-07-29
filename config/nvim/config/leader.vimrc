@@ -26,6 +26,7 @@ let g:lmap.b = { 'name' : '+Buffer',
 command! InstallCocPackage call feedkeys(':CocInstall<space>', 't')
 let g:lmap.c = { 'name' : '+CoC',
                \ 'c' : ['CocList commands', 'Commands'],
+               \ 'C' : ['CocConfig', 'Config'],
                \ 'e' : ['CocList extensions', 'Extensions'],
                \ 'i' : ['InstallCocPackage', 'Install'],
                \ 'o' : ['CocList outline', 'Outline'],
