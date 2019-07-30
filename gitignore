@@ -16,3 +16,4 @@ tags
 prof
 *.#*
 elm-stuff
+.elixir_ls/
