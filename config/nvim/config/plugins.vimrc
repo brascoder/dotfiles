@@ -1,21 +1,6 @@
 "----- Airline Theme
 let g:airline_theme = 'badwolf'
 
-"----- ALE
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_insert_leave = 1
-let g:ale_elixir_elixir_ls_release = '~/.elixir-ls'
-let g:ale_elixir_mix_options = 'mix'
-let g:ale_linters = {
-    \ 'elixir': ['mix', 'elixir-ls'],
-    \ 'ruby': ['rubocop', 'ruby', 'solargraph']
-\ }
-let g:ale_elixir_elixir_ls_config = {
-    \ 'elixirLS': {
-      \ 'dialyzerEnabled': v:false,
-    \ },
-\ }
-
 "----- FZF
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 

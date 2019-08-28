@@ -1,7 +1,6 @@
 call plug#begin('~/.config/nvim/plugged')
 
 "----- Config
-Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-fugitive'       " Git integration
 Plug 'rhysd/devdocs.vim'        " DevDocs integration
