@@ -22,6 +22,28 @@ let g:lmap.b = { 'name' : '+Buffer',
                \ 'p' : ['bp', 'Previous Buffer'],
                \}
 
+" CoC
+command! InstallCocPackage call feedkeys(':CocInstall<space>', 't')
+let g:lmap.c = { 'name' : '+CoC',
+               \ 'c' : ['CocList commands', 'Commands'],
+               \ 'C' : ['CocConfig', 'Config'],
+               \ 'e' : ['CocList extensions', 'Extensions'],
+               \ 'i' : ['InstallCocPackage', 'Install'],
+               \ 'm' : ['CocList marketplace', 'Marketplace'],
+               \ 'o' : ['CocList outline', 'Outline'],
+               \ 'r' : ['CocListResume', 'Resume'],
+               \ 's' : ['CocList -I symbols', 'Symbols'],
+               \}
+
+" CoC/Linter
+command! LinterNext call CocActionAsync('diagnosticNext')
+command! LinterPrev call CocActionAsync('diagnosticPrevious')
+let g:lmap.c.l = { 'name' : '+Linter',
+                 \ 'l' : ['CocList diagnostics', 'List'],
+                 \ 'n' : ['LinterNext', 'Next'],
+                 \ 'p' : ['LinterPrev', 'Previous'],
+                 \}
+
 " Environment
 command! ShowHelp call feedkeys(':h<space>', 't')
 command! Resource source $MYVIMRC
@@ -32,6 +54,7 @@ let g:lmap.e = { 'name' : '+Environment',
                \ 'h' : ['set hlsearch!', 'Toggle Search Highlight'],
                \ 'i' : ['IndentLinesToggle', 'Toggle Indent Lines'],
                \ 'l' : ['set list!', 'Toggle List Chars'],
+               \ 'm' : ['messages', 'Messages'],
                \ 'r' : ['registers', 'Show Registers'],
                \ 'R' : ['Resource', 'Reload Config'],
                \ 't' : ['ResetNerdTree', 'Reset File Tree'],
@@ -88,7 +111,7 @@ let g:lmap.h = { 'name' : '+Git Hunk',
                \}
 
 " Project
-command! GoToDef call feedkeys('<c-]>', 't')
+command! GoToDef call CocAction('jumpDefinition')
 let g:lmap.p = { 'name' : '+Project',
                \ 'a' : ['A', 'Alternate File'],
                \ 'b' : ['TagbarToggle', 'Toggle Tagbar'],

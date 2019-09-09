@@ -1,10 +1,9 @@
 call plug#begin('~/.config/nvim/plugged')
 
 "----- Config
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-fugitive'       " Git integration
 Plug 'rhysd/devdocs.vim'        " DevDocs integration
-Plug 'neomake/neomake'
 Plug 'kassio/neoterm'
 Plug 'tpope/vim-repeat'         " Extra repeat support
 Plug 'janko-m/vim-test'         " Test runner
@@ -27,7 +26,6 @@ Plug 'ap/vim-css-color'
 "----- Navigation
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'easymotion/vim-easymotion'
 
