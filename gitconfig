@@ -1,6 +1,6 @@
 [user]
-	name = Ron Cooke
-	email = ron@astonspark.com
+  name = Ron Cooke
+  email = ron@astonspark.com
 [alias]
   a = add .
   co = checkout
@@ -11,10 +11,12 @@
 [core]
   excludesfile = ~/.gitignore
 [push]
-	default = simple
+  default = simple
+[pull]
+  rebase = true
 [remote "origin"]
   push = HEAD
 [merge]
   tool = opendiff
 [credential]
-	helper = osxkeychain
+  helper = osxkeychain
