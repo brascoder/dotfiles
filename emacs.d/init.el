@@ -24,8 +24,12 @@
 			 ("org" . "https://orgmode.org/elpa/")))
 (package-initialize)
 (setq package-selected-packages '(;; core
-				  solarized-them
+				  solarized-theme
 				  use-package
+				  evil
+				  evil-collection
+				  projectile
+
 				  ;; keybindings
 				  which-key
 				  general
@@ -37,6 +41,7 @@
 				  magit
 				  evil-magit
 
+				  ;; treemacs
 				  treemacs
 				  treemacs-evil))
 
@@ -62,6 +67,11 @@
   :after evil
   :config
   (evil-collection-init))
+
+(use-package projectile
+  :config
+  (setq projectile-completion-system 'ivy)
+  (projectile-mode 1))
 
 ;; which-key
 (use-package which-key
@@ -95,12 +105,16 @@
     :infix "f"
     "" '(:ignore t :which-key "file")
     "f" #'find-file
-    "s" #'save-buffer)
+    "s" #'save-buffer
+    "t" #'treemacs)
   
   (leader-define '(normal visual)
     :infix "g"
     "" '(:ignore t :which-key "magit")
     "g" #'magit-status)
+
+  (leader-define 'normal
+    "p" '(:keymap projectile-command-map :wk "projectile"))
   
   (leader-define 'normal
     :infix "s"
@@ -125,3 +139,11 @@
 
 (use-package evil-magit
   :after magit)
+
+(use-package treemacs
+  :commands treemacs
+  :config
+  (treemacs-follow-mode -1))
+
+(use-package treemacs-evil
+  :after treemacs)
