@@ -16,6 +16,28 @@
   (interactive)
   (load-file user-init-file))
 
+(defun open-scratch-buffer ()
+  "Open scratch buffer."
+  (interactive)
+  (switch-to-buffer (get-buffer-create "*scratch*")))
+
+;; defaults
+(fset 'yes-or-no-p 'y-or-n-p)
+(global-display-line-numbers-mode)
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+
+(setq make-backup-files nil
+      scroll-conservatively 1000
+      indent-tabs-mode nil
+      ruby-insert-encoding-magic-comment nil
+      auto-save-default nil
+      standard-indent 2
+      js-indent-level 2
+      inhibit-startup-screen t
+      ring-bell-function 'ignore
+      initial-scratch-message (concat initial-scratch-message (concat "emacs-init-time: " (emacs-init-time)))
+      debug-on-error t)
+
 ;; package.el
 (require 'package)
 (setq package-enable-at-startup nil)
@@ -91,7 +113,11 @@
   (leader-define 'normal
     :infix "b"
     "" '(:ignore t :which-key "buffer")
-    "b" #'ivy-switch-buffer)
+    "b" #'ivy-switch-buffer
+    "d" #'kill-current-buffer
+    "n" #'next-buffer
+    "p" #'previous-buffer
+    "s" #'open-scratch-buffer)
 
   (leader-define 'normal
     :infix "e"
@@ -120,7 +146,14 @@
     :infix "s"
     "" '(:ignore t :which-key "search")
     "b" #'counsel-grep-or-swiper
-    "p" #'counsel-rg))
+    "p" #'counsel-rg)
+
+  (leader-define 'normal
+    :infix "w"
+    "h" #'evil-window-left
+    "j" #'evil-window-down
+    "k" #'evil-window-up
+    "l" #'evil-window-right))
 
 ;; ivy
 (use-package ivy
