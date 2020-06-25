@@ -1,3 +1,8 @@
+;;; Config --- Brasco's Emacs config
+;;; Commentary:
+
+;;; Code:
+
 ;; functions
 (defun refresh-packages ()
   "Refresh and install packages."
@@ -51,6 +56,9 @@
 				  evil
 				  evil-collection
 				  projectile
+				  company
+				  flycheck
+                                  undotree
 
 				  ;; keybindings
 				  which-key
@@ -63,6 +71,11 @@
 				  magit
 				  evil-magit
 
+				  ;; language
+				  web-mode
+				  slim-mode
+				  yaml-mode
+				  
 				  ;; treemacs
 				  treemacs
 				  treemacs-evil))
@@ -110,6 +123,15 @@
   (leader-define 'normal
     "qq" #'save-buffers-kill-terminal)
 
+  (leader-define 'motion 'override
+    "SPC" #'counsel-M-x
+    "/" #'counsel-ag
+    "w" '(:keymap evil-window-map :package evil :wk "window")
+    "h" '(:keymap help-map :wk "help"))
+
+  (leader-define 'visual
+    ";" #'comment-dwim)
+
   (leader-define 'normal
     :infix "b"
     "" '(:ignore t :which-key "buffer")
@@ -146,14 +168,7 @@
     :infix "s"
     "" '(:ignore t :which-key "search")
     "b" #'counsel-grep-or-swiper
-    "p" #'counsel-rg)
-
-  (leader-define 'normal
-    :infix "w"
-    "h" #'evil-window-left
-    "j" #'evil-window-down
-    "k" #'evil-window-up
-    "l" #'evil-window-right))
+    "p" #'counsel-rg))
 
 ;; ivy
 (use-package ivy
@@ -161,7 +176,10 @@
   (setq ivy-use-virtual-buffers t
 	ivy-height 20
 	ivy-use-selectable-prompt t
-	ivy-wrap t)
+	ivy-wrap t
+	ivy-re-builders-alist
+	'((t . ivy--regex-fuzzy)))
+
   (ivy-mode 1))
 
 ;; magit
@@ -180,3 +198,31 @@
 
 (use-package treemacs-evil
   :after treemacs)
+
+(use-package company
+  :init
+  (global-company-mode)
+  :config
+  (setq company-minimum-prefix-length 0
+	company-idle-delay 0.1))
+
+(use-package flycheck
+  :init
+  (global-flycheck-mode))
+
+(use-package undo-tree
+  :config
+  (setq undo-tree-visualizer-diff t
+	undo-tree-visualizer-timestamps t)
+  (global-undo-tree-mode))
+
+(use-package web-mode
+  :mode ("\\.erb\\'" . web-mode))
+
+(use-package slim-mode
+  :mode "\\.slim\\'")
+
+(use-package yaml-mode
+  :mode "\\.yml\\'")
+
+;;; init.el ends here
