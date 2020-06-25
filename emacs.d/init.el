@@ -75,7 +75,7 @@
 				  web-mode
 				  slim-mode
 				  yaml-mode
-				  
+
 				  ;; treemacs
 				  treemacs
 				  treemacs-evil))
