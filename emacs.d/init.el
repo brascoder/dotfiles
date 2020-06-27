@@ -3,29 +3,6 @@
 
 ;;; Code:
 
-;; functions
-(defun refresh-packages ()
-  "Refresh and install packages."
-  (interactive)
-  (package-refresh-contents)
-  (package-install-selected-packages)
-  (package-autoremove))
-
-(defun find-init-file ()
-  "Go to init file (ie this one)."
-  (interactive)
-  (find-file user-init-file))
-
-(defun eval-init-file ()
-  "Eval init file (ie this one)."
-  (interactive)
-  (load-file user-init-file))
-
-(defun open-scratch-buffer ()
-  "Open scratch buffer."
-  (interactive)
-  (switch-to-buffer (get-buffer-create "*scratch*")))
-
 ;; defaults
 (fset 'yes-or-no-p 'y-or-n-p)
 (global-display-line-numbers-mode)
@@ -34,14 +11,50 @@
 (setq make-backup-files nil
       scroll-conservatively 1000
       indent-tabs-mode nil
-      ruby-insert-encoding-magic-comment nil
+      ;; ruby-insert-encoding-magic-comment nil
       auto-save-default nil
       standard-indent 2
-      js-indent-level 2
+      ;; js-indent-level 2
       inhibit-startup-screen t
       ring-bell-function 'ignore
+      path-to-ctags "/usr/local/bin/ctags"
       initial-scratch-message (concat initial-scratch-message (concat "emacs-init-time: " (emacs-init-time)))
-      debug-on-error t)
+      debug-on-error t
+      )
+
+;; functions
+(defun refresh-packages ()
+  "Refresh and install packages."
+  (interactive)
+  (package-refresh-contents)
+  (package-install-selected-packages)
+  (package-autoremove)
+  )
+
+(defun find-init-file ()
+  "Go to init file (ie this one)."
+  (interactive)
+  (find-file user-init-file)
+  )
+
+(defun eval-init-file ()
+  "Eval init file (ie this one)."
+  (interactive)
+  (load-file user-init-file)
+  )
+
+(defun open-scratch-buffer ()
+  "Open scratch buffer."
+  (interactive)
+  (switch-to-buffer (get-buffer-create "*scratch*"))
+  )
+
+(defun create-tags (dir-name)
+  "Create tags file at DIR-NAME."
+  (interactive "DDirectory: ")
+  (shell-command
+   (format "%s -f tags -e -R %s" path-to-ctags (directory-file-name dir-name)))
+  )
 
 ;; package.el
 (require 'package)
@@ -75,6 +88,7 @@
 				  web-mode
 				  slim-mode
 				  yaml-mode
+				  robe
 
 				  ;; treemacs
 				  treemacs
@@ -204,7 +218,9 @@
   (global-company-mode)
   :config
   (setq company-minimum-prefix-length 0
-	company-idle-delay 0.1))
+	company-idle-delay 0.1)
+  (push 'company-robe company-backends)
+  )
 
 (use-package flycheck
   :init
@@ -224,5 +240,10 @@
 
 (use-package yaml-mode
   :mode "\\.yml\\'")
+
+(use-package robe
+  :diminish robe-mode
+  :config
+  (add-hook 'ruby-mode-hook 'robe-mode))
 
 ;;; init.el ends here
