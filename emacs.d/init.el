@@ -28,40 +28,36 @@
   (interactive)
   (package-refresh-contents)
   (package-install-selected-packages)
-  (package-autoremove)
-  )
+  (package-autoremove))
 
 (defun find-init-file ()
   "Go to init file (ie this one)."
   (interactive)
-  (find-file user-init-file)
-  )
+  (find-file user-init-file))
 
 (defun eval-init-file ()
   "Eval init file (ie this one)."
   (interactive)
-  (load-file user-init-file)
-  )
+  (load-file user-init-file))
 
 (defun open-scratch-buffer ()
   "Open scratch buffer."
   (interactive)
-  (switch-to-buffer (get-buffer-create "*scratch*"))
-  )
+  (switch-to-buffer (get-buffer-create "*scratch*")))
 
 (defun create-tags (dir-name)
   "Create tags file at DIR-NAME."
   (interactive "DDirectory: ")
   (shell-command
-   (format "%s -f tags -e -R %s" path-to-ctags (directory-file-name dir-name)))
-  )
+   (format "%s -f tags -e -R %s" path-to-ctags (directory-file-name dir-name))))
 
 ;; package.el
 (require 'package)
 (setq package-enable-at-startup nil)
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
 			 ("melpa" . "https://melpa.org/packages/")
-			 ("org" . "https://orgmode.org/elpa/")))
+			 ("org" . "https://orgmode.org/elpa/")
+                         ))
 (package-initialize)
 (setq package-selected-packages '(;; core
 				  solarized-theme
@@ -92,7 +88,8 @@
 
 				  ;; treemacs
 				  treemacs
-				  treemacs-evil))
+				  treemacs-evil
+                                  ))
 
 ;; theme
 (load-theme 'solarized-dark t)
@@ -110,22 +107,28 @@
   (setq evil-want-C-u-scroll t
 	evil-want-keybinding nil)
   :config
-  (evil-mode 1))
+  (evil-mode 1)
+  )
 
 (use-package evil-collection
   :after evil
   :config
-  (evil-collection-init))
+  (evil-collection-init)
+  )
 
 (use-package projectile
   :config
   (setq projectile-completion-system 'ivy)
-  (projectile-mode 1))
+  (projectile-mode 1)
+  )
 
 ;; which-key
 (use-package which-key
   :init
-  (which-key-mode 1))
+  (which-key-mode 1)
+  (push '((nil . "projectile-\\(.+\\)") . (nil . "\\1"))
+        which-key-replacement-alist)
+  )
 
 ;; general
 (use-package general
@@ -135,16 +138,19 @@
     :prefix "SPC")
 
   (leader-define 'normal
-    "qq" #'save-buffers-kill-terminal)
+    "qq" #'save-buffers-kill-terminal
+    )
 
   (leader-define 'motion 'override
     "SPC" #'counsel-M-x
     "/" #'counsel-ag
     "w" '(:keymap evil-window-map :package evil :wk "window")
-    "h" '(:keymap help-map :wk "help"))
+    "h" '(:keymap help-map :wk "help")
+    )
 
   (leader-define 'visual
-    ";" #'comment-dwim)
+    ";" #'comment-dwim
+    )
 
   (leader-define 'normal
     :infix "b"
@@ -153,7 +159,8 @@
     "d" #'kill-current-buffer
     "n" #'next-buffer
     "p" #'previous-buffer
-    "s" #'open-scratch-buffer)
+    "s" #'open-scratch-buffer
+    )
 
   (leader-define 'normal
     :infix "e"
@@ -161,28 +168,33 @@
     "e" #'eval-init-file
     "f" #'find-init-file
     "p" '(:ignore t :which-key "packages")
-    "pr" #'refresh-packages)
+    "pr" #'refresh-packages
+    )
 
   (leader-define 'normal
     :infix "f"
     "" '(:ignore t :which-key "file")
     "f" #'find-file
     "s" #'save-buffer
-    "t" #'treemacs)
+    "t" #'treemacs
+    )
   
   (leader-define '(normal visual)
     :infix "g"
     "" '(:ignore t :which-key "magit")
-    "g" #'magit-status)
+    "g" #'magit-status
+    )
 
   (leader-define 'normal
-    "p" '(:keymap projectile-command-map :wk "projectile"))
+    "p" '(:keymap projectile-command-map :which-key "projectile"))
   
   (leader-define 'normal
     :infix "s"
     "" '(:ignore t :which-key "search")
     "b" #'counsel-grep-or-swiper
-    "p" #'counsel-rg))
+    "p" #'counsel-rg
+    )
+  )
 
 ;; ivy
 (use-package ivy
@@ -194,24 +206,29 @@
 	ivy-re-builders-alist
 	'((t . ivy--regex-fuzzy)))
 
-  (ivy-mode 1))
+  (ivy-mode 1)
+  )
 
 ;; magit
 (use-package magit
   :commands magit-status
   :config
-  (setq magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1))
+  (setq magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1)
+  )
 
 (use-package evil-magit
-  :after magit)
+  :after magit
+  )
 
 (use-package treemacs
   :commands treemacs
   :config
-  (treemacs-follow-mode -1))
+  (treemacs-follow-mode -1)
+  )
 
 (use-package treemacs-evil
-  :after treemacs)
+  :after treemacs
+  )
 
 (use-package company
   :init
@@ -224,26 +241,32 @@
 
 (use-package flycheck
   :init
-  (global-flycheck-mode))
+  (global-flycheck-mode)
+  )
 
 (use-package undo-tree
   :config
   (setq undo-tree-visualizer-diff t
 	undo-tree-visualizer-timestamps t)
-  (global-undo-tree-mode))
+  (global-undo-tree-mode)
+  )
 
 (use-package web-mode
-  :mode ("\\.erb\\'" . web-mode))
+  :mode ("\\.erb\\'" . web-mode)
+  )
 
 (use-package slim-mode
-  :mode "\\.slim\\'")
+  :mode "\\.slim\\'"
+  )
 
 (use-package yaml-mode
-  :mode "\\.yml\\'")
+  :mode "\\.yml\\'"
+  )
 
 (use-package robe
   :diminish robe-mode
   :config
-  (add-hook 'ruby-mode-hook 'robe-mode))
+  (add-hook 'ruby-mode-hook 'robe-mode)
+  )
 
 ;;; init.el ends here
