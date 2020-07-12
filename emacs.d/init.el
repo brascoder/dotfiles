@@ -89,6 +89,9 @@
 				  ;; treemacs
 				  treemacs
 				  treemacs-evil
+
+				  vterm
+				  persp-mode
                                   ))
 
 ;; theme
@@ -128,6 +131,8 @@
   (which-key-mode 1)
   (push '((nil . "projectile-\\(.+\\)") . (nil . "\\1"))
         which-key-replacement-alist)
+  (push '((nil . "persp-\\(.+\\)") . (nil . "\\1"))
+	which-key-replacement-alist)
   )
 
 ;; general
@@ -193,8 +198,11 @@
     "" '(:ignore t :which-key "search")
     "b" #'counsel-grep-or-swiper
     "p" #'counsel-rg
+    "s" '(:keymap persp-key-map :package persp-mode :wk "persp-mode")
     )
   )
+  (leader-define 'normal
+    "ss" '(:keymap persp-key-map :package persp-mode :wk "persp-mode"))
 
 ;; ivy
 (use-package ivy
@@ -268,5 +276,15 @@
   :config
   (add-hook 'ruby-mode-hook 'robe-mode)
   )
+
+(use-package persp-mode
+  :config
+  (persp-mode 1))
+
+(use-package vterm
+  :config
+  (leader-define 'normal
+    :infix "t"
+    "v" #'vterm))
 
 ;;; init.el ends here
