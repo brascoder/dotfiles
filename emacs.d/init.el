@@ -7,7 +7,7 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 (global-display-line-numbers-mode)
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
-(global-hl-line-mode t)
+(add-hook 'prog-mode-hook 'hl-line-mode)
 
 (setq make-backup-files nil
       scroll-conservatively 1000
