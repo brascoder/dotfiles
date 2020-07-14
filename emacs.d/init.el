@@ -146,7 +146,9 @@
     :prefix "SPC")
 
   (leader-define 'normal
+    "p" '(:keymap projectile-command-map :which-key "projectile")
     "qq" #'save-buffers-kill-terminal
+    ";" '(:keymap persp-key-map :package persp-mode :wk "persp-mode")
     )
 
   (leader-define 'motion 'override
@@ -157,7 +159,7 @@
     )
 
   (leader-define 'visual
-    ";" #'comment-dwim
+    ":" #'comment-dwim
     )
 
   (leader-define 'normal
@@ -194,20 +196,14 @@
     "" '(:ignore t :which-key "magit")
     "g" #'magit-status
     )
-
-  (leader-define 'normal
-    "p" '(:keymap projectile-command-map :which-key "projectile"))
   
   (leader-define 'normal
     :infix "s"
     "" '(:ignore t :which-key "search")
     "b" #'counsel-grep-or-swiper
     "p" #'counsel-rg
-    "s" '(:keymap persp-key-map :package persp-mode :wk "persp-mode")
     )
   )
-  (leader-define 'normal
-    "ss" '(:keymap persp-key-map :package persp-mode :wk "persp-mode"))
 
 ;; ivy
 (use-package ivy
@@ -284,7 +280,8 @@
 
 (use-package persp-mode
   :config
-  (persp-mode 1))
+  (persp-mode 1)
+  )
 
 (use-package vterm
   )
