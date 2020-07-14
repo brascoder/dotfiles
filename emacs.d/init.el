@@ -174,6 +174,8 @@
     "f" #'find-init-file
     "p" '(:ignore t :which-key "packages")
     "pr" #'refresh-packages
+    "t" '(:ignore t :which-key "Terminal")
+    "tt" #'vterm
     )
 
   (leader-define 'normal
@@ -282,9 +284,6 @@
   (persp-mode 1))
 
 (use-package vterm
-  :config
-  (leader-define 'normal
-    :infix "t"
-    "v" #'vterm))
+  )
 
 ;;; init.el ends here
