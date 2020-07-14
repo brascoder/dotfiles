@@ -7,6 +7,7 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 (global-display-line-numbers-mode)
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
+(global-hl-line-mode t)
 
 (setq make-backup-files nil
       scroll-conservatively 1000
@@ -20,6 +21,7 @@
       path-to-ctags "/usr/local/bin/ctags"
       initial-scratch-message (concat initial-scratch-message (concat "emacs-init-time: " (emacs-init-time)))
       debug-on-error t
+      highlight-indent-guides-method 'character
       )
 
 ;; functions
@@ -68,6 +70,7 @@
 				  company
 				  flycheck
                                   undotree
+                                  highlight-indent-guides
 
 				  ;; keybindings
 				  which-key
@@ -284,6 +287,11 @@
   (persp-mode 1))
 
 (use-package vterm
+  )
+
+(use-package highlight-indent-guides
+  :config
+  (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
   )
 
 ;;; init.el ends here
