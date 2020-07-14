@@ -187,6 +187,7 @@
     :infix "f"
     "" '(:ignore t :which-key "file")
     "f" #'find-file
+    "i" #'imenu
     "s" #'save-buffer
     "t" #'treemacs
     )
@@ -194,6 +195,7 @@
   (leader-define '(normal visual)
     :infix "g"
     "" '(:ignore t :which-key "magit")
+    "b" #'magit-blame
     "g" #'magit-status
     )
   
@@ -212,8 +214,9 @@
 	ivy-height 20
 	ivy-use-selectable-prompt t
 	ivy-wrap t
-	ivy-re-builders-alist
-	'((t . ivy--regex-fuzzy)))
+	;; ivy-re-builders-alist
+        ;; '((t . ivy--regex-fuzzy))
+        )
 
   (ivy-mode 1)
   )
