@@ -158,10 +158,6 @@
     "h" '(:keymap help-map :wk "help")
     )
 
-  (leader-define 'visual
-    ":" #'comment-dwim
-    )
-
   (leader-define 'normal
     :infix "b"
     "" '(:ignore t :which-key "buffer")
@@ -170,6 +166,12 @@
     "n" #'next-buffer
     "p" #'previous-buffer
     "s" #'open-scratch-buffer
+    )
+
+  (leader-define 'normal
+    :infix "c"
+    "" '(:ignore t :which-key "code")
+    "c" #'comment-line
     )
 
   (leader-define 'normal
