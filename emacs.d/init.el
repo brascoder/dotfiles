@@ -53,6 +53,12 @@
   (shell-command
    (format "%s -f tags -e -R %s" path-to-ctags (directory-file-name dir-name))))
 
+(defun copy-full-path-to-kill-ring ()
+  "Copy buffer's full path to kill ring."
+  (interactive)
+  (when buffer-file-name
+    (kill-new (file-relative-name buffer-file-name (projectile-project-root)))))
+
 ;; package.el
 (require 'package)
 (setq package-enable-at-startup nil)
@@ -158,6 +164,10 @@
     "h" '(:keymap help-map :wk "help")
     )
 
+  (leader-define 'visual
+    "cc" #'comment-dwim
+    )
+
   (leader-define 'normal
     :infix "b"
     "" '(:ignore t :which-key "buffer")
@@ -188,8 +198,11 @@
   (leader-define 'normal
     :infix "f"
     "" '(:ignore t :which-key "file")
+    "c" #'copy-file
+    "d" #'dired
     "f" #'find-file
     "i" #'imenu
+    "p" #'copy-full-path-to-kill-ring
     "s" #'save-buffer
     "t" #'treemacs
     )
