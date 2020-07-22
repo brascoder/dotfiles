@@ -172,8 +172,8 @@
     :infix "b"
     "" '(:ignore t :which-key "buffer")
     "b" #'ivy-switch-buffer
-    "d" #'kill-current-buffer
-    "D" #'kill-some-buffers
+    "k" #'kill-current-buffer
+    "K" #'kill-some-buffers
     "n" #'next-buffer
     "p" #'previous-buffer
     "s" #'open-scratch-buffer
