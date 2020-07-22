@@ -15,7 +15,7 @@
       ;; ruby-insert-encoding-magic-comment nil
       auto-save-default nil
       standard-indent 2
-      ;; js-indent-level 2
+      js-indent-level 2
       inhibit-startup-screen t
       ring-bell-function 'ignore
       path-to-ctags "/usr/local/bin/ctags"
@@ -173,6 +173,7 @@
     "" '(:ignore t :which-key "buffer")
     "b" #'ivy-switch-buffer
     "d" #'kill-current-buffer
+    "D" #'kill-some-buffers
     "n" #'next-buffer
     "p" #'previous-buffer
     "s" #'open-scratch-buffer
