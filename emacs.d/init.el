@@ -176,6 +176,7 @@
     "K" #'kill-some-buffers
     "n" #'next-buffer
     "p" #'previous-buffer
+    "r" #'rename-buffer
     "s" #'open-scratch-buffer
     )
 
