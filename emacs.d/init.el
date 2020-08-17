@@ -59,6 +59,12 @@
   (when buffer-file-name
     (kill-new (file-relative-name buffer-file-name (projectile-project-root)))))
 
+(defun copy-file-name-to-kill-ring ()
+  "Copy buffer's file name to kill ring."
+  (interactive)
+  (when buffer-file-name
+    (kill-new buffer-file-name)))
+
 ;; package.el
 (require 'package)
 (setq package-enable-at-startup nil)
@@ -72,6 +78,7 @@
 				  use-package
 				  evil
 				  evil-collection
+				  evil-surround
 				  projectile
 				  company
 				  flycheck
@@ -126,6 +133,11 @@
   :after evil
   :config
   (evil-collection-init)
+  )
+
+(use-package evil-surround
+  :config
+  (global-evil-surround-mode 1)
   )
 
 (use-package projectile
@@ -195,6 +207,7 @@
     "pr" #'refresh-packages
     "t" '(:ignore t :which-key "Terminal")
     "tt" #'vterm
+    "tr" #'vterm-send-C-r
     )
 
   (leader-define 'normal
@@ -204,6 +217,7 @@
     "d" #'dired
     "f" #'find-file
     "i" #'imenu
+    "n" #'copy-file-name-to-kill-ring
     "p" #'copy-full-path-to-kill-ring
     "s" #'save-buffer
     "t" #'treemacs
