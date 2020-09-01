@@ -45,6 +45,7 @@ fi
 alias iexm='iex -S mix'
 alias mps='mix phx.server'
 alias mpr='mix phx.routes'
+export KERL_CONFIGURE_OPTIONS="--without-javac --with-ssl=$(brew --prefix openssl)"
 
 #Postgresql
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
