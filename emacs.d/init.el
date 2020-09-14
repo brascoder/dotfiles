@@ -101,6 +101,13 @@
 				  slim-mode
 				  yaml-mode
 				  robe
+				  elixir-mode
+                                  lsp-mode
+                                  lsp-ui
+                                  lsp-ivy
+                                  lsp-treemacs
+                                  company-lsp
+                                  dap-mode
 
 				  ;; treemacs
 				  treemacs
@@ -164,10 +171,12 @@
     :prefix "SPC")
 
   (leader-define 'normal
+    "l" '(:keymap lsp-command-map :package lsp-mode :wk "lsp")
     "p" '(:keymap projectile-command-map :which-key "projectile")
     "qq" #'save-buffers-kill-terminal
     ";" '(:keymap persp-key-map :package persp-mode :wk "persp-mode")
     )
+      lsp-keymap-prefix "C-c l"
 
   (leader-define 'motion 'override
     "SPC" #'counsel-M-x
@@ -312,13 +321,74 @@
   (add-hook 'ruby-mode-hook 'robe-mode)
   )
 
+(use-package elixir-mode
+  :init
+  (add-hook 'elixir-mode-hook
+            (lambda ()
+              (push '(">=" . ?\u2265) prettify-symbols-alist)
+              (push '("<=" . ?\u2264) prettify-symbols-alist)
+              (push '("!=" . ?\u2260) prettify-symbols-alist)
+              (push '("==" . ?\u2A75) prettify-symbols-alist)
+              (push '("=~" . ?\u2245) prettify-symbols-alist)
+              (push '("<-" . ?\u2190) prettify-symbols-alist)
+              (push '("->" . ?\u2192) prettify-symbols-alist)
+              (push '("<-" . ?\u2190) prettify-symbols-alist)
+              (push '("|>" . ?\u25B7) prettify-symbols-alist)
+              ))
+  )
+
+(use-package lsp-mode
+  :commands (lsp lsp-deferred)
+  :hook ((elixir-mode . lsp-deferred)
+         (lsp-mode . lsp-enable-which-key-integration)
+         )
+  :config
+  (setq
+   lsp-clients-elixir-server-executable "~/.elixir-ls/language_server.sh"
+   lsp-auto-guess-root t)
+  (setq lsp-file-watch-ignored
+      '("[/\\\\]\\.git$"
+        "[/\\\\]\\.elixir_ls$"
+        "[/\\\\]_build$"
+        "[/\\\\]assets$"
+        "[/\\\\]cover$"
+        "[/\\\\]node_modules$"
+        "[/\\\\]submodules$"
+        ))
+  )
+
+(use-package lsp-ui
+  :commands lsp-ui-mode
+  :after (lsp-mode)
+  :config
+  :init
+  (setq lsp-ui-doc-enable nil
+        lsp-ui-doc-use-webkit t
+        )
+  )
+
+(use-package company-lsp
+  :commands company-lsp
+  :after (company lsp)
+  :config
+  (setq company-transformers nil
+        company-lsp-async t
+        company-lsp-cache-candidates nil)
+  (push 'company-lsp company-backends)
+  )
+
+(use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
+
+(use-package lsp-treemacs :commands lsp-treemacs-errors-list)
+
+(use-package dap-mode)
+
 (use-package persp-mode
   :config
   (persp-mode 1)
   )
 
-(use-package vterm
-  )
+(use-package vterm)
 
 (use-package highlight-indent-guides
   :config
