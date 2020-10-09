@@ -82,8 +82,8 @@
 				  projectile
 				  company
 				  flycheck
-                                  undotree
-                                  highlight-indent-guides
+				  undotree
+				  highlight-indent-guides
 
 				  ;; keybindings
 				  which-key
@@ -102,12 +102,12 @@
 				  yaml-mode
 				  robe
 				  elixir-mode
-                                  lsp-mode
-                                  lsp-ui
-                                  lsp-ivy
-                                  lsp-treemacs
-                                  company-lsp
-                                  dap-mode
+				  lsp-mode
+				  lsp-ui
+				  lsp-ivy
+				  lsp-treemacs
+				  company-lsp
+				  dap-mode
 
 				  ;; treemacs
 				  treemacs
@@ -115,7 +115,7 @@
 
 				  vterm
 				  persp-mode
-                                  ))
+				  ))
 
 ;; theme
 (load-theme 'solarized-dark t)
@@ -176,7 +176,6 @@
     "qq" #'save-buffers-kill-terminal
     ";" '(:keymap persp-key-map :package persp-mode :wk "persp-mode")
     )
-      lsp-keymap-prefix "C-c l"
 
   (leader-define 'motion 'override
     "SPC" #'counsel-M-x
