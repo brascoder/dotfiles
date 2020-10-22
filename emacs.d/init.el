@@ -312,6 +312,10 @@
 
 (use-package yaml-mode
   :mode "\\.yml\\'"
+  :custom
+  (web-mode-markup-indent-offset 2)
+  (web-mode-css-indent-offset 2)
+  (web-mode-code-indent-offset 2)
   )
 
 (use-package robe
