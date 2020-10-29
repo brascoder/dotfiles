@@ -228,7 +228,9 @@
     "n" #'copy-file-name-to-kill-ring
     "p" #'copy-full-path-to-kill-ring
     "s" #'save-buffer
-    "t" #'treemacs
+    "t" '(:ignore t :which-key "Treemacs")
+    "tf" #'treemacs-find-file
+    "tt" #'treemacs
     )
   
   (leader-define '(normal visual)
