@@ -16,6 +16,7 @@
       auto-save-default nil
       standard-indent 2
       js-indent-level 2
+      typescript-indent-level 2
       inhibit-startup-screen t
       ring-bell-function 'ignore
       path-to-ctags "/usr/local/bin/ctags"
