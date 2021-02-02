@@ -85,6 +85,7 @@
 				  flycheck
 				  undotree
 				  highlight-indent-guides
+				  evil-easymotion
 
 				  ;; keybindings
 				  which-key
@@ -297,6 +298,11 @@
   :init
   (global-flycheck-mode)
   )
+
+(use-package evil-easymotion
+  :ensure t
+  :config
+  (evilem-default-keybindings ","))
 
 (use-package undo-tree
   :config
