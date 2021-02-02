@@ -312,7 +312,9 @@
   )
 
 (use-package web-mode
-  :mode ("\\.erb\\'" . web-mode)
+  :config
+  (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.eex\\'" . web-mode))
   )
 
 (use-package slim-mode
