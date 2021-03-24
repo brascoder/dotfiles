@@ -12,7 +12,7 @@
 (setq make-backup-files nil
       scroll-conservatively 1000
       indent-tabs-mode nil
-      ;; ruby-insert-encoding-magic-comment nil
+      ruby-insert-encoding-magic-comment nil
       auto-save-default nil
       standard-indent 2
       js-indent-level 2
