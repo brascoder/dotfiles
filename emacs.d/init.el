@@ -114,6 +114,9 @@
 				  ;; treemacs
 				  treemacs
 				  treemacs-evil
+				  treemacs-projectile
+                                  treemacs-magit
+                                  treemacs-persp
 
 				  vterm
 				  persp-mode
@@ -282,8 +285,20 @@
   )
 
 (use-package treemacs-evil
-  :after treemacs
+  :after (treemacs evil)
   )
+
+;; (use-package treemacs-projectile
+;;   :after (treemacs projectile)
+;;   )
+
+(use-package treemacs-magit
+  :after (treemacs magit)
+  )
+
+(use-package treemacs-persp
+  :after (treemacs persp-mode)
+  :config (treemacs-set-scope-type 'Perspectives))
 
 (use-package company
   :init
@@ -352,15 +367,17 @@
   )
 
 (use-package lsp-mode
-  :commands (lsp lsp-deferred)
-  :hook ((elixir-mode . lsp-deferred)
-         (lsp-mode . lsp-enable-which-key-integration)
-         )
+  :commands lsp
+  :diminish lsp-mode
+  :hook
+  (elixir-mode . lsp)
+  :init
+  (add-to-list 'exec-path "~/.elixir-ls/")
   :config
   (setq
    lsp-clients-elixir-server-executable "~/.elixir-ls/language_server.sh"
-   lsp-auto-guess-root t)
-  (setq lsp-file-watch-ignored
+   lsp-auto-guess-root t
+   lsp-file-watch-ignored
       '("[/\\\\]\\.git$"
         "[/\\\\]\\.elixir_ls$"
         "[/\\\\]_build$"
