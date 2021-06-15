@@ -205,7 +205,7 @@ let g:lmap.x.i = { 'name' : '+Insert',
 " Window
 command! MaximizeWindow wincmd _ | wincmd |
 let g:lmap.w = { 'name' : '+Window',
-               \ 'd' : ['close', 'Close Window'],
+               \ 'c' : ['close', 'Close Window'],
                \ 'h' : ['wincmd H', 'Move Window Left'],
                \ 'j' : ['wincmd J', 'Move Window Down'],
                \ 'k' : ['wincmd K', 'Move Window Up'],

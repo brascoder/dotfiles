@@ -1,11 +1,11 @@
 "----- Airline Theme
-let g:airline_theme = 'badwolf'
+" let g:airline_theme = 'badwolf'
 
 "----- FZF
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 "----- IndentLine
-let g:indentLine_color_gui = '#4c4c4b'
+" let g:indentLine_color_gui = '#4c4c4b'
 
 "----- LanguageClient
 let g:LanguageClient_serverCommands = {
@@ -20,7 +20,7 @@ let test#strategy = "neoterm"
 let NERDTreeShowHidden=1
 
 "----- Powerline Fonts
-let g:airline_powerline_fonts = 1
+" let g:airline_powerline_fonts = 1
 
 "----- Tagbar
 let g:tagbar_type_ruby = {
