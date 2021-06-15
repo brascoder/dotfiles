@@ -39,6 +39,7 @@ alias emc="emacsclient -c"
 # ASDF
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
+alias update-nvim-nightly='asdf uninstall neovim nightly && asdf install neovim nightly'
 
 # ngrok
 if [ -f $HOME/ngrok ]; then
