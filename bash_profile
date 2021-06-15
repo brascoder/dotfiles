@@ -13,7 +13,11 @@ alias sshfix='ssh-add -A'
 
 
 # Vim
-if [ -f /usr/local/bin/nvim ]; then
+if [ -f $HOME/.asdf/shims/nvim ]; then
+  alias vim='$HOME/.asdf/shims/nvim'
+  export EDITOR=nvim
+  export VISUAL=nvim
+elif [ -f /usr/local/bin/nvim ]; then
   alias vim='/usr/local/bin/nvim'
   export EDITOR=nvim
   export VISUAL=nvim

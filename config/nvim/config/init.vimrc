@@ -38,8 +38,12 @@ Plug 'honza/vim-snippets'
 Plug 'mattn/emmet-vim'
 Plug 'kana/vim-textobj-user'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'hrsh7th/nvim-compe'
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
 
 "----- Languages/Frameworks
+Plug 'neovim/nvim-lspconfig'
 Plug 'sheerun/vim-polyglot'   " Load language support when needed
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-bundler'

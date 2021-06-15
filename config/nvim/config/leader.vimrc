@@ -48,6 +48,7 @@ let g:lmap.c.l = { 'name' : '+Linter',
 command! ShowHelp call feedkeys(':h<space>', 't')
 command! Resource source $MYVIMRC
 command! ResetNerdTree NERDTreeFocus | vertical resize 31
+command! Scratch lua require('tools').makeScratch()
 let g:lmap.e = { 'name' : '+Environment',
                \ 'a' : ['setlocal spell!', 'Toggle Spell Check'],
                \ 'e' : ['ShowHelp', 'Help'],
@@ -57,6 +58,7 @@ let g:lmap.e = { 'name' : '+Environment',
                \ 'm' : ['messages', 'Messages'],
                \ 'r' : ['registers', 'Show Registers'],
                \ 'R' : ['Resource', 'Reload Config'],
+               \ 's' : ['Scratch', 'Scratch Buffer'],
                \ 't' : ['ResetNerdTree', 'Reset File Tree'],
                \}
 
