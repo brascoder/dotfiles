@@ -97,22 +97,68 @@ leader_map('pT', [[:! ctags<cr>]])
 -- Text
 lmap.x = {
   name = '+Text',
+  i = {
+    name = '+Insert',
+    j = 'Insert Line Below',
+    k = 'Insert Line Above',
+  },
   n = 'Split New Line',
   s = 'Substitute',
   S = 'Line Substitute',
   y = 'Yank to Clipboard',
   Y = 'Yank Line to Clipboard',
 }
+cmd [[command! InsertAbove call feedkeys('O<esc>j', 't')]]
+cmd [[command! InsertBelow call feedkeys('o<esc>k', 't')]]
 cmd [[command! SplitNewline call feedkeys('i<cr><esc>', 't')]]
 cmd [[command! NSubstitute call feedkeys(':s/', 't')]]
 cmd [[command! LSubstitute call feedkeys('V:s/', 't')]]
 cmd [[command! NYankToClip call feedkeys('"*y<esc>', 't')]]
 cmd [[command! LYankToClip call feedkeys('^v$h"*y', 't')]]
+leader_map('xij', [[:InsertBelow<cr>]])
+leader_map('xik', [[:InsertAbove<cr>]])
 leader_map('xn', [[:SplitNewline<cr>]])
 leader_map('xs', [[:NSubstitute<cr>]])
 leader_map('xS', [[:LSubstitute<cr>]])
 leader_map('xy', [[:NYankToClip<cr>]])
 leader_map('xY', [[:LYankToClip<cr>]])
+
+-- Text/Align
+lmap.x.a = {name = '+Align'}
+lmap.x.a.a = 'Align...'
+lmap.x.a[':'] = 'Align (:)'
+lmap.x.a['='] = 'Align (=)'
+lmap.x.a[','] = 'Align (,)'
+cmd [[command! AlignColon call feedkeys(':Tab /:\zs/l0l1<cr>', 't')]]
+cmd [[command! AlignEqual call feedkeys(':Tab /=/<cr>', 't')]]
+cmd [[command! AlignComma call feedkeys(':Tab /,\zs<cr>', 't')]]
+leader_map('xa:', [[:AlignColon<cr>]])
+leader_map('xa=', [[:AlignEqual<cr>]])
+leader_map('xa,', [[:AlignComma<cr>]])
+leader_map('xa,', [[:Tab /]])
+
+-- Window
+lmap.w = {
+  name = '+Window',
+  c = 'Close Window',
+  h = 'Move Window Left',
+  j = 'Move Window Down',
+  k = 'Move Window Up',
+  l = 'Move Window Right',
+  o = 'Close Other Windows',
+  x = 'Horizontal Split',
+  v = 'Vertical Split',
+  w = 'Show Windows',
+}
+leader_map('wc', [[:close<cr>]])
+leader_map('wh', [[:wincmd H<cr>]])
+leader_map('wj', [[:wincmd J<cr>]])
+leader_map('wk', [[:wincmd K<cr>]])
+leader_map('wl', [[:wincmd L<cr>]])
+leader_map('wo', [[:only<cr>]])
+leader_map('wx', [[:split<cr>]])
+leader_map('wv', [[:vsplit<cr>]])
+leader_map('ww', [[:Windows<cr>]])
 
 -- Quit
 lmap.q = {name = 'Quit'}
