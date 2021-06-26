@@ -26,8 +26,6 @@ opt.termguicolors = true
 opt.updatetime = 300
 opt.visualbell = true
 
-vim.env.FZF_DEFAULT_COMMAND = [[ag -g ""]]
-
 -- g.tagbar_type_ruby = {
 --   'kinds' = {
 --     'm:modules',

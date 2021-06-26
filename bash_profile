@@ -11,6 +11,8 @@ alias cdot='cd ~/.dotfiles'
 alias cdcode='cd ~/code'
 alias sshfix='ssh-add -A'
 
+# FZF
+export FZF_DEFAULT_COMMAND='rg --files --follow --preview='
 
 # Vim
 if [ -f $HOME/.asdf/shims/nvim ]; then

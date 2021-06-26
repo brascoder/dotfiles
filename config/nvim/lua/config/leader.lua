@@ -1,4 +1,6 @@
-local leader_map = require('config.utils').leader_map
+local utils = require('config.utils')
+local nleader = utils.nleader
+local vleader = utils.vleader
 local map = vim.api.nvim_set_keymap
 local g, cmd = vim.g, vim.cmd
 
@@ -8,7 +10,7 @@ local lmap = {}
 
 -- Top Level
 lmap['/'] = 'Ag Search'
-leader_map('/', ':Ag<cr>')
+nleader('/', [[:Ag<cr>]])
 
 -- Buffer
 lmap.b = {
@@ -19,11 +21,11 @@ lmap.b = {
   p = 'Previous Buffer',
   t = 'Tags',
 }
-leader_map('bb', [[:Buffers<cr>]])
-leader_map('bd', [[:bdelete<cr>]])
-leader_map('bn', [[:bnext<cr>]])
-leader_map('bp', [[:bprevious<cr>]])
-leader_map('bt', [[:BTags<cr>]])
+nleader('bb', [[:Telescope buffers<cr>]])
+nleader('bd', [[:bdelete<cr>]])
+nleader('bn', [[:bnext<cr>]])
+nleader('bp', [[:bprevious<cr>]])
+nleader('bt', [[:BTags<cr>]])
 
 -- Environment
 lmap.e = {
@@ -46,24 +48,25 @@ lmap.e = {
   t = 'Reset File Tree',
 }
 cmd [[command! Scratch lua funcs.make_scratch()]]
-leader_map('ea', [[:setlocal spell!<cr>]])
-leader_map('eh', [[:set hlsearch!<cr>]])
-leader_map('ei', [[:IndentLinesToggle<cr>]])
-leader_map('em', [[:messages<cr>]])
-leader_map('ePc', [[:PackerClean<cr>]])
-leader_map('ePp', [[:PackerInstall<cr>]])
-leader_map('ePs', [[:PackerSync<cr>]])
-leader_map('ePS', [[:PackerStatus<cr>]])
-leader_map('ePu', [[:PackerUpdate<cr>]])
-leader_map('er', [[:Telescope registers<cr>]])
-leader_map('eR', [[:source $MYVIMRC<cr>]])
-leader_map('es', [[:Scratch<cr>]])
-leader_map('et', [[:NERDTreeFocus | vertical resize 31<cr>]])
+nleader('ea', [[:setlocal spell!<cr>]])
+nleader('eh', [[:set hlsearch!<cr>]])
+nleader('ei', [[:IndentLinesToggle<cr>]])
+nleader('em', [[:messages<cr>]])
+nleader('ePc', [[:PackerClean<cr>]])
+nleader('ePp', [[:PackerInstall<cr>]])
+nleader('ePs', [[:PackerSync<cr>]])
+nleader('ePS', [[:PackerStatus<cr>]])
+nleader('ePu', [[:PackerUpdate<cr>]])
+nleader('er', [[:Telescope registers<cr>]])
+nleader('eR', [[:source $MYVIMRC<cr>]])
+nleader('es', [[:Scratch<cr>]])
+nleader('et', [[:NERDTreeFocus | vertical resize 31<cr>]])
 
 -- File
 lmap.f = {
   name = '+File',
   f = 'Find File',
+  p = 'Copy File Path',
   r = 'Reload File',
   R = 'Force Reload File',
   s = 'Save File',
@@ -71,13 +74,41 @@ lmap.f = {
   t = 'Find in File Tree',
   x = 'Save & Close',
 }
-leader_map('ff', [[:Telescope find_files<cr>]])
-leader_map('fr', [[:e<cr>]])
-leader_map('fR', [[:e!<cr>]])
-leader_map('fs', [[:w<cr>]])
-leader_map('fS', [[:wa<cr>]])
-leader_map('ft', [[:NERDTreeFind<cr>]])
-leader_map('fx', [[:x<cr>]])
+nleader('ff', [[:Telescope find_files<cr>]])
+nleader('fp', [[:let @*=@%<cr>]])
+nleader('fr', [[:e<cr>]])
+nleader('fR', [[:e!<cr>]])
+nleader('fs', [[:w<cr>]])
+nleader('fS', [[:wa<cr>]])
+nleader('ft', [[:NERDTreeFind<cr>]])
+nleader('fx', [[:x<cr>]])
+
+-- Git
+lmap.g = {
+  name = '+Git',
+  h = {
+    name = '+Hunk',
+    n = 'Next Hunk',
+    p = 'Previous Hunk',
+    s = 'Stage Hunk',
+    u = 'Undo Hunk',
+  },
+}
+nleader('ghn', [[:GitGutterNextHunk]])
+nleader('ghp', [[:GitGutterPreviousHunk]])
+nleader('ghs', [[<Plug>(GitGutterStageHunk)]])
+nleader('ghu', [[<Plug>(GitGutterUndoHunk)]])
+
+-- Hop
+lmap.h = {
+  name = '+Hop',
+  h = 'Hop to Char',
+  l = 'Hop to Line',
+  p = 'Hop to Pattern',
+}
+nleader('hh', [[:HopChar1<cr>]])
+nleader('hl', [[:HopLine<cr>]])
+nleader('hp', [[:HopPattern<cr>]])
 
 -- Project
 lmap.p = {
@@ -88,11 +119,11 @@ lmap.p = {
   t = 'Tags',
   T = 'Generate Tags',
 }
-leader_map('pa', [[:A<cr>]])
-leader_map('pf', [[:NERDTreeToggle<cr>]])
-leader_map('pF', [[:NERDTreeFocus<cr>]])
-leader_map('pt', [[:Telescope tags<cr>]])
-leader_map('pT', [[:! ctags<cr>]])
+nleader('pa', [[:A<cr>]])
+nleader('pf', [[:NERDTreeToggle<cr>]])
+nleader('pF', [[:NERDTreeFocus<cr>]])
+nleader('pt', [[:Telescope tags<cr>]])
+nleader('pT', [[:! ctags<cr>]])
 
 -- Text
 lmap.x = {
@@ -104,24 +135,19 @@ lmap.x = {
   },
   n = 'Split New Line',
   s = 'Substitute',
-  S = 'Line Substitute',
-  y = 'Yank to Clipboard',
-  Y = 'Yank Line to Clipboard',
+  y = 'Yank Live to Clipboard',
 }
 cmd [[command! InsertAbove call feedkeys('O<esc>j', 't')]]
 cmd [[command! InsertBelow call feedkeys('o<esc>k', 't')]]
 cmd [[command! SplitNewline call feedkeys('i<cr><esc>', 't')]]
 cmd [[command! NSubstitute call feedkeys(':s/', 't')]]
-cmd [[command! LSubstitute call feedkeys('V:s/', 't')]]
-cmd [[command! NYankToClip call feedkeys('"*y<esc>', 't')]]
-cmd [[command! LYankToClip call feedkeys('^v$h"*y', 't')]]
-leader_map('xij', [[:InsertBelow<cr>]])
-leader_map('xik', [[:InsertAbove<cr>]])
-leader_map('xn', [[:SplitNewline<cr>]])
-leader_map('xs', [[:NSubstitute<cr>]])
-leader_map('xS', [[:LSubstitute<cr>]])
-leader_map('xy', [[:NYankToClip<cr>]])
-leader_map('xY', [[:LYankToClip<cr>]])
+cmd [[command! YankLineToClip call feedkeys('^v$h"*y', 't')]]
+nleader('xij', [[:InsertBelow<cr>]])
+nleader('xik', [[:InsertAbove<cr>]])
+nleader('xn', [[:SplitNewline<cr>]])
+nleader('xs', [[:NSubstitute<cr>]])
+vleader('xs', [[:NSubstitute<cr>]])
+nleader('xy', [[:YankLineToClip<cr>]])
 
 -- Text/Align
 lmap.x.a = {name = '+Align'}
@@ -132,10 +158,10 @@ lmap.x.a[','] = 'Align (,)'
 cmd [[command! AlignColon call feedkeys(':Tab /:\zs/l0l1<cr>', 't')]]
 cmd [[command! AlignEqual call feedkeys(':Tab /=/<cr>', 't')]]
 cmd [[command! AlignComma call feedkeys(':Tab /,\zs<cr>', 't')]]
-leader_map('xa:', [[:AlignColon<cr>]])
-leader_map('xa=', [[:AlignEqual<cr>]])
-leader_map('xa,', [[:AlignComma<cr>]])
-leader_map('xa,', [[:Tab /]])
+vleader('xa:', [[:AlignColon<cr>]])
+vleader('xa=', [[:AlignEqual<cr>]])
+vleader('xa,', [[:AlignComma<cr>]])
+vleader('xa,', [[:Tab /]])
 
 -- Window
 lmap.w = {
@@ -150,22 +176,22 @@ lmap.w = {
   v = 'Vertical Split',
   w = 'Show Windows',
 }
-leader_map('wc', [[:close<cr>]])
-leader_map('wh', [[:wincmd H<cr>]])
-leader_map('wj', [[:wincmd J<cr>]])
-leader_map('wk', [[:wincmd K<cr>]])
-leader_map('wl', [[:wincmd L<cr>]])
-leader_map('wo', [[:only<cr>]])
-leader_map('wx', [[:split<cr>]])
-leader_map('wv', [[:vsplit<cr>]])
-leader_map('ww', [[:Windows<cr>]])
+nleader('wc', [[:close<cr>]])
+nleader('wh', [[:wincmd H<cr>]])
+nleader('wj', [[:wincmd J<cr>]])
+nleader('wk', [[:wincmd K<cr>]])
+nleader('wl', [[:wincmd L<cr>]])
+nleader('wo', [[:only<cr>]])
+nleader('wx', [[:split<cr>]])
+nleader('wv', [[:vsplit<cr>]])
+nleader('ww', [[:Windows<cr>]])
 
 -- Quit
 lmap.q = {name = 'Quit'}
 lmap.q.q = 'Quit All'
 lmap.q.q = 'Force Quit All'
-leader_map('qq', [[:qa<cr>]])
-leader_map('qQ', [[:qa!<cr>]])
+nleader('qq', [[:qa<cr>]])
+nleader('qQ', [[:qa!<cr>]])
 
 g.lmap = lmap
 

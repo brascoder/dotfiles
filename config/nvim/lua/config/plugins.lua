@@ -26,7 +26,6 @@ require('packer').startup(function(use)
   use 'ap/vim-css-color'
   use 'junegunn/vim-peekaboo'
   use 'lifepillar/vim-solarized8'
-  use 'majutsushi/tagbar'
   use {'nvim-treesitter/nvim-treesitter', run = [[:TSUpdate]], config = [[require('config.treesitter')]]}
   use {'powerline/fonts', config = [[vim.g.airline_powerline_fonts = 1]]}
   use {'spinks/vim-leader-guide', config = [[require('config.leader')]]}
@@ -36,11 +35,12 @@ require('packer').startup(function(use)
 
   -- Navigation
   use 'christoomey/vim-tmux-navigator'
-  use 'easymotion/vim-easymotion'
+  use {'phaazon/hop.nvim', config = [[require('config.hop')]]}
   use 'scrooloose/nerdtree'
   use 'Xuyuanp/nerdtree-git-plugin'
 
   -- Text Operation
+  use 'godlygeek/tabular'
   use {'hrsh7th/nvim-compe', config = [[require('config.compe')]]}
   use 'hrsh7th/vim-vsnip'
   use 'hrsh7th/vim-vsnip-integ'
