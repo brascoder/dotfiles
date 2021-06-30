@@ -18,12 +18,14 @@ lmap.b = {
   b = 'Show Buffers',
   d = 'Delete Current Buffer',
   n = 'Next Buffer',
+  o = 'Kill Other Buffers',
   p = 'Previous Buffer',
   t = 'Tags',
 }
 nleader('bb', [[:Telescope buffers<cr>]])
 nleader('bd', [[:bdelete<cr>]])
 nleader('bn', [[:bnext<cr>]])
+nleader('bo', [[:BufOnly<cr>]])
 nleader('bp', [[:bprevious<cr>]])
 nleader('bt', [[:BTags<cr>]])
 
