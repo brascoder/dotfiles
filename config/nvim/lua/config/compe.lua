@@ -9,12 +9,12 @@ g.loaded_compe_ultisnips = true
 g.loaded_compe_vim_lsc = true
 g.loaded_compe_vim_lsp = true
 
-require('compe').setup {
+require("compe").setup {
   enabled = true,
   autocomplete = true,
   debug = false,
   min_length = 1,
-  preselect = 'enabled',
+  preselect = "enabled",
   throttle_time = 80,
   source_timeout = 200,
   incomplete_delay = 400,
@@ -36,6 +36,6 @@ require('compe').setup {
 }
 
 local opts = {noremap = true, silent = true, expr = true}
-map('i', '<C-space>', [[compe#complete()]], opts)
-map('i', '<CR>', [[compe#confirm('<CR>')]], opts)
-map('i', '<C-e>', [[compe#close('<C-e>')]], opts)
+map("i", "<C-Space>", [[compe#complete()]], opts)
+map("i", "<CR>", [[compe#confirm("<CR>")]], opts)
+map("i", "<C-e>", [[compe#close("<C-e>")]], opts)

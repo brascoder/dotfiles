@@ -5,8 +5,8 @@ local t = function(str)
 end
 
 local check_back_space = function()
-  local col = vim.fn.col('.') - 1
-  if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
+  local col = vim.fn.col(".") - 1
+  if col == 0 or vim.fn.getline("."):sub(col, col):match("%s") then
     return true
   else
     return false
@@ -21,7 +21,7 @@ _G.tab_complete = function()
   elseif check_back_space() then
     return t "<Tab>"
   else
-    return vim.fn['compe#complete']()
+    return vim.fn["compe#complete"]()
   end
 end
 
@@ -35,26 +35,26 @@ _G.s_tab_complete = function()
   end
 end
 
-map('i', '<Tab>', [[v:lua.tab_complete()]], {expr = true})
-map('s', '<Tab>', [[v:lua.tab_complete()]], {expr = true})
-map('i', '<S-Tab>', [[v:lua.s_tab_complete()]], {expr = true})
-map('s', '<S-Tab>', [[v:lua.s_tab_complete()]], {expr = true})
+map("i", "<Tab>", [[v:lua.tab_complete()]], {expr = true})
+map("s", "<Tab>", [[v:lua.tab_complete()]], {expr = true})
+map("i", "<S-Tab>", [[v:lua.s_tab_complete()]], {expr = true})
+map("s", "<S-Tab>", [[v:lua.s_tab_complete()]], {expr = true})
 
 -- Enable Ctrl-h
-map('n', '<BS>', [[:TmuxNavigateLeft<CR>]], {noremap = true, silent = true})
+map("n", "<BS>", [[:TmuxNavigateLeft<CR>]], {noremap = true, silent = true})
 
 -- Window
-map('n', '≥', [[<C-w>>]], {noremap = true})
-map('n', '≤', [[<C-w><]], {noremap = true})
-map('n', '˘', [[<C-w>+]], {noremap = true})
-map('n', '¯', [[<C-w>-]], {noremap = true})
+map("n", "≥", [[<C-w>>]], {noremap = true})
+map("n", "≤", [[<C-w><]], {noremap = true})
+map("n", "˘", [[<C-w>+]], {noremap = true})
+map("n", "¯", [[<C-w>-]], {noremap = true})
 
 -- Editing
-map('i', '<C-j>', [[<Esc>o]], {noremap = true})
-map('i', '<C-k>', [[<Esc>O]], {noremap = true})
-map('n', '∆', [[:m .+1<CR>==]], {noremap = true})
-map('n', '˚', [[:m .-2<CR>==]], {noremap = true})
-map('i', '∆', [[<Esc>:m .+1<CR>==gi]], {noremap = true})
-map('i', '˚', [[<Esc>:m .-2<CR>==gi]], {noremap = true})
-map('v', '∆', [[:m '>+1<CR>gv=gv]], {noremap = true})
-map('v', '˚', [[:m '<-2<CR>gv=gv]], {noremap = true})
+map("i", "<C-j>", [[<Esc>o]], {noremap = true})
+map("i", "<C-k>", [[<Esc>O]], {noremap = true})
+map("n", "∆", [[:m .+1<CR>==]], {noremap = true})
+map("n", "˚", [[:m .-2<CR>==]], {noremap = true})
+map("i", "∆", [[<Esc>:m .+1<CR>==gi]], {noremap = true})
+map("i", "˚", [[<Esc>:m .-2<CR>==gi]], {noremap = true})
+map("v", "∆", [[:m '>+1<CR>gv=gv]], {noremap = true})
+map("v", "˚", [[:m '<-2<CR>gv=gv]], {noremap = true})
