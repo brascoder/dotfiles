@@ -40,6 +40,7 @@ require("packer").startup(function(use)
   use "Xuyuanp/nerdtree-git-plugin"
 
   -- Text Operation
+  use "andymass/vim-matchup"
   use "godlygeek/tabular"
   use {"hrsh7th/nvim-compe", config = [[require("config.compe")]]}
   use "hrsh7th/vim-vsnip"
