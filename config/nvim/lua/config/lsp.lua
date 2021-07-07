@@ -32,13 +32,12 @@ lspconfig.elixirls.setup({
 })
 
 lspconfig.solargraph.setup({
-  cmd = { "solargraph", "stdio" },
   capabilities = capabilities,
   on_attach = on_attach,
-  filetypes = { "ruby" },
   settings = {
     solargraph = {
-      diagnostics = true
+      diagnostics = true,
+      formatting = true
     }
   }
 })
