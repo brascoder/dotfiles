@@ -46,6 +46,7 @@ require("packer").startup(function(use)
   use "hrsh7th/vim-vsnip"
   use "hrsh7th/vim-vsnip-integ"
   use "mattn/emmet-vim"
+  use "rafamadriz/friendly-snippets"
   use "tpope/vim-commentary"
   use "tpope/vim-surround"
 
