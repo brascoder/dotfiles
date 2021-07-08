@@ -22,22 +22,27 @@ require("packer").startup(function(use)
   use "vim-scripts/bufonly.vim"
 
   -- UI
-  use "airblade/vim-gitgutter"
-  use "ap/vim-css-color"
+  use {'famiu/feline.nvim', config = [[require("feline").setup({preset = "default"})]]}
   use "junegunn/vim-peekaboo"
+  use "kyazdani42/nvim-web-devicons"
+  use {
+    "lewis6991/gitsigns.nvim",
+    requires = {
+      "nvim-lua/plenary.nvim"
+    },
+    config = [[require("gitsigns").setup()]]
+  }
   use "lifepillar/vim-solarized8"
+  use {"norcalli/nvim-colorizer.lua", config = [[require("colorizer").setup()]]}
   use {"nvim-treesitter/nvim-treesitter", run = [[:TSUpdate]], config = [[require("config.treesitter")]]}
   use {"powerline/fonts", config = [[vim.g.airline_powerline_fonts = 1]]}
   use {"spinks/vim-leader-guide", config = [[require("config.leader")]]}
-  use "vim-airline/vim-airline"
-  use {"vim-airline/vim-airline-themes", config = [[vim.g.airline_theme = "badwolf"]]}
   use {"Yggdroot/indentLine", config = [[vim.g.indentLine_color_gui = "#4c4c4b"]]}
 
   -- Navigation
   use "christoomey/vim-tmux-navigator"
   use {"phaazon/hop.nvim", config = [[require("config.hop")]]}
-  use "scrooloose/nerdtree"
-  use "Xuyuanp/nerdtree-git-plugin"
+  use "kyazdani42/nvim-tree.lua"
 
   -- Text Operation
   use "andymass/vim-matchup"
@@ -45,6 +50,7 @@ require("packer").startup(function(use)
   use {"hrsh7th/nvim-compe", config = [[require("config.compe")]]}
   use "hrsh7th/vim-vsnip"
   use "hrsh7th/vim-vsnip-integ"
+  use "JoosepAlviste/nvim-ts-context-commentstring"
   use "mattn/emmet-vim"
   use "rafamadriz/friendly-snippets"
   use "tpope/vim-commentary"

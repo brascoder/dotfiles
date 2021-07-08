@@ -9,8 +9,6 @@ funcs = require("config.funcs")
 local lmap = {}
 
 -- Top Level
-lmap["/"] = "Ag Search"
-nleader("/", [[:Ag<CR>]])
 
 -- Buffer
 lmap.b = {
@@ -22,7 +20,7 @@ lmap.b = {
   p = "Previous Buffer",
   t = "Tags",
 }
-nleader("bb", [[:Telescope buffers<CR>]])
+nleader("bb", [[:Telescope buffers show_all_buffers=true sort_lastused=true<CR>]])
 nleader("bd", [[:bdelete<CR>]])
 nleader("bn", [[:bnext<CR>]])
 nleader("bo", [[:BufOnly<CR>]])
@@ -36,7 +34,7 @@ lmap.e = {
   h = "Toggle Search Highlight",
   i = "Toggle Indent Lines",
   m = "Messages",
-  P = {
+  p = {
     name = "+Plugins",
     c = "Clean Plugins",
     p = "Install Plugins",
@@ -47,22 +45,22 @@ lmap.e = {
   r = "Registers",
   R = "Reload Config",
   s = "Scratch Buffer",
-  t = "Reset File Tree",
+  t = "Refresh File Tree",
 }
 cmd [[command! Scratch lua funcs.make_scratch()]]
 nleader("ea", [[:setlocal spell!<CR>]])
 nleader("eh", [[:set hlsearch!<CR>]])
 nleader("ei", [[:IndentLinesToggle<CR>]])
 nleader("em", [[:messages<CR>]])
-nleader("ePc", [[:PackerClean<CR>]])
-nleader("ePp", [[:PackerInstall<CR>]])
-nleader("ePs", [[:PackerSync<CR>]])
-nleader("ePS", [[:PackerStatus<CR>]])
-nleader("ePu", [[:PackerUpdate<CR>]])
+nleader("epc", [[:PackerClean<CR>]])
+nleader("epp", [[:PackerInstall<CR>]])
+nleader("eps", [[:PackerSync<CR>]])
+nleader("epS", [[:PackerStatus<CR>]])
+nleader("epu", [[:PackerUpdate<CR>]])
 nleader("er", [[:Telescope registers<CR>]])
 nleader("eR", [[:source $MYVIMRC<CR>]])
 nleader("es", [[:Scratch<CR>]])
-nleader("et", [[:NERDTreeFocus | vertical resize 31<CR>]])
+nleader("et", [[:NvimTreeRefresh<CR>]])
 
 -- File
 lmap.f = {
@@ -73,33 +71,47 @@ lmap.f = {
   R = "Force Reload File",
   s = "Save File",
   S = "Save All",
-  t = "Find in File Tree",
+  t = "Open File Tree",
+  T = "Find in File Tree",
   x = "Save & Close",
 }
-nleader("ff", [[:Telescope find_files<CR>]])
+nleader("ff", [[:Telescope git_files<CR>]])
 nleader("fp", [[:let @*=@%<CR>]])
 nleader("fr", [[:e<CR>]])
 nleader("fR", [[:e!<CR>]])
 nleader("fs", [[:w<CR>]])
 nleader("fS", [[:wa<CR>]])
-nleader("ft", [[:NERDTreeFind<CR>]])
+nleader("ft", [[:NvimTreeToggle<CR>]])
+nleader("fT", [[:NvimTreeFindFile<CR>]])
 nleader("fx", [[:x<CR>]])
 
 -- Git
 lmap.g = {
   name = "+Git",
+  b = "Git Blame",
   h = {
     name = "+Hunk",
+    b = "Blame Line",
+    h = "Select Hunk",
     n = "Next Hunk",
     p = "Previous Hunk",
+    P = "Preview Hunk",
+    r = "Reset Hunk",
+    R = "Reset Buffer",
     s = "Stage Hunk",
     u = "Undo Hunk",
   },
 }
-nleader("ghn", [[:GitGutterNextHunk]])
-nleader("ghp", [[:GitGutterPreviousHunk]])
-nleader("ghs", [[<Plug>(GitGutterStageHunk)]])
-nleader("ghu", [[<Plug>(GitGutterUndoHunk)]])
+nleader("gb", [[:Git blame<CR>]])
+nleader("ghb", [[:Gitsigns blame_line<CR>]])
+nleader("ghh", [[:Gitsigns select_hunk<CR>]])
+nleader("ghn", [[:Gitsigns next_hunk<CR>]])
+nleader("ghp", [[:Gitsigns prev_hunk<CR>]])
+nleader("ghP", [[:Gitsigns preview_hunk<CR>]])
+nleader("ghr", [[:Gitsigns reset_hunk<CR>]])
+nleader("ghR", [[:Gitsigns reset_buffer<CR>]])
+nleader("ghs", [[:Gitsigns stage_hunk<CR>]])
+nleader("ghu", [[:Gitsigns undo_stage_hunk<CR>]])
 
 -- Hop
 lmap.h = {
@@ -116,14 +128,14 @@ nleader("hp", [[:HopPattern<CR>]])
 lmap.p = {
   name = "+Project",
   a = "Alternate File",
-  f = "Toggle File Tree",
-  F = "Focus File Tree",
+  s = "Search",
+  S = "Ag Search",
   t = "Tags",
   T = "Generate Tags",
 }
 nleader("pa", [[:A<CR>]])
-nleader("pf", [[:NERDTreeToggle<CR>]])
-nleader("pF", [[:NERDTreeFocus<CR>]])
+nleader("ps", [[:Telescope live_grep<CR>]])
+nleader("pS", [[:Ag<CR>]])
 nleader("pt", [[:Telescope tags<CR>]])
 nleader("pT", [[:! ctags<CR>]])
 
@@ -191,7 +203,7 @@ nleader("ww", [[:Windows<CR>]])
 -- Quit
 lmap.q = {name = "Quit"}
 lmap.q.q = "Quit All"
-lmap.q.q = "Force Quit All"
+lmap.q.Q = "Force Quit All"
 nleader("qq", [[:qa<CR>]])
 nleader("qQ", [[:qa!<CR>]])
 
