@@ -9,12 +9,15 @@ funcs = require("config.funcs")
 local lmap = {}
 
 -- Top Level
+lmap[" "] = "Commands"
+nleader(" ", [[:Telescope commands<CR>]])
 
 -- Buffer
 lmap.b = {
   name = "+Buffer",
   b = "Show Buffers",
   d = "Delete Current Buffer",
+  m = "Marks",
   n = "Next Buffer",
   o = "Kill Other Buffers",
   p = "Previous Buffer",
@@ -22,6 +25,7 @@ lmap.b = {
 }
 nleader("bb", [[:Telescope buffers show_all_buffers=true sort_lastused=true<CR>]])
 nleader("bd", [[:bdelete<CR>]])
+nleader("bm", [[:Telescope marks<CR>]])
 nleader("bn", [[:bnext<CR>]])
 nleader("bo", [[:BufOnly<CR>]])
 nleader("bp", [[:bprevious<CR>]])
@@ -65,6 +69,7 @@ nleader("et", [[:NvimTreeRefresh<CR>]])
 -- File
 lmap.f = {
   name = "+File",
+  b = "File Browser",
   f = "Find File",
   p = "Copy File Path",
   r = "Reload File",
@@ -75,6 +80,7 @@ lmap.f = {
   T = "Find in File Tree",
   x = "Save & Close",
 }
+nleader("ff", [[:Telescope file_browser<CR>]])
 nleader("ff", [[:Telescope git_files<CR>]])
 nleader("fp", [[:let @*=@%<CR>]])
 nleader("fr", [[:e<CR>]])
