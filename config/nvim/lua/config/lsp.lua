@@ -12,18 +12,20 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 }
 
 local on_attach = function(_, bufnr)
+  print("Attached to language server")
+
   local function map(...)
     vim.api.nvim_buf_set_keymap(bufnr, ...)
   end
-  local map_opts = {noremap = true, silent = true}
+  local opts = {noremap = true, silent = true}
 
-  map("n", "df", [[<cmd>lua vim.lsp.buf.formatting()<CR>]], map_opts)
-  map("n", "gd", [[<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>]], map_opts)
-  map("n", "dt", [[<cmd>lua vim.lsp.buf.definition()<CR>]], map_opts)
-  map("n", "K", [[<cmd>lua vim.lsp.buf.hover()<CR>]], map_opts)
-  map("n", "gD", [[<cmd>lua vim.lsp.buf.implementation()<CR>]], map_opts)
-  map("n", "<c-k>", [[<cmd>lua vim.lsp.buf.signature_help()<CR>]], map_opts)
-  map("n", "1gD", [[<cmd>lua vim.lsp.buf.type_definition()<CR>]], map_opts)
+  map("n", "<Leader>ld", [[<cmd>lua vim.lsp.buf.definition()<CR>]], opts)
+  map("n", "<Leader>lD", [[<cmd>lua vim.lsp.buf.implementation()<CR>]], opts)
+  map("n", "<Leader>lf", [[<cmd>lua vim.lsp.buf.formatting()<CR>]], opts)
+  map("n", "<Leader>lh", [[<cmd>lua vim.lsp.buf.hover()<CR>]], opts)
+  map("n", "<Leader>lH", [[<cmd>lua vim.lsp.buf.signature_help()<CR>]], opts)
+  map("n", "<Leader>ll", [[<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>]], opts)
+  map("n", "<Leader>lt", [[<cmd>lua vim.lsp.buf.type_definition()<CR>]], opts)
 end
 
 lspconfig.elixirls.setup({

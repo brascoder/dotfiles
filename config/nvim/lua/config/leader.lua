@@ -21,6 +21,7 @@ lmap.b = {
   n = "Next Buffer",
   o = "Kill Other Buffers",
   p = "Previous Buffer",
+  s = "Search Buffer",
   t = "Tags",
 }
 nleader("bb", [[:Telescope buffers show_all_buffers=true sort_lastused=true<CR>]])
@@ -29,7 +30,8 @@ nleader("bm", [[:Telescope marks<CR>]])
 nleader("bn", [[:bnext<CR>]])
 nleader("bo", [[:BufOnly<CR>]])
 nleader("bp", [[:bprevious<CR>]])
-nleader("bt", [[:BTags<CR>]])
+nleader("bs", [[:Telescope current_buffer_fuzzy_find<CR>]])
+nleader("bt", [[:Telescope current_buffer_tags<CR>]])
 
 -- Environment
 lmap.e = {
@@ -129,6 +131,18 @@ lmap.h = {
 nleader("hh", [[:HopChar1<CR>]])
 nleader("hl", [[:HopLine<CR>]])
 nleader("hp", [[:HopPattern<CR>]])
+
+-- LSP
+lmap.l = {
+  name = "+LSP",
+  d = "Definition",
+  D = "Implementation",
+  f = "Formatting",
+  h = "Hover",
+  H = "Signature Help",
+  l = "Line Diagnostics",
+  t = "Type Definition",
+}
 
 -- Project
 lmap.p = {
