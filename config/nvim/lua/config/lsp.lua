@@ -51,15 +51,15 @@ lspconfig.solargraph.setup({
   }
 })
 
--- lspconfig.efm.setup({
---   capabilities = capabilities,
---   on_attach = on_attach,
---   filetypes = {
---     "elixir",
---     "javascript",
---     "lua",
---     "bash",
---     "zsh",
---     "on"
---   }
--- })
+lspconfig.efm.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  filetypes = {
+    "elixir",
+    "javascript",
+    "lua",
+    "bash",
+    "zsh",
+    "on"
+  }
+})
