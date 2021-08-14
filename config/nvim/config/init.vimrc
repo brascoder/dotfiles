@@ -18,7 +18,7 @@ Plug 'powerline/fonts'                " UI Symbols for Airline
 Plug 'airblade/vim-gitgutter'         " Git status in the gutter
 Plug 'lifepillar/vim-solarized8'      " Text color scheme
 Plug 'Yggdroot/indentLine'            " Indent guide
-Plug 'hecal3/vim-leader-guide'
+Plug 'spinks/vim-leader-guide'
 Plug 'majutsushi/tagbar'
 Plug 'junegunn/vim-peekaboo'
 Plug 'ap/vim-css-color'
@@ -38,8 +38,12 @@ Plug 'honza/vim-snippets'
 Plug 'mattn/emmet-vim'
 Plug 'kana/vim-textobj-user'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'hrsh7th/nvim-compe'
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
 
 "----- Languages/Frameworks
+Plug 'neovim/nvim-lspconfig'
 Plug 'sheerun/vim-polyglot'   " Load language support when needed
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-bundler'

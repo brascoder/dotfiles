@@ -11,9 +11,15 @@ alias cdot='cd ~/.dotfiles'
 alias cdcode='cd ~/code'
 alias sshfix='ssh-add -A'
 
+# FZF
+export FZF_DEFAULT_COMMAND='rg --files --follow --preview='
 
 # Vim
-if [ -f /usr/local/bin/nvim ]; then
+if [ -f $HOME/.asdf/shims/nvim ]; then
+  alias vim='$HOME/.asdf/shims/nvim'
+  export EDITOR=nvim
+  export VISUAL=nvim
+elif [ -f /usr/local/bin/nvim ]; then
   alias vim='/usr/local/bin/nvim'
   export EDITOR=nvim
   export VISUAL=nvim
@@ -35,6 +41,8 @@ alias emc="emacsclient -c"
 # ASDF
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
+alias update-nvim-nightly='asdf uninstall neovim nightly && asdf install neovim nightly'
+alias update-nvim-stable='asdf uninstall neovim stable && asdf install neovim stable'
 
 # ngrok
 if [ -f $HOME/ngrok ]; then
@@ -63,6 +71,13 @@ alias dsa='docker stop $(docker ps -a -q)'
 alias dra='docker rm $(docker ps -a -q)'
 alias dcdeploy="docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d"
 
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+### AWS CLI Command Completion
+# source /usr/local/bin/aws_zsh_completer.sh
+
+# Functions
 dmenv () {
   eval $(docker-machine env ${1:--u})
 }
@@ -71,12 +86,19 @@ dmcdo () {
   docker-machine create -d digitalocean --digitalocean-access-token $DOTOK --digitalocean-image ubuntu-16-04-x64 $1
 }
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+fgco() {
+  local branches branch
+  branches=$(git branch -vv) &&
+  branch=$(echo "$branches" | fzf +m) &&
+  git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+}
 
-# Functions
-weather () {
-  curl http://wttr.in/${1:-33763}
+galias () {
+  if [ $1 ]; then
+    alias | grep $1
+  else
+    alias
+  fi
 }
 
 genv () {
@@ -91,12 +113,6 @@ gh() {
   git config --get remote.origin.url | ruby -ne 'puts %{https://github.com/#{$_.split(/.com[\:\/]/)[-1].gsub(".git","")}}' | xargs open
 }
 
-fgco() {
-  local branches branch
-  branches=$(git branch -vv) &&
-  branch=$(echo "$branches" | fzf +m) &&
-  git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+weather () {
+  curl http://wttr.in/${1:-33763}
 }
-
-### AWS CLI Command Completion
-# source /usr/local/bin/aws_zsh_completer.sh

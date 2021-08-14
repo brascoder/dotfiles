@@ -48,6 +48,7 @@ let g:lmap.c.l = { 'name' : '+Linter',
 command! ShowHelp call feedkeys(':h<space>', 't')
 command! Resource source $MYVIMRC
 command! ResetNerdTree NERDTreeFocus | vertical resize 31
+command! Scratch lua require('utils').makeScratch()
 let g:lmap.e = { 'name' : '+Environment',
                \ 'a' : ['setlocal spell!', 'Toggle Spell Check'],
                \ 'e' : ['ShowHelp', 'Help'],
@@ -57,16 +58,17 @@ let g:lmap.e = { 'name' : '+Environment',
                \ 'm' : ['messages', 'Messages'],
                \ 'r' : ['registers', 'Show Registers'],
                \ 'R' : ['Resource', 'Reload Config'],
+               \ 's' : ['Scratch', 'Scratch Buffer'],
                \ 't' : ['ResetNerdTree', 'Reset File Tree'],
                \}
 
 " Environment/Plugins
 let g:lmap.e.P = { 'name' : '+Plugins',
-                 \ 'c' : ['PlugClean', 'Clean Plugins'],
-                 \ 'p' : ['PlugInstall', 'Install Plugins'],
-                 \ 's' : ['PlugStatus', 'Plugin Status'],
-                 \ 'u' : ['PlugUpdate', 'Update Plugins'],
-                 \ 'U' : ['PlugUpgrade', 'Upgrade vim-plug'],
+                 \ 'c' : ['PackerClean', 'Clean Plugins'],
+                 \ 'p' : ['PackerInstall', 'Install Plugins'],
+                 \ 's' : ['PackerSync', 'Sync Plugins'],
+                 \ 'S' : ['PackerStatus', 'Plugin Status'],
+                 \ 'u' : ['PackerUpdate', 'Update Plugins'],
                  \}
 
 " File
@@ -116,7 +118,7 @@ let g:lmap.h = { 'name' : '+Git Hunk',
 command! GoToDef call CocActionAsync('jumpDefinition')
 let g:lmap.p = { 'name' : '+Project',
                \ 'a' : ['A', 'Alternate File'],
-               \ 'b' : ['TagbarToggle', 'Toggle Tagbar'],
+               \ 'b' : ['TagbarOpenAutoClose', 'Tagbar'],
                \ 'c' : ['BTags', 'Find Tag in File'],
                \ 'C' : ['Tags', 'Find Tag in Project'],
                \ 'g' : ['GoToDef', 'Go To Definition'],
@@ -203,7 +205,7 @@ let g:lmap.x.i = { 'name' : '+Insert',
 " Window
 command! MaximizeWindow wincmd _ | wincmd |
 let g:lmap.w = { 'name' : '+Window',
-               \ 'd' : ['close', 'Close Window'],
+               \ 'c' : ['close', 'Close Window'],
                \ 'h' : ['wincmd H', 'Move Window Left'],
                \ 'j' : ['wincmd J', 'Move Window Down'],
                \ 'k' : ['wincmd K', 'Move Window Up'],
