@@ -13,6 +13,7 @@ require("packer").startup(function(use)
   use "wbthomason/packer.nvim"
   use {"junegunn/fzf", run = function() fn["fzf#install"]() end}
   use "junegunn/fzf.vim"
+  use {"kristijanhusak/orgmode.nvim", config = [[require("orgmode").setup()]]}
   use {
     "nvim-telescope/telescope.nvim",
     requires = {{"nvim-lua/popup.nvim"}, {"nvim-lua/plenary.nvim"}}
@@ -24,12 +25,14 @@ require("packer").startup(function(use)
   -- UI
   use {'famiu/feline.nvim', config = [[require("feline").setup({preset = "default"})]]}
   use "junegunn/vim-peekaboo"
-  use "kyazdani42/nvim-web-devicons"
+  use {
+    "kyazdani42/nvim-tree.lua",
+    requires = {"kyazdani42/nvim-web-devicons"},
+    config = [[require("nvim-tree").setup()]]
+  }
   use {
     "lewis6991/gitsigns.nvim",
-    requires = {
-      "nvim-lua/plenary.nvim"
-    },
+    requires = {"nvim-lua/plenary.nvim"},
     config = [[require("gitsigns").setup()]]
   }
   use "lifepillar/vim-solarized8"
@@ -42,7 +45,6 @@ require("packer").startup(function(use)
   -- Navigation
   use "christoomey/vim-tmux-navigator"
   use {"phaazon/hop.nvim", config = [[require("config.hop")]]}
-  use "kyazdani42/nvim-tree.lua"
 
   -- Text Operation
   use "andymass/vim-matchup"
