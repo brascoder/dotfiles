@@ -24,7 +24,7 @@ lmap.b = {
   s = "Search Buffer",
   t = "Tags",
 }
-nleader("bb", [[:Telescope buffers show_all_buffers=true sort_lastused=true<CR>]])
+nleader("bb", [[:Telescope buffers show_all_buffers=true<CR>]])
 nleader("bd", [[:bdelete<CR>]])
 nleader("bm", [[:Telescope marks<CR>]])
 nleader("bn", [[:bnext<CR>]])
