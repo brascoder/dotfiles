@@ -1,8 +1,3 @@
-# Load privates
-if [ -f $HOME/.private ]; then
-  source $HOME/.private
-fi
-
 # General
 export ALTERNATE_EDITOR="vi"
 alias ls='ls -GFh'
@@ -76,6 +71,11 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 ### AWS CLI Command Completion
 # source /usr/local/bin/aws_zsh_completer.sh
+
+# Load privates
+if [ -f $HOME/.private ]; then
+  source $HOME/.private
+fi
 
 # Functions
 dmenv () {
