@@ -1,3 +1,5 @@
+require("hop").setup()
+
 local cmd = vim.cmd
 
 cmd [[highlight HopNextKey guifg=#ff5050 gui=bold,underline]]

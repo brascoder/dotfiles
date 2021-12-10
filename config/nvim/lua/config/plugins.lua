@@ -61,7 +61,7 @@ require("packer").startup(function(use)
 
   -- Navigation
   use "christoomey/vim-tmux-navigator"
-  use {"phaazon/hop.nvim", config = [[require("config.hop").setup()]]}
+  use {"phaazon/hop.nvim", config = [[require("config.hop")]]}
 
   -- Text Operation
   use "andymass/vim-matchup"
