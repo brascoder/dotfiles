@@ -1,5 +1,6 @@
 local execute = vim.api.nvim_command
 local fn = vim.fn
+local g = vim.g
 
 local install_path = fn.stdpath("data").."/site/pack/packer/start/packer.nvim"
 
@@ -18,9 +19,25 @@ require("packer").startup(function(use)
     "nvim-telescope/telescope.nvim",
     requires = {{"nvim-lua/popup.nvim"}, {"nvim-lua/plenary.nvim"}}
   }
+  use {
+    "preservim/vimux",
+    config = function()
+      g.VimuxOrientation = "h"
+      g.VimuxHeight = "25"
+    end
+  }
+  use "tpope/vim-dispatch"
   use "tpope/vim-fugitive"
+  use "tpope/vim-projectionist"
   use "tpope/vim-repeat"
   use "vim-scripts/bufonly.vim"
+  use {
+    "vim-test/vim-test",
+    config = function()
+      g["test#ruby#rspec#executable"] = "bin/rspec"
+      g["test#strategy"] = "vimux"
+    end
+  }
 
   -- UI
   use {'famiu/feline.nvim', config = [[require("feline").setup({preset = "default"})]]}
@@ -44,7 +61,7 @@ require("packer").startup(function(use)
 
   -- Navigation
   use "christoomey/vim-tmux-navigator"
-  use {"phaazon/hop.nvim", config = [[require("config.hop")]]}
+  use {"phaazon/hop.nvim", config = [[require("config.hop").setup()]]}
 
   -- Text Operation
   use "andymass/vim-matchup"
@@ -63,6 +80,5 @@ require("packer").startup(function(use)
   use {"neovim/nvim-lspconfig", config = [[require("config.lsp")]]}
   use "sheerun/vim-polyglot"
   use "tpope/vim-bundler"
-  use "tpope/vim-projectionist"
   use "tpope/vim-rails"
 end)

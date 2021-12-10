@@ -161,6 +161,19 @@ nleader("pS", [[:Ag<CR>]])
 nleader("pt", [[:Telescope tags<CR>]])
 nleader("pT", [[:! ctags<CR>]])
 
+-- Test
+lmap.t = {
+  name = "+Test",
+  l = "Test Last",
+  n = "Test Nearest",
+  s = "Test Suite",
+  t = "Test File",
+}
+nleader("tl", [[:TestLast<CR>]])
+nleader("tn", [[:TestNearest<CR>]])
+nleader("ts", [[:TestSuite<CR>]])
+nleader("tt", [[:TestFile<CR>]])
+
 -- Text
 lmap.x = {
   name = "+Text",
@@ -171,7 +184,7 @@ lmap.x = {
   },
   n = "Split New Line",
   s = "Substitute",
-  y = "Yank Live to Clipboard",
+  y = "Yank Line to Clipboard",
 }
 cmd [[command! InsertAbove call feedkeys("O<Esc>j", "t")]]
 cmd [[command! InsertBelow call feedkeys("o<Esc>k", "t")]]
