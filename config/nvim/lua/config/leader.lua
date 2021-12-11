@@ -161,6 +161,20 @@ nleader("pS", [[:Ag<CR>]])
 nleader("pt", [[:Telescope tags<CR>]])
 nleader("pT", [[:! ctags<CR>]])
 
+-- Terminal
+lmap.T = {
+  name = "+Terminal",
+  c = "Close Terminal",
+  o = "Open Terminal",
+  r = "Run Command",
+  t = "Focus Terminal",
+}
+cmd [[command! FocusVimux call feedkeys(":VimuxOpenRunner<CR><C-l>", "t")]]
+nleader("Tc", [[:VimuxCloseRunner<CR>]])
+nleader("To", [[:VimuxOpenRunner<CR>]])
+nleader("Tr", [[:VimuxPromptCommand<CR>]])
+nleader("Tt", [[:FocusVimux<CR>]])
+
 -- Test
 lmap.t = {
   name = "+Test",
