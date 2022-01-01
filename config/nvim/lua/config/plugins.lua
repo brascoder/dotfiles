@@ -19,28 +19,16 @@ require("packer").startup(function(use)
     "nvim-telescope/telescope.nvim",
     requires = {{"nvim-lua/popup.nvim"}, {"nvim-lua/plenary.nvim"}}
   }
-  use {
-    "preservim/vimux",
-    config = function()
-      g.VimuxOrientation = "h"
-      g.VimuxHeight = "25"
-    end
-  }
+  use "preservim/vimux"
   use "tpope/vim-dispatch"
   use "tpope/vim-fugitive"
   use "tpope/vim-projectionist"
   use "tpope/vim-repeat"
   use "vim-scripts/bufonly.vim"
-  use {
-    "vim-test/vim-test",
-    config = function()
-      g["test#ruby#rspec#executable"] = "bin/rspec"
-      g["test#strategy"] = "vimux"
-    end
-  }
+  use "vim-test/vim-test"
 
   -- UI
-  use {'famiu/feline.nvim', config = [[require("feline").setup({preset = "default"})]]}
+  use {'famiu/feline.nvim', config = [[require("feline").setup({preset = "noicon"})]]}
   use "junegunn/vim-peekaboo"
   use {
     "kyazdani42/nvim-tree.lua",
@@ -52,7 +40,7 @@ require("packer").startup(function(use)
     requires = {"nvim-lua/plenary.nvim"},
     config = [[require("gitsigns").setup()]]
   }
-  use "lifepillar/vim-solarized8"
+  use "ishan9299/nvim-solarized-lua"
   use {"norcalli/nvim-colorizer.lua", config = [[require("colorizer").setup()]]}
   use {"nvim-treesitter/nvim-treesitter", run = [[:TSUpdate]], config = [[require("config.treesitter")]]}
   use {"powerline/fonts", config = [[vim.g.airline_powerline_fonts = 1]]}
@@ -82,3 +70,11 @@ require("packer").startup(function(use)
   use "tpope/vim-bundler"
   use "tpope/vim-rails"
 end)
+
+-- vim-test
+g["test#ruby#rspec#executable"] = "bin/rspec"
+g["test#strategy"] = "vimux"
+
+-- vimux
+g.VimuxOrientation = "h"
+g.VimuxHeight = "25"

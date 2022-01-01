@@ -1,7 +1,8 @@
 local g, cmd, opt = vim.g, vim.cmd, vim.opt
 
 g.mapleader = [[ ]]
-cmd [[colorscheme solarized8]]
+cmd [[syntax enable]]
+cmd [[colorscheme solarized]]
 cmd [[autocmd VimResized * :wincmd =]]
 
 opt.background = "dark"
