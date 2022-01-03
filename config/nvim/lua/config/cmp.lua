@@ -58,14 +58,18 @@ cmp.setup({
     { name = 'tags' },
     { name = 'path' },
     { name = 'buffer' },
-    { name = 'spell' },
     { name = 'calc' },
   }),
   formatting = {
     format = require("lspkind").cmp_format({
       with_text = true,
       menu = {
+        buffer = "[Buffer]",
+        calc = "[Calc]",
         nvim_lsp = "[LSP]",
+        nvim_lua = "[Lua]",
+        path = "[Path]",
+        vsnip = "[VSnip]",
       },
     }),
   },
