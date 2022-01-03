@@ -1,5 +1,5 @@
 local lspconfig = require("lspconfig")
-local path_to_elixir = vim.fn.expand("~/.elixir-ls/language_server.sh")
+local path_to_elixirls = vim.fn.expand("~/.elixir-ls/language_server.sh")
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 capabilities.textDocument.completion.completionItem.snippetSupport = true
