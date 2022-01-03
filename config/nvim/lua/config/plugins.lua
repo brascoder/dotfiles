@@ -43,6 +43,7 @@ require("packer").startup(function(use)
   use "ishan9299/nvim-solarized-lua"
   use {"norcalli/nvim-colorizer.lua", config = [[require("colorizer").setup()]]}
   use {"nvim-treesitter/nvim-treesitter", run = [[:TSUpdate]], config = [[require("config.treesitter")]]}
+  use "onsails/lspkind-nvim"
   use {"powerline/fonts", config = [[vim.g.airline_powerline_fonts = 1]]}
   use {"spinks/vim-leader-guide", config = [[require("config.leader")]]}
   use {"Yggdroot/indentLine", config = [[vim.g.indentLine_color_gui = "#4c4c4b"]]}
@@ -51,10 +52,20 @@ require("packer").startup(function(use)
   use "christoomey/vim-tmux-navigator"
   use {"phaazon/hop.nvim", config = [[require("config.hop")]]}
 
+  -- Completion
+  use {"hrsh7th/nvim-cmp", config = [[require("config.cmp")]]}
+  use "hrsh7th/cmp-nvim-lsp"
+  use "hrsh7th/cmp-nvim-lua"
+  use "hrsh7th/cmp-vsnip"
+  use "hrsh7th/cmp-path"
+  use "hrsh7th/cmp-buffer"
+  use "hrsh7th/cmp-calc"
+  use "ray-x/cmp-treesitter"
+  use "quangnguyen30192/cmp-nvim-tags"
+
   -- Text Operation
   use "andymass/vim-matchup"
   use "godlygeek/tabular"
-  use {"hrsh7th/nvim-compe", config = [[require("config.compe")]]}
   use "hrsh7th/vim-vsnip"
   use "hrsh7th/vim-vsnip-integ"
   use "JoosepAlviste/nvim-ts-context-commentstring"

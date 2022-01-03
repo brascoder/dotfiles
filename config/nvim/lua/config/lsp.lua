@@ -17,6 +17,7 @@ local on_attach = function(_, bufnr)
   local function map(...)
     vim.api.nvim_buf_set_keymap(bufnr, ...)
   end
+
   local opts = {noremap = true, silent = true}
 
   map("n", "<Leader>ld", [[<cmd>lua vim.lsp.buf.definition()<CR>]], opts)
@@ -26,10 +27,12 @@ local on_attach = function(_, bufnr)
   map("n", "<Leader>lH", [[<cmd>lua vim.lsp.buf.signature_help()<CR>]], opts)
   map("n", "<Leader>ll", [[<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>]], opts)
   map("n", "<Leader>lt", [[<cmd>lua vim.lsp.buf.type_definition()<CR>]], opts)
+
+  require("cmp_nvim_lsp").update_capabilities(capabilities)
 end
 
 lspconfig.elixirls.setup({
-  cmd = path_to_elixirls,
+  cmd = {path_to_elixirls},
   capabilities = capabilities,
   on_attach = on_attach,
   settings = {
