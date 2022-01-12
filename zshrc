@@ -54,7 +54,7 @@ function precmd () {
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew bundler docker gem rails tmux)
+plugins=(git brew bundler docker gem rails tmux zsh-autosuggestions)
 
 # User configuration
 
@@ -63,6 +63,8 @@ export PATH="$HOME/.bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.bash_profile
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#cccccc,bg=black,bold"
+bindkey '^ ' autosuggest-execute
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
