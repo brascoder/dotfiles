@@ -169,7 +169,7 @@ lmap.T = {
   r = "Run Command",
   t = "Focus Terminal",
 }
-cmd [[command! FocusVimux call feedkeys(":VimuxOpenRunner<CR><C-l>", "t")]]
+cmd [[command! FocusVimux call feedkeys(":VimuxOpenRunner<CR>:TmuxNavigatePrevious<CR>", "t")]]
 nleader("Tc", [[:VimuxCloseRunner<CR>]])
 nleader("To", [[:VimuxOpenRunner<CR>]])
 nleader("Tr", [[:VimuxPromptCommand<CR>]])
