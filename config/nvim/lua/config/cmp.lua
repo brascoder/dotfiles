@@ -50,9 +50,9 @@ cmp.setup({
 
   },
   sources = cmp.config.sources({
+    { name = 'vsnip' },
     { name = 'nvim_lsp' },
     { name = 'nvim_lua' },
-    { name = 'vsnip' },
     { name = 'treesitter' },
   }, {
     { name = 'tags' },
