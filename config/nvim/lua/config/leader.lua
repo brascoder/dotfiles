@@ -17,6 +17,7 @@ lmap.b = {
   name = "+Buffer",
   b = "Show Buffers",
   d = "Delete Current Buffer",
+  l = "Last Buffer",
   m = "Marks",
   n = "Next Buffer",
   o = "Kill Other Buffers",
@@ -24,8 +25,10 @@ lmap.b = {
   s = "Search Buffer",
   t = "Tags",
 }
+cmd [[command! LastBuffer call feedkeys("<C-^>", "t")]]
 nleader("bb", [[:Telescope buffers show_all_buffers=true<CR>]])
 nleader("bd", [[:bdelete<CR>]])
+nleader("bl", [[:LastBuffer<CR>]])
 nleader("bm", [[:Telescope marks<CR>]])
 nleader("bn", [[:bnext<CR>]])
 nleader("bo", [[:BufOnly<CR>]])
