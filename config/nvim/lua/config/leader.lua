@@ -145,9 +145,11 @@ lmap.l = {
   f = "Formatting",
   h = "Hover",
   H = "Signature Help",
+  i = "Info",
   l = "Line Diagnostics",
   t = "Type Definition",
 }
+nleader("li", [[:LspInfo<CR>]])
 
 -- Project
 lmap.p = {

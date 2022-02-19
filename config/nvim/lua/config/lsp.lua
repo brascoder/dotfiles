@@ -25,7 +25,7 @@ local on_attach = function(_, bufnr)
   map("n", "<Leader>lf", [[<cmd>lua vim.lsp.buf.formatting()<CR>]], opts)
   map("n", "<Leader>lh", [[<cmd>lua vim.lsp.buf.hover()<CR>]], opts)
   map("n", "<Leader>lH", [[<cmd>lua vim.lsp.buf.signature_help()<CR>]], opts)
-  map("n", "<Leader>ll", [[<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>]], opts)
+  map("n", "<Leader>ll", [[<cmd>lua vim.diagnostic.open_float()<CR>]], opts)
   map("n", "<Leader>lt", [[<cmd>lua vim.lsp.buf.type_definition()<CR>]], opts)
 
   require("cmp_nvim_lsp").update_capabilities(capabilities)
@@ -54,6 +54,17 @@ lspconfig.solargraph.setup({
   }
 })
 
+lspconfig.tsserver.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
+
+lspconfig.html.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  filetypes = { "html", "eelixir" }
+})
+
 lspconfig.efm.setup({
   capabilities = capabilities,
   on_attach = on_attach,
@@ -63,6 +74,7 @@ lspconfig.efm.setup({
     "lua",
     "bash",
     "zsh",
+    "html",
     "on"
   }
 })

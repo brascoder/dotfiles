@@ -19,6 +19,7 @@ opt.shortmess:append({c = true})
 opt.showmatch = true
 opt.signcolumn = "yes"
 opt.smartcase = true
+opt.smartindent = true
 opt.softtabstop = 2
 opt.splitbelow = true
 opt.splitright = true
