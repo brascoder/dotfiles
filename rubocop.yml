@@ -8,11 +8,18 @@ Layout/FirstHashElementIndentation:
   EnforcedStyle: consistent
 
 Layout/HashAlignment:
-  EnforcedHashRocketStyle: table
-  EnforcedColonStyle: table
+  Enabled: true
+  EnforcedHashRocketStyle: key
+  EnforcedColonStyle: key
+  EnforcedLastArgumentHashStyle: always_inspect
 
 Layout/LineLength:
   Enabled: false
+
+Layout/MultilineMethodCallIndentation:
+  Enabled: true
+  EnforcedStyle: indented
+  IndentationWidth: ~
 
 Metrics/AbcSize:
   Enabled: false
@@ -37,6 +44,11 @@ Style/EmptyMethod:
 
 Style/FrozenStringLiteralComment:
   EnforcedStyle: never
+
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: double_quotes
+  ConsistentQuotesInMultiline: false
 
 Style/TrailingCommaInArrayLiteral:
   EnforcedStyleForMultiline: consistent_comma
