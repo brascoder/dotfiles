@@ -1,3 +1,8 @@
+# Load privates
+if [ -f $HOME/.private ]; then
+  source $HOME/.private
+fi
+
 # General
 export ALTERNATE_EDITOR="vi"
 alias ls='ls -GFh'
@@ -34,8 +39,6 @@ alias emd="emacs --daemon"
 alias emc="emacsclient -c"
 
 # ASDF
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
 alias update-nvim-nightly='asdf uninstall neovim nightly && asdf install neovim nightly'
 alias update-nvim-stable='asdf uninstall neovim stable && asdf install neovim stable'
 
@@ -48,7 +51,7 @@ fi
 alias iexm='iex -S mix'
 alias mps='mix phx.server'
 alias mpr='mix phx.routes'
-export KERL_CONFIGURE_OPTIONS="--without-javac --with-ssl=$(brew --prefix openssl)"
+export KERL_CONFIGURE_OPTIONS="--without-javac --with-ssl=$(brew --prefix openssl@1.1)"
 export KERL_BUILD_DOCS="yes"
 
 #Postgresql
@@ -71,11 +74,6 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 ### AWS CLI Command Completion
 # source /usr/local/bin/aws_zsh_completer.sh
-
-# Load privates
-if [ -f $HOME/.private ]; then
-  source $HOME/.private
-fi
 
 # Functions
 dmenv () {
