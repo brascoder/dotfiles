@@ -1,6 +1,5 @@
-[user]
-  name = Ron Cooke
-  email = ron@astonspark.com
+[include]
+  path = ~/.gitconfig.local
 [alias]
   a = add .
   co = checkout
