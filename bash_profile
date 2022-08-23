@@ -3,6 +3,10 @@ if [ -f $HOME/.private ]; then
   source $HOME/.private
 fi
 
+# Homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
 # General
 export ALTERNATE_EDITOR="vi"
 alias ls='ls -GFh'
