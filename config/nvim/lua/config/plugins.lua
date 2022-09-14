@@ -28,7 +28,7 @@ require("packer").startup(function(use)
   use "vim-test/vim-test"
 
   -- UI
-  use {'famiu/feline.nvim', config = [[require("feline").setup({preset = "noicon"})]]}
+  use {'famiu/feline.nvim', config = [[require("feline").setup({theme = "nightfox"})]]}
   use "junegunn/vim-peekaboo"
   use {
     "kyazdani42/nvim-tree.lua",
@@ -40,6 +40,8 @@ require("packer").startup(function(use)
     requires = {"nvim-lua/plenary.nvim"},
     config = [[require("gitsigns").setup()]]
   }
+  use "navarasu/onedark.nvim"
+  use "EdenEast/nightfox.nvim"
   use "ishan9299/nvim-solarized-lua"
   use {"norcalli/nvim-colorizer.lua", config = [[require("colorizer").setup()]]}
   use {"nvim-treesitter/nvim-treesitter", run = [[:TSUpdate]], config = [[require("config.treesitter")]]}
