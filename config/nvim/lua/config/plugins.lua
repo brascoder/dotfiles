@@ -28,7 +28,7 @@ require("packer").startup(function(use)
   use "vim-test/vim-test"
 
   -- UI
-  use {'famiu/feline.nvim', config = [[require("feline").setup({theme = "nightfox"})]]}
+  use {'famiu/feline.nvim', config = [[require("feline").setup()]]}
   use "junegunn/vim-peekaboo"
   use {
     "kyazdani42/nvim-tree.lua",
