@@ -102,6 +102,12 @@ nleader("fx", [[:x<CR>]])
 lmap.g = {
   name = "+Git",
   b = "Git Blame",
+  B = "Git Branch",
+  c = "Git Commits",
+  g = "Git Status",
+  o = "Git Old Files",
+  s = "Git Stash",
+
   h = {
     name = "+Hunk",
     b = "Blame Line",
@@ -116,6 +122,11 @@ lmap.g = {
   },
 }
 nleader("gb", [[:Git blame<CR>]])
+nleader("gc", [[:Telescope git_commits<CR>]])
+nleader("gg", [[:Telescope git_status<CR>]])
+nleader("go", [[:Telescope oldfiles<CR>]])
+nleader("gs", [[:Telescope git_stash<CR>]])
+
 nleader("ghb", [[:Gitsigns blame_line<CR>]])
 nleader("ghh", [[:Gitsigns select_hunk<CR>]])
 nleader("ghn", [[:Gitsigns next_hunk<CR>]])
