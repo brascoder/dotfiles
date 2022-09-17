@@ -122,6 +122,7 @@ lmap.g = {
   },
 }
 nleader("gb", [[:Git blame<CR>]])
+nleader("gB", [[:Telescope git_branches<CR>]])
 nleader("gc", [[:Telescope git_commits<CR>]])
 nleader("gg", [[:Telescope git_status<CR>]])
 nleader("go", [[:Telescope oldfiles<CR>]])
