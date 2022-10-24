@@ -1,6 +1,6 @@
 local lspconfig = require("lspconfig")
 local path_to_elixirls = vim.fn.expand("~/.elixir-ls/language_server.sh")
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities.textDocument.completion.completionItem.resolveSupport = {
@@ -28,6 +28,8 @@ local on_attach = function(_, bufnr)
   map("n", "<Leader>ll", [[<cmd>lua vim.diagnostic.open_float()<CR>]], opts)
   map("n", "<Leader>lL", [[<cmd>lua vim.lsp.codelens.run()<CR>]], opts)
   map("n", "<Leader>lt", [[<cmd>lua vim.lsp.buf.type_definition()<CR>]], opts)
+
+  require("cmp_nvim_lsp").default_capabilities(capabilities)
 end
 
 lspconfig.elixirls.setup({
