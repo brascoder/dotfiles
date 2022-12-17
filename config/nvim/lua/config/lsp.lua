@@ -20,13 +20,14 @@ local on_attach = function(_, bufnr)
 
   local opts = {noremap = true, silent = true}
 
+  map("n", "<Leader>lc", [[<cmd>lua vim.lsp.codelens.run()<CR>]], opts)
   map("n", "<Leader>ld", [[<cmd>lua vim.lsp.buf.definition()<CR>]], opts)
   map("n", "<Leader>lD", [[<cmd>lua vim.lsp.buf.implementation()<CR>]], opts)
-  map("n", "<Leader>lf", [[<cmd>lua vim.lsp.buf.formatting()<CR>]], opts)
+  map("n", "<Leader>lf", [[<cmd>lua vim.lsp.buf.format({ async = true })<CR>]], opts)
   map("n", "<Leader>lh", [[<cmd>lua vim.lsp.buf.hover()<CR>]], opts)
   map("n", "<Leader>lH", [[<cmd>lua vim.lsp.buf.signature_help()<CR>]], opts)
   map("n", "<Leader>ll", [[<cmd>lua vim.diagnostic.open_float()<CR>]], opts)
-  map("n", "<Leader>lL", [[<cmd>lua vim.lsp.codelens.run()<CR>]], opts)
+  map("n", "<Leader>lL", [[<cmd>LspLog<CR>]], opts)
   map("n", "<Leader>lt", [[<cmd>lua vim.lsp.buf.type_definition()<CR>]], opts)
 
   require("cmp_nvim_lsp").default_capabilities(capabilities)
@@ -39,6 +40,7 @@ lspconfig.elixirls.setup({
   settings = {
     elixirLS = {
       dialyzerEnabled = true,
+      enableTestLenses = true,
       fetchDeps = false
     }
   }
