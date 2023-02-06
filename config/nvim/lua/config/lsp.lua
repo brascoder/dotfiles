@@ -49,10 +49,12 @@ lspconfig.elixirls.setup({
 lspconfig.solargraph.setup({
   capabilities = capabilities,
   on_attach = on_attach,
+  init_options = {
+    formatting = true
+  },
   settings = {
     solargraph = {
       diagnostics = true,
-      formatting = true
     }
   }
 })
@@ -65,7 +67,7 @@ lspconfig.tsserver.setup({
 lspconfig.html.setup({
   capabilities = capabilities,
   on_attach = on_attach,
-  filetypes = { "html", "eelixir" }
+  filetypes = { "html", "eelixir", "heex", "eruby" }
 })
 
 lspconfig.efm.setup({
