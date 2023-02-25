@@ -40,8 +40,7 @@ lspconfig.elixirls.setup({
   settings = {
     elixirLS = {
       dialyzerEnabled = true,
-      enableTestLenses = true,
-      fetchDeps = false
+      enableTestLenses = true
     }
   }
 })
@@ -62,6 +61,15 @@ lspconfig.solargraph.setup({
 lspconfig.tsserver.setup({
   capabilities = capabilities,
   on_attach = on_attach,
+  cmd = { "typescript-language-server", "--stdio" },
+  filetypes = {
+    "javascript",
+    "javascriptreact",
+    "javascript.jsx",
+    "typescript",
+    "typescriptreact",
+    "typescript.tsx"
+  },
 })
 
 lspconfig.html.setup({
