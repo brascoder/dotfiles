@@ -36,6 +36,16 @@ nleader("bp", [[:bprevious<CR>]])
 nleader("bs", [[:Telescope current_buffer_fuzzy_find<CR>]])
 nleader("bt", [[:Telescope current_buffer_tags<CR>]])
 
+-- Diagnostics
+lmap.d = {
+  name = "+Diagnostics",
+  d = "Line Diagnostics",
+  l = "List Diagnostics",
+  n = "Next Diagnostic",
+  p = "Previous Diagnostic",
+}
+nleader("dl", [[:Telescope diagnostics<CR>]])
+
 -- Environment
 lmap.e = {
   name = "+Environment",
@@ -159,7 +169,6 @@ lmap.l = {
   h = "Hover",
   H = "Signature Help",
   i = "Info",
-  l = "Line Diagnostics",
   L = "LSP Logs",
   t = "Type Definition",
 }
