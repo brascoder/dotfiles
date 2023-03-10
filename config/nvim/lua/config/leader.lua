@@ -114,9 +114,10 @@ lmap.g = {
   b = "Git Blame",
   B = "Git Branch",
   c = "Git Commits",
-  g = "Git Status",
+  g = "Git Commits",
   o = "Git Old Files",
-  s = "Git Stash",
+  s = "Git Status",
+  S = "Git Stash",
 
   h = {
     name = "+Hunk",
@@ -134,9 +135,10 @@ lmap.g = {
 nleader("gb", [[:Git blame<CR>]])
 nleader("gB", [[:Telescope git_branches<CR>]])
 nleader("gc", [[:Telescope git_commits<CR>]])
-nleader("gg", [[:Telescope git_status<CR>]])
+nleader("gg", [[:LazyGit<CR>]])
 nleader("go", [[:Telescope oldfiles<CR>]])
-nleader("gs", [[:Telescope git_stash<CR>]])
+nleader("gs", [[:Telescope git_status<CR>]])
+nleader("gS", [[:Telescope git_stash<CR>]])
 
 nleader("ghb", [[:Gitsigns blame_line<CR>]])
 nleader("ghh", [[:Gitsigns select_hunk<CR>]])

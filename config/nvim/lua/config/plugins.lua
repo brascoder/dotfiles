@@ -22,6 +22,7 @@ require("packer").startup(function(use)
   use "preservim/vimux"
   use "tpope/vim-dispatch"
   use "tpope/vim-fugitive"
+  use "kdheepak/lazygit.nvim"
   use "tpope/vim-projectionist"
   use "tpope/vim-repeat"
   use "vim-scripts/bufonly.vim"
