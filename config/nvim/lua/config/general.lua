@@ -1,9 +1,11 @@
 local g, cmd, opt = vim.g, vim.cmd, vim.opt
 
 g.mapleader = [[ ]]
-cmd [[syntax enable]]
-cmd [[colorscheme nightfox]]
-cmd [[autocmd VimResized * :wincmd =]]
+cmd [[
+  syntax enable
+  colorscheme tokyonight
+  autocmd VimResized * :wincmd =
+]]
 
 opt.background = "dark"
 opt.cmdheight = 2

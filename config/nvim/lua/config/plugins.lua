@@ -29,7 +29,18 @@ require("packer").startup(function(use)
   use "vim-test/vim-test"
 
   -- UI
-  use {'famiu/feline.nvim', config = [[require("feline").setup()]]}
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+    config = [[
+      require('lualine').setup {
+        options = {
+          theme = 'tokyonight'
+        }
+      }
+    ]]
+  }
+  -- use {'famiu/feline.nvim', config = [[require("feline").setup()]]}
   use "junegunn/vim-peekaboo"
   use {
     "kyazdani42/nvim-tree.lua",
@@ -41,6 +52,7 @@ require("packer").startup(function(use)
     requires = {"nvim-lua/plenary.nvim"},
     config = [[require("gitsigns").setup()]]
   }
+  use 'folke/tokyonight.nvim'
   use "navarasu/onedark.nvim"
   use "EdenEast/nightfox.nvim"
   use "ishan9299/nvim-solarized-lua"
