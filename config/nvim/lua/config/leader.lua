@@ -77,7 +77,7 @@ nleader("eps", [[:PackerSync<CR>]])
 nleader("epS", [[:PackerStatus<CR>]])
 nleader("epu", [[:PackerUpdate<CR>]])
 nleader("er", [[:Telescope registers<CR>]])
-nleader("eR", [[:source $MYVIMRC<CR>]])
+nleader("eR", [[:luafile %<CR>]])
 nleader("es", [[:Scratch<CR>]])
 nleader("et", [[:NvimTreeRefresh<CR>]])
 

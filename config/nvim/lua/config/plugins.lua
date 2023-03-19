@@ -90,8 +90,17 @@ require("packer").startup(function(use)
   use "tpope/vim-surround"
 
   -- Languages/Frameworks
-  use "elixir-editors/vim-elixir"
+  use {"williamboman/mason.nvim", config = [[require("mason").setup()]]}
+  use {
+    "williamboman/mason-lspconfig.nvim",
+    config = [[
+      require("mason-lspconfig").setup({
+        ensure_installed = {"tailwindcss"}
+      })
+    ]]
+  }
   use {"neovim/nvim-lspconfig", config = [[require("config.lsp")]]}
+  use "elixir-editors/vim-elixir"
   use "sheerun/vim-polyglot"
   use "tpope/vim-bundler"
   use "tpope/vim-rails"

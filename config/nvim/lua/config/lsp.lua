@@ -35,6 +35,22 @@ local on_attach = function(_, bufnr)
   require("cmp_nvim_lsp").default_capabilities(capabilities)
 end
 
+lspconfig.lua_ls.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { "vim" }
+      },
+      workspace = {
+        library = vim.api.nvim_get_runtime_file("", true),
+        checkThirdParty = false
+      }
+    }
+  }
+})
+
 lspconfig.elixirls.setup({
   cmd = {path_to_elixirls},
   capabilities = capabilities,
@@ -74,10 +90,27 @@ lspconfig.tsserver.setup({
   },
 })
 
+lspconfig.tailwindcss.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  filetypes = {
+    "html",
+    "elixir",
+    "eelixir",
+    "heex",
+    "eruby"
+  }
+})
+
 lspconfig.html.setup({
   capabilities = capabilities,
   on_attach = on_attach,
-  filetypes = { "html", "eelixir", "heex", "eruby" }
+  filetypes = {
+    "html",
+    "eelixir",
+    "heex",
+    "eruby"
+  }
 })
 
 lspconfig.efm.setup({
