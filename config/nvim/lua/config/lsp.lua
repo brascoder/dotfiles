@@ -85,6 +85,9 @@ lspconfig.efm.setup({
   on_attach = on_attach,
   filetypes = {
     "elixir",
+    "eelixir",
+    "heex",
+    "surface",
     "javascript",
     "lua",
     "bash",
