@@ -95,7 +95,6 @@ lspconfig.tailwindcss.setup({
   on_attach = on_attach,
   filetypes = {
     "html",
-    "elixir",
     "eelixir",
     "heex",
     "eruby"

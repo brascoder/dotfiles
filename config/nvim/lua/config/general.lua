@@ -7,8 +7,8 @@ cmd [[
   autocmd VimResized * :wincmd =
   au BufRead,BufNewFile *.ex,*.exs set filetype=elixir
   au BufRead,BufNewFile *.eex,*.leex,*.lexs set filetype=eelixir
-  au BufRead,BufNewFile *.heex set filetype=heex
-  au BufRead,BufNewFile *.sface set filetype=surface
+  au BufRead,BufNewFile *.heex set filetype=eelixir
+  au BufRead,BufNewFile *.sface set filetype=eelixir
   au BufRead,BufNewFile mix.lock set filetype=elixir
 ]]
 
