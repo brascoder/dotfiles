@@ -94,9 +94,7 @@ require("packer").startup(function(use)
   use {
     "williamboman/mason-lspconfig.nvim",
     config = [[
-      require("mason-lspconfig").setup({
-        ensure_installed = {"tailwindcss"}
-      })
+      require("mason-lspconfig").setup({})
     ]]
   }
   use {"neovim/nvim-lspconfig", config = [[require("config.lsp")]]}
