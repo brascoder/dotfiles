@@ -85,8 +85,8 @@ nleader("et", [[:NvimTreeRefresh<CR>]])
 lmap.f = {
   name = "+File",
   b = "File Browser",
-  f = "Git File",
-  F = "Find File",
+  f = "Find File",
+  F = "Git File",
   p = "Copy File Path",
   r = "Reload File",
   R = "Force Reload File",
@@ -97,8 +97,8 @@ lmap.f = {
   x = "Save & Close",
 }
 nleader("fb", [[:Telescope file_browser<CR>]])
-nleader("ff", [[:Telescope git_files<CR>]])
-nleader("fF", [[:Telescope find_files<CR>]])
+nleader("ff", [[:Telescope find_files<CR>]])
+nleader("fF", [[:Telescope git_files<CR>]])
 nleader("fp", [[:let @*=@%<CR>]])
 nleader("fr", [[:e<CR>]])
 nleader("fR", [[:e!<CR>]])
