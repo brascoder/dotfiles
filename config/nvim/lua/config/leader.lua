@@ -86,7 +86,7 @@ lmap.f = {
   name = "+File",
   b = "File Browser",
   f = "Find File",
-  F = "Git File",
+  g = "Git File",
   p = "Copy File Path",
   r = "Reload File",
   R = "Force Reload File",
@@ -98,7 +98,7 @@ lmap.f = {
 }
 nleader("fb", [[:Telescope file_browser<CR>]])
 nleader("ff", [[:Telescope find_files<CR>]])
-nleader("fF", [[:Telescope git_files<CR>]])
+nleader("fg", [[:Telescope git_files<CR>]])
 nleader("fp", [[:let @*=@%<CR>]])
 nleader("fr", [[:e<CR>]])
 nleader("fR", [[:e!<CR>]])
