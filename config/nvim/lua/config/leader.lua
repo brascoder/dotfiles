@@ -268,6 +268,7 @@ lmap.w = {
   O = "Close Other Tabs",
   x = "Horizontal Split",
   t = "New Tab",
+  T = "Close Tab",
   v = "Vertical Split",
   w = "Show Windows",
 }
@@ -282,6 +283,7 @@ nleader("wo", [[:only<CR>]])
 nleader("wO", [[:tabonly<CR>]])
 nleader("wx", [[:split<CR>]])
 nleader("wt", [[:tabnew<CR>]])
+nleader("wT", [[:tabclose<CR>]])
 nleader("wv", [[:vsplit<CR>]])
 nleader("ww", [[:Windows<CR>]])
 nleader("w,", [[:tabprevious<CR>]])
