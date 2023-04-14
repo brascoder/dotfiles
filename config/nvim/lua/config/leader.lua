@@ -36,6 +36,19 @@ nleader("bp", [[:bprevious<CR>]])
 nleader("bs", [[:Telescope current_buffer_fuzzy_find<CR>]])
 nleader("bt", [[:Telescope current_buffer_tags<CR>]])
 
+-- ChatGPT
+lmap.c = {
+  name = "+ChatGPT",
+  a = "Act As",
+  c = "Chat",
+  e = "Edit",
+  r = "Run",
+}
+nleader("ca", [[:ChatGPTActAs<CR>]])
+nleader("cc", [[:ChatGPT<CR>]])
+nleader("ce", [[:ChatGPTEditWithInstructions<CR>]])
+vleader("ce", [[:ChatGPTEditWithInstructions<CR>]])
+
 -- Diagnostics
 lmap.d = {
   name = "+Diagnostics",

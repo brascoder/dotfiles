@@ -27,6 +27,21 @@ require("packer").startup(function(use)
   use "tpope/vim-repeat"
   use "vim-scripts/bufonly.vim"
   use "vim-test/vim-test"
+  use {
+      "jackMort/ChatGPT.nvim",
+      config = function()
+        require("chatgpt").setup({
+            keymaps = {
+              submit = "<C-b>"
+            }
+          })
+      end,
+      requires = {
+        "MunifTanjim/nui.nvim",
+        "nvim-lua/plenary.nvim",
+        "nvim-telescope/telescope.nvim"
+      }
+    }
 
   -- UI
   use {
