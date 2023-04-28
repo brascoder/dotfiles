@@ -12,7 +12,7 @@ require("nvim-treesitter.configs").setup {
     "tsx",
     "typescript",
   },
-  highlight = {enable = true},
+  highlight = {enable = false},
   indent = {enable = false},
   context_commentstring = {enable = true},
   matchup = {enable = true}
