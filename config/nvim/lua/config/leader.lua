@@ -121,6 +121,15 @@ nleader("ft", [[:NvimTreeToggle<CR>]])
 nleader("fT", [[:NvimTreeFindFile<CR>]])
 nleader("fx", [[:x<CR>]])
 
+-- QuickFix
+lmap.F = {
+  name = "+QuickFix",
+  c = "Close",
+  o = "Open",
+}
+nleader("Fc", [[:cclose<CR>]])
+nleader("Fo", [[:copen<CR>]])
+
 -- Git
 lmap.g = {
   name = "+Git",
