@@ -197,6 +197,7 @@ lmap.l = {
   t = "Type Definition",
 }
 nleader("li", [[:LspInfo<CR>]])
+nleader("lr", [[:LspRestart<CR>]])
 
 -- Project
 lmap.p = {
