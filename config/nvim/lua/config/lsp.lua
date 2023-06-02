@@ -1,5 +1,5 @@
 local lspconfig = require("lspconfig")
-local path_to_elixirls = vim.fn.expand("~/.elixir-ls/language_server.sh")
+-- local path_to_elixirls = vim.fn.expand("~/.elixir-ls/language_server.sh")
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -18,7 +18,7 @@ local on_attach = function(_, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, ...)
   end
 
-  local opts = {noremap = true, silent = true}
+  local opts = { noremap = true, silent = true }
 
   map("n", "<Leader>lc", [[<cmd>lua vim.lsp.codelens.run()<CR>]], opts)
   map("n", "<Leader>ld", [[<cmd>lua vim.lsp.buf.definition()<CR>]], opts)
@@ -31,9 +31,39 @@ local on_attach = function(_, bufnr)
   map("n", "<Leader>dp", [[<cmd>lua vim.diagnostic.goto_prev()<CR>]], opts)
   map("n", "<Leader>lL", [[<cmd>LspLog<CR>]], opts)
   map("n", "<Leader>lt", [[<cmd>lua vim.lsp.buf.type_definition()<CR>]], opts)
+  map("n", "<Leader>lef", ":ElixirFromPipe<cr>", opts)
+  map("n", "<Leader>let", ":ElixirToPipe<cr>", opts)
+  map("v", "<Leader>lem", ":ElixirExpandMacro<cr>", opts)
 
   require("cmp_nvim_lsp").default_capabilities(capabilities)
 end
+
+local elixir = require("elixir")
+local elixirls = require("elixir.elixirls")
+
+elixir.setup {
+  elixirls = {
+    on_attach = on_attach,
+    settings = elixirls.settings {
+      dialyzerEnabled = true,
+      fetchDeps = false,
+      enableTestLenses = true,
+      suggestSpecs = false
+    }
+  }
+}
+
+-- lspconfig.elixirls.setup({
+--   cmd = {path_to_elixirls},
+--   capabilities = capabilities,
+--   on_attach = on_attach,
+--   settings = {
+--     elixirLS = {
+--       dialyzerEnabled = true,
+--       enableTestLenses = true
+--     }
+--   }
+-- })
 
 lspconfig.lua_ls.setup({
   capabilities = capabilities,
@@ -47,18 +77,6 @@ lspconfig.lua_ls.setup({
         library = vim.api.nvim_get_runtime_file("", true),
         checkThirdParty = false
       }
-    }
-  }
-})
-
-lspconfig.elixirls.setup({
-  cmd = {path_to_elixirls},
-  capabilities = capabilities,
-  on_attach = on_attach,
-  settings = {
-    elixirLS = {
-      dialyzerEnabled = true,
-      enableTestLenses = true
     }
   }
 })

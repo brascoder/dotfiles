@@ -60,7 +60,7 @@ lmap.d = {
 nleader("dl", [[:Telescope diagnostics<CR>]])
 
 -- Environment
-lmap.e = {
+lmap.E = {
   name = "+Environment",
   a = "Toggle Spell Check",
   h = "Toggle Search Highlight",
@@ -194,7 +194,15 @@ lmap.l = {
   H = "Signature Help",
   i = "Info",
   L = "LSP Logs",
+  r = "Restart LSP",
   t = "Type Definition",
+
+  e = {
+    name = "+Elixir",
+    f = "From Pipe",
+    m = "Expand Macro",
+    t = "To Pipe",
+  },
 }
 nleader("li", [[:LspInfo<CR>]])
 nleader("lr", [[:LspRestart<CR>]])
@@ -266,7 +274,7 @@ vleader("xs", [[:NSubstitute<CR>]])
 nleader("xy", [[:YankLineToClip<CR>]])
 
 -- Text/Align
-lmap.x.a = {name = "+Align"}
+lmap.x.a = { name = "+Align" }
 lmap.x.a.a = "Align..."
 lmap.x.a[":"] = "Align (:)"
 lmap.x.a["="] = "Align (=)"
@@ -313,7 +321,7 @@ nleader("w,", [[:tabprevious<CR>]])
 nleader("w.", [[:tabnext<CR>]])
 
 -- Quit
-lmap.q = {name = "Quit"}
+lmap.q = { name = "Quit" }
 lmap.q.q = "Quit All"
 lmap.q.Q = "Force Quit All"
 nleader("qq", [[:qa<CR>]])
@@ -322,5 +330,5 @@ nleader("qQ", [[:qa!<CR>]])
 g.lmap = lmap
 
 vim.fn["leaderGuide#register_prefix_descriptions"]("<Space>", "g:lmap")
-map("n", "<Leader>", [[:<C-u>LeaderGuide "<Space>"<CR>]], {noremap = true, silent = true})
-map("v", "<Leader>", [[:<C-u>LeaderGuideVisual "<Space>"<CR>]], {noremap = true, silent = true})
+map("n", "<Leader>", [[:<C-u>LeaderGuide "<Space>"<CR>]], { noremap = true, silent = true })
+map("v", "<Leader>", [[:<C-u>LeaderGuideVisual "<Space>"<CR>]], { noremap = true, silent = true })

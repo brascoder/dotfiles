@@ -2,22 +2,22 @@ local execute = vim.api.nvim_command
 local fn = vim.fn
 local g = vim.g
 
-local install_path = fn.stdpath("data").."/site/pack/packer/start/packer.nvim"
+local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 
 if fn.empty(fn.glob(install_path)) > 0 then
-  fn.system({"git", "clone", "https://github.com/wbthomason/packer.nvim", install_path})
+  fn.system({ "git", "clone", "https://github.com/wbthomason/packer.nvim", install_path })
   execute "packadd packer.nvim"
 end
 
 require("packer").startup(function(use)
   -- Config
   use "wbthomason/packer.nvim"
-  use {"junegunn/fzf", run = function() fn["fzf#install"]() end}
+  use { "junegunn/fzf", run = function() fn["fzf#install"]() end }
   use "junegunn/fzf.vim"
-  use {"kristijanhusak/orgmode.nvim", config = [[require("orgmode").setup_ts_grammar()]]}
+  use { "kristijanhusak/orgmode.nvim", config = [[require("orgmode").setup_ts_grammar()]] }
   use {
     "nvim-telescope/telescope.nvim",
-    requires = {{"nvim-lua/popup.nvim"}, {"nvim-lua/plenary.nvim"}}
+    requires = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } }
   }
   use "preservim/vimux"
   use "tpope/vim-dispatch"
@@ -28,20 +28,20 @@ require("packer").startup(function(use)
   use "vim-scripts/bufonly.vim"
   use "vim-test/vim-test"
   use {
-      "jackMort/ChatGPT.nvim",
-      config = function()
-        require("chatgpt").setup({
-            keymaps = {
-              submit = "<C-b>"
-            }
-          })
-      end,
-      requires = {
-        "MunifTanjim/nui.nvim",
-        "nvim-lua/plenary.nvim",
-        "nvim-telescope/telescope.nvim"
-      }
+    "jackMort/ChatGPT.nvim",
+    config = function()
+      require("chatgpt").setup({
+        keymaps = {
+          submit = "<C-b>"
+        }
+      })
+    end,
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim"
     }
+  }
 
   -- UI
   use {
@@ -59,31 +59,31 @@ require("packer").startup(function(use)
   use "junegunn/vim-peekaboo"
   use {
     "kyazdani42/nvim-tree.lua",
-    requires = {"kyazdani42/nvim-web-devicons"},
+    requires = { "kyazdani42/nvim-web-devicons" },
     config = [[require("nvim-tree").setup()]]
   }
   use {
     "lewis6991/gitsigns.nvim",
-    requires = {"nvim-lua/plenary.nvim"},
+    requires = { "nvim-lua/plenary.nvim" },
     config = [[require("gitsigns").setup()]]
   }
   use 'folke/tokyonight.nvim'
   use "navarasu/onedark.nvim"
   use "EdenEast/nightfox.nvim"
   use "ishan9299/nvim-solarized-lua"
-  use {"norcalli/nvim-colorizer.lua", config = [[require("colorizer").setup()]]}
-  use {"nvim-treesitter/nvim-treesitter", run = [[:TSUpdate]], config = [[require("config.treesitter")]]}
+  use { "norcalli/nvim-colorizer.lua", config = [[require("colorizer").setup()]] }
+  use { "nvim-treesitter/nvim-treesitter", run = [[:TSUpdate]], config = [[require("config.treesitter")]] }
   use "onsails/lspkind-nvim"
-  use {"powerline/fonts", config = [[vim.g.airline_powerline_fonts = 1]]}
-  use {"spinks/vim-leader-guide", config = [[require("config.leader")]]}
-  use {"Yggdroot/indentLine", config = [[vim.g.indentLine_color_gui = "#4c4c4b"]]}
+  use { "powerline/fonts", config = [[vim.g.airline_powerline_fonts = 1]] }
+  use { "spinks/vim-leader-guide", config = [[require("config.leader")]] }
+  use { "Yggdroot/indentLine", config = [[vim.g.indentLine_color_gui = "#4c4c4b"]] }
 
   -- Navigation
   use "christoomey/vim-tmux-navigator"
-  use {"phaazon/hop.nvim", config = [[require("config.hop")]]}
+  use { "phaazon/hop.nvim", config = [[require("config.hop")]] }
 
   -- Completion
-  use {"hrsh7th/nvim-cmp", config = [[require("config.cmp")]]}
+  use { "hrsh7th/nvim-cmp", config = [[require("config.cmp")]] }
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-nvim-lua"
   use "hrsh7th/cmp-vsnip"
@@ -105,14 +105,15 @@ require("packer").startup(function(use)
   use "tpope/vim-surround"
 
   -- Languages/Frameworks
-  use {"williamboman/mason.nvim", config = [[require("mason").setup()]]}
+  use { "elixir-tools/elixir-tools.nvim", requires = { "nvim-lua/plenary.nvim" } }
+  use { "williamboman/mason.nvim", config = [[require("mason").setup()]] }
   use {
     "williamboman/mason-lspconfig.nvim",
     config = [[
       require("mason-lspconfig").setup({})
     ]]
   }
-  use {"neovim/nvim-lspconfig", config = [[require("config.lsp")]]}
+  use { "neovim/nvim-lspconfig", config = [[require("config.lsp")]] }
   use "elixir-editors/vim-elixir"
   use "sheerun/vim-polyglot"
   use "tpope/vim-bundler"
