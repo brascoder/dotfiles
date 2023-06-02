@@ -125,5 +125,5 @@ g["test#ruby#rspec#executable"] = "bin/rspec"
 g["test#strategy"] = "vimux"
 
 -- vimux
-g.VimuxOrientation = "h"
+g.VimuxOrientation = "v"
 g.VimuxHeight = "25"
