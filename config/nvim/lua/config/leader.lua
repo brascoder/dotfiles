@@ -296,29 +296,46 @@ lmap.w = {
   k = "Move Window Up",
   l = "Move Window Right",
   o = "Close Other Windows",
-  O = "Close Other Tabs",
   x = "Horizontal Split",
-  t = "New Tab",
-  T = "Close Tab",
   v = "Vertical Split",
   w = "Show Windows",
+
+  t = {
+    c = "Close Tab",
+    h = "Move Tab Left",
+    j = "Move Tab End",
+    k = "Move Tab Beginning",
+    l = "Move Tab Left",
+    o = "Close Other Tabs",
+    t = "New Tab",
+  }
 }
-lmap.w[","] = "Previous Tab"
-lmap.w["."] = "Next Tab"
+lmap.w.t[","] = "Previour Tab"
+lmap.w.t["."] = "Next Tab"
+lmap.w.t["<"] = "First Tab"
+lmap.w.t[">"] = "Last Tab"
+
 nleader("wc", [[:close<CR>]])
 nleader("wh", [[:wincmd H<CR>]])
 nleader("wj", [[:wincmd J<CR>]])
 nleader("wk", [[:wincmd K<CR>]])
 nleader("wl", [[:wincmd L<CR>]])
 nleader("wo", [[:only<CR>]])
-nleader("wO", [[:tabonly<CR>]])
 nleader("wx", [[:split<CR>]])
-nleader("wt", [[:tabnew<CR>]])
-nleader("wT", [[:tabclose<CR>]])
 nleader("wv", [[:vsplit<CR>]])
 nleader("ww", [[:Windows<CR>]])
-nleader("w,", [[:tabprevious<CR>]])
-nleader("w.", [[:tabnext<CR>]])
+
+nleader("wtc", [[:tabclose<CR>]])
+nleader("wth", [[:tabmove -1<CR>]])
+nleader("wtj", [[:tabmove $<CR>]])
+nleader("wtk", [[:tabmove 0<CR>]])
+nleader("wtl", [[:tabmove +1<CR>]])
+nleader("wto", [[:tabonly<CR>]])
+nleader("wtt", [[:tabnew<CR>]])
+nleader("wt,", [[:tabprevious<CR>]])
+nleader("wt.", [[:tabnext<CR>]])
+nleader("wt<", [[:tabfirst<CR>]])
+nleader("wt>", [[:tablast<CR>]])
 
 -- Quit
 lmap.q = { name = "Quit" }
