@@ -310,8 +310,8 @@ lmap.w = {
     t = "New Tab",
   }
 }
-lmap.w.t[","] = "Previour Tab"
-lmap.w.t["."] = "Next Tab"
+lmap.w[","] = "Previour Tab"
+lmap.w["."] = "Next Tab"
 lmap.w.t["<"] = "First Tab"
 lmap.w.t[">"] = "Last Tab"
 
@@ -324,6 +324,8 @@ nleader("wo", [[:only<CR>]])
 nleader("wx", [[:split<CR>]])
 nleader("wv", [[:vsplit<CR>]])
 nleader("ww", [[:Windows<CR>]])
+nleader("w,", [[:tabprevious<CR>]])
+nleader("w.", [[:tabnext<CR>]])
 
 nleader("wtc", [[:tabclose<CR>]])
 nleader("wth", [[:tabmove -1<CR>]])
@@ -332,8 +334,6 @@ nleader("wtk", [[:tabmove 0<CR>]])
 nleader("wtl", [[:tabmove +1<CR>]])
 nleader("wto", [[:tabonly<CR>]])
 nleader("wtt", [[:tabnew<CR>]])
-nleader("wt,", [[:tabprevious<CR>]])
-nleader("wt.", [[:tabnext<CR>]])
 nleader("wt<", [[:tabfirst<CR>]])
 nleader("wt>", [[:tablast<CR>]])
 
