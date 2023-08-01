@@ -312,8 +312,8 @@ lmap.w = {
 }
 lmap.w[","] = "Previour Tab"
 lmap.w["."] = "Next Tab"
-lmap.w.t["<"] = "First Tab"
-lmap.w.t[">"] = "Last Tab"
+lmap.w.t[","] = "First Tab"
+lmap.w.t["."] = "Last Tab"
 
 nleader("wc", [[:close<CR>]])
 nleader("wh", [[:wincmd H<CR>]])
@@ -334,8 +334,8 @@ nleader("wtk", [[:tabmove 0<CR>]])
 nleader("wtl", [[:tabmove +1<CR>]])
 nleader("wto", [[:tabonly<CR>]])
 nleader("wtt", [[:tabnew<CR>]])
-nleader("wt<", [[:tabfirst<CR>]])
-nleader("wt>", [[:tablast<CR>]])
+nleader("wt,", [[:tabfirst<CR>]])
+nleader("wt.", [[:tablast<CR>]])
 
 -- Quit
 lmap.q = { name = "Quit" }
