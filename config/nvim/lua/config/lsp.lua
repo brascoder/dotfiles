@@ -44,6 +44,7 @@ local elixirls = require("elixir.elixirls")
 elixir.setup {
   elixirls = {
     on_attach = on_attach,
+    tag = "v0.16.0",
     settings = elixirls.settings {
       dialyzerEnabled = true,
       fetchDeps = false,

@@ -105,7 +105,7 @@ require("packer").startup(function(use)
   use "tpope/vim-surround"
 
   -- Languages/Frameworks
-  use { "elixir-tools/elixir-tools.nvim", requires = { "nvim-lua/plenary.nvim" } }
+  use { "elixir-tools/elixir-tools.nvim", tag = "stable", requires = { "nvim-lua/plenary.nvim" } }
   use { "williamboman/mason.nvim", config = [[require("mason").setup()]] }
   use {
     "williamboman/mason-lspconfig.nvim",
