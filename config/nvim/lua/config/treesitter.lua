@@ -12,8 +12,9 @@ require("nvim-treesitter.configs").setup {
     "tsx",
     "typescript",
   },
+  sync_install = false,
+  auto_install = true,
+  ignore_install = {},
   highlight = {enable = true},
   indent = {enable = true},
-  context_commentstring = {enable = true},
-  matchup = {enable = true}
 }
