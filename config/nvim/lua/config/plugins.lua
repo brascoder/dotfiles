@@ -31,9 +31,12 @@ require("packer").startup(function(use)
     "jackMort/ChatGPT.nvim",
     config = function()
       require("chatgpt").setup({
-        keymaps = {
-          submit = "<C-b>"
-        }
+        api_key_cmd = "op read op://private/OpenAI/APIKey --no-newline",
+        openai_params = {
+          model = "gpt-3.5-turbo",
+          max_tokens = 1000,
+          temperature = 0,
+        },
       })
     end,
     requires = {
