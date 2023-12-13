@@ -117,7 +117,7 @@ require("packer").startup(function(use)
     ]]
   }
   use { "neovim/nvim-lspconfig", config = [[require("config.lsp")]] }
-  use "elixir-editors/vim-elixir"
+  -- use "elixir-editors/vim-elixir"
   use "sheerun/vim-polyglot"
   use "tpope/vim-bundler"
   use "tpope/vim-rails"

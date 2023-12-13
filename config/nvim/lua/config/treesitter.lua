@@ -1,4 +1,6 @@
 require("nvim-treesitter.configs").setup {
+  sync_install = false,
+  auto_install = true,
   ensure_installed = {
     "eex",
     "elixir",
@@ -12,9 +14,20 @@ require("nvim-treesitter.configs").setup {
     "tsx",
     "typescript",
   },
-  sync_install = false,
-  auto_install = true,
   ignore_install = {},
-  highlight = {enable = true},
-  indent = {enable = true},
+  highlight = { enable = false },
+  indent = { enable = true },
+  textobjects = {
+    select = {
+      enable = true,
+      keymaps = {
+        ["ab"] = "@block.outer",
+        ["ib"] = "@block.inner",
+        ["ac"] = "@class.outer",
+        ["ic"] = "@class.inner",
+        ["if"] = "@function.inner",
+        ["af"] = "@function.outer",
+      },
+    },
+  }
 }
