@@ -12,7 +12,7 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 }
 
 local on_attach = function(_, bufnr)
-  print("Attached to language server")
+  -- print("Attached to language server")
 
   local function map(...)
     vim.api.nvim_buf_set_keymap(bufnr, ...)
