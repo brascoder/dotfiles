@@ -17,17 +17,10 @@ require("nvim-treesitter.configs").setup {
   ignore_install = {},
   highlight = { enable = false },
   indent = { enable = true },
+  matchup = {
+    enable = true
+  },
   textobjects = {
-    select = {
-      enable = true,
-      keymaps = {
-        ["ab"] = "@block.outer",
-        ["ib"] = "@block.inner",
-        ["ac"] = "@class.outer",
-        ["ic"] = "@class.inner",
-        ["if"] = "@function.inner",
-        ["af"] = "@function.outer",
-      },
-    },
+    enable = true,
   }
 }

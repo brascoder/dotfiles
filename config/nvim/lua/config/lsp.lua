@@ -113,27 +113,34 @@ lspconfig.tailwindcss.setup({
   capabilities = capabilities,
   on_attach = on_attach,
   filetypes = {
-    "html",
-    "elixir",
     "eelixir",
+    "elixir",
+    "eruby",
     "heex",
-    "eruby"
+    "html",
+    "html-eex"
+  },
+  init_options = {
+    userLanguages = {
+      elixir = "phoenix-heex",
+      heex = "phoenix-heex",
+    },
   }
 })
 
-lspconfig.efm.setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
-  filetypes = {
-    "elixir",
-    "eelixir",
-    "heex",
-    "surface",
-    "javascript",
-    "lua",
-    "bash",
-    "zsh",
-    "html",
-    "on"
-  }
-})
+-- lspconfig.efm.setup({
+--   capabilities = capabilities,
+--   on_attach = on_attach,
+--   filetypes = {
+--     "elixir",
+--     "eelixir",
+--     "heex",
+--     "surface",
+--     "javascript",
+--     "lua",
+--     "bash",
+--     "zsh",
+--     "html",
+--     "on"
+--   }
+-- })
