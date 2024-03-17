@@ -259,19 +259,22 @@ lmap.x = {
   },
   n = "Split New Line",
   s = "Substitute",
-  y = "Yank Line to Clipboard",
+  y = "Yank Line",
+  Y = "Yank Line to Clipboard",
 }
 cmd [[command! InsertAbove call feedkeys("O<Esc>j", "t")]]
 cmd [[command! InsertBelow call feedkeys("o<Esc>k", "t")]]
 cmd [[command! SplitNewline call feedkeys("i<CR><Esc>", "t")]]
 cmd [[command! NSubstitute call feedkeys(":s/", "t")]]
+cmd [[command! YankLine call feedkeys('^y$', "t")]]
 cmd [[command! YankLineToClip call feedkeys('^v$h"*y', "t")]]
 nleader("xij", [[:InsertBelow<CR>]])
 nleader("xik", [[:InsertAbove<CR>]])
 nleader("xn", [[:SplitNewline<CR>]])
 nleader("xs", [[:NSubstitute<CR>]])
 vleader("xs", [[:NSubstitute<CR>]])
-nleader("xy", [[:YankLineToClip<CR>]])
+nleader("xy", [[:YankLine<CR>]])
+nleader("xY", [[:YankLineToClip<CR>]])
 
 -- Text/Align
 lmap.x.a = { name = "+Align" }
