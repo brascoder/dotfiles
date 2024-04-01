@@ -14,7 +14,15 @@ require("packer").startup(function(use)
   use "wbthomason/packer.nvim"
   use { "junegunn/fzf", run = function() fn["fzf#install"]() end }
   use "junegunn/fzf.vim"
-  use { "kristijanhusak/orgmode.nvim", config = [[require("orgmode").setup_ts_grammar()]] }
+  use {
+    "kristijanhusak/orgmode.nvim",
+    config = [[
+      require("orgmode").setup(
+        org_agenda_files = '~/orgmode/*',
+        org_default_notes_file = '~/orgmode/refile.org'
+      )
+    ]]
+  }
   use {
     "nvim-telescope/telescope.nvim",
     requires = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } }
