@@ -1,5 +1,5 @@
 local lspconfig = require("lspconfig")
--- local path_to_elixirls = vim.fn.expand("~/.elixir-ls/language_server.sh")
+local path_to_elixirls = vim.fn.expand("~/.elixir-ls/language_server.sh")
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -42,13 +42,25 @@ local elixir = require("elixir")
 local elixirls = require("elixir.elixirls")
 
 elixir.setup {
+  -- nextls = {
+  --   enable = true,
+  --   on_attach = on_attach,
+  --   spitfire = true,
+  --   init_options = {
+  --     experimental = {
+  --       completions = {
+  --         enable = true,
+  --       },
+  --     },
+  --   },
+  -- },
   elixirls = {
     on_attach = on_attach,
-    -- tag = "v0.20.0",
+    cmd = { path_to_elixirls },
     settings = elixirls.settings {
       dialyzerEnabled = true,
       fetchDeps = false,
-      enableTestLenses = true,
+      enableTestLenses = false,
       suggestSpecs = false
     }
   }
