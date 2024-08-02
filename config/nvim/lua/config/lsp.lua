@@ -20,7 +20,7 @@ local on_attach = function(_, bufnr)
 
   local opts = { noremap = true, silent = true }
 
-  map("n", "<Leader>lc", [[<cmd>lua vim.lsp.codelens.run()<CR>]], opts)
+  -- map("n", "<Leader>lc", [[<cmd>lua vim.lsp.codelens.run()<CR>]], opts)
   map("n", "<Leader>ld", [[<cmd>lua vim.lsp.buf.definition()<CR>]], opts)
   map("n", "<Leader>lD", [[<cmd>lua vim.lsp.buf.implementation()<CR>]], opts)
   map("n", "<Leader>lf", [[<cmd>lua vim.lsp.buf.format({ async = true })<CR>]], opts)
@@ -42,18 +42,18 @@ local elixir = require("elixir")
 local elixirls = require("elixir.elixirls")
 
 elixir.setup {
-  -- nextls = {
-  --   enable = true,
-  --   on_attach = on_attach,
-  --   spitfire = true,
-  --   init_options = {
-  --     experimental = {
-  --       completions = {
-  --         enable = true,
-  --       },
-  --     },
-  --   },
-  -- },
+  nextls = {
+    enable = false,
+    on_attach = on_attach,
+    spitfire = true,
+    init_options = {
+      experimental = {
+        completions = {
+          enable = true,
+        },
+      },
+    },
+  },
   elixirls = {
     on_attach = on_attach,
     cmd = { path_to_elixirls },
@@ -63,7 +63,8 @@ elixir.setup {
       enableTestLenses = false,
       suggestSpecs = false
     }
-  }
+  },
+  projectionist = {enable = true},
 }
 
 -- lspconfig.elixirls.setup({

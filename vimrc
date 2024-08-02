@@ -82,7 +82,7 @@ Plug 'mattn/emmet-vim'
 
 "----- Languages/Frameworks ------------
 
-Plug 'sheerun/vim-polyglot'   " Load language support when needed
+" Plug 'sheerun/vim-polyglot'   " Load language support when needed
 
 "------- Ruby/Rails
 Plug 'tpope/vim-rails'

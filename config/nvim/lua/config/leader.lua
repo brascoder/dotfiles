@@ -186,7 +186,7 @@ nleader("hp", [[:HopPattern<CR>]])
 -- LSP
 lmap.l = {
   name = "+LSP",
-  c = "CodeLens",
+  -- c = "CodeLens",
   d = "Definition",
   D = "Implementation",
   f = "Formatting",
