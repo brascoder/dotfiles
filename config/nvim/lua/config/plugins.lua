@@ -128,4 +128,4 @@ g["test#strategy"] = "vimux"
 
 -- vimux
 g.VimuxOrientation = "v"
-g.VimuxHeight = "25"
+g.VimuxHeight = "25%"
