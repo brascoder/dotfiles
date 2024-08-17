@@ -26,6 +26,7 @@ require("packer").startup(function(use)
   use "tpope/vim-repeat"
   use "vim-scripts/bufonly.vim"
   use "vim-test/vim-test"
+  use "github/copilot.vim"
   use {
     "jackMort/ChatGPT.nvim",
     config = function()
