@@ -257,6 +257,7 @@ lmap.x = {
     j = "Insert Line Below",
     k = "Insert Line Above",
   },
+  m = "Toggle Markdown",
   n = "Split New Line",
   s = "Substitute",
   y = "Yank Line",
@@ -270,6 +271,7 @@ cmd [[command! YankLine call feedkeys('^y$', "t")]]
 cmd [[command! YankLineToClip call feedkeys('^v$h"*y', "t")]]
 nleader("xij", [[:InsertBelow<CR>]])
 nleader("xik", [[:InsertAbove<CR>]])
+nleader("xm", [[:RenderMarkdown toggle<CR>]])
 nleader("xn", [[:SplitNewline<CR>]])
 nleader("xs", [[:NSubstitute<CR>]])
 vleader("xs", [[:NSubstitute<CR>]])

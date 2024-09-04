@@ -58,11 +58,10 @@ require("packer").startup(function(use)
       }
     ]]
   }
-  -- use {'famiu/feline.nvim', config = [[require("feline").setup()]]}
   use "junegunn/vim-peekaboo"
   use {
-    "kyazdani42/nvim-tree.lua",
-    requires = { "kyazdani42/nvim-web-devicons" },
+    "nvim-tree/nvim-tree.lua",
+    requires = { "nvim-tree/nvim-web-devicons" },
     config = [[require("nvim-tree").setup()]]
   }
   use {
@@ -106,6 +105,12 @@ require("packer").startup(function(use)
   use "rafamadriz/friendly-snippets"
   use "tpope/vim-commentary"
   use "tpope/vim-surround"
+  use {
+    "MeanderingProgrammer/render-markdown.nvim",
+    after = { "nvim-treesitter" },
+    requires = { "nvim-tree/nvim-web-devicons", opt = true },
+    config = [[require("render-markdown").setup({})]]
+  }
 
   -- Languages/Frameworks
   use { "elixir-tools/elixir-tools.nvim", tag = "stable", requires = { "nvim-lua/plenary.nvim" } }

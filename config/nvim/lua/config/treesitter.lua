@@ -9,6 +9,8 @@ require("nvim-treesitter.configs").setup {
     "html",
     "javascript",
     "lua",
+    "markdown",
+    "markdown_inline",
     "ruby",
     "surface",
     "tsx",
