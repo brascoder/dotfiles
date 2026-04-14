@@ -1,108 +1,135 @@
-local execute = vim.api.nvim_command
-local fn = vim.fn
 local g = vim.g
 
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+require("lazy").setup({
 
-if fn.empty(fn.glob(install_path)) > 0 then
-  fn.system({ "git", "clone", "https://github.com/wbthomason/packer.nvim", install_path })
-  execute "packadd packer.nvim"
-end
-
-require("packer").startup(function(use)
   -- Config
-  use "wbthomason/packer.nvim"
-  use { "junegunn/fzf", run = function() fn["fzf#install"]() end }
-  use "junegunn/fzf.vim"
-  use {
+  { "junegunn/fzf", build = function() vim.fn["fzf#install"]() end },
+  {
     "nvim-telescope/telescope.nvim",
-    requires = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } }
-  }
-  use "preservim/vimux"
-  use "tpope/vim-dispatch"
-  use "tpope/vim-fugitive"
-  use "kdheepak/lazygit.nvim"
-  use "tpope/vim-projectionist"
-  use "tpope/vim-repeat"
-  use "vim-scripts/bufonly.vim"
-  use "vim-test/vim-test"
-  use "github/copilot.vim"
+    dependencies = { "nvim-lua/plenary.nvim" },
+  },
+  { "preservim/vimux" },
+  { "tpope/vim-dispatch" },
+  { "tpope/vim-fugitive" },
+  { "kdheepak/lazygit.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
+  { "tpope/vim-projectionist" },
+  { "tpope/vim-repeat" },
+  { "vim-scripts/bufonly.vim" },
+  { "vim-test/vim-test" },
+  { "github/copilot.vim" },
 
   -- UI
-  use {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-    config = [[
-      require('lualine').setup {
-        options = {
-          theme = 'tokyonight'
-        }
-      }
-    ]]
-  }
-  use "junegunn/vim-peekaboo"
-  use {
+  {
+    "nvim-lualine/lualine.nvim",
+    dependencies = { { "nvim-tree/nvim-web-devicons", optional = true } },
+    config = function()
+      require("lualine").setup { options = { theme = "tokyonight" } }
+    end,
+  },
+  { "junegunn/vim-peekaboo" },
+  {
     "nvim-tree/nvim-tree.lua",
-    requires = { "nvim-tree/nvim-web-devicons" },
-    config = [[require("nvim-tree").setup()]]
-  }
-  use {
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function() require("nvim-tree").setup() end,
+  },
+  {
     "lewis6991/gitsigns.nvim",
-    requires = { "nvim-lua/plenary.nvim" },
-    config = [[require("gitsigns").setup()]]
-  }
-  use 'folke/tokyonight.nvim'
-  use "navarasu/onedark.nvim"
-  use "EdenEast/nightfox.nvim"
-  use "ishan9299/nvim-solarized-lua"
-  use { "norcalli/nvim-colorizer.lua", config = [[require("colorizer").setup()]] }
-  use { "nvim-treesitter/nvim-treesitter", run = [[:TSUpdate]], config = [[require("config.treesitter")]] }
-  use "onsails/lspkind-nvim"
-  use { "powerline/fonts", config = [[vim.g.airline_powerline_fonts = 1]] }
-  use { "spinks/vim-leader-guide", config = [[require("config.leader")]] }
-  use { "Yggdroot/indentLine", config = [[vim.g.indentLine_color_gui = "#4c4c4b"]] }
+    config = function() require("gitsigns").setup() end,
+  },
+  { "folke/tokyonight.nvim" },
+  { "navarasu/onedark.nvim" },
+  { "EdenEast/nightfox.nvim" },
+  { "ishan9299/nvim-solarized-lua" },
+  {
+    "norcalli/nvim-colorizer.lua",
+    config = function() require("colorizer").setup() end,
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    config = function() require("config.treesitter") end,
+  },
+  { "onsails/lspkind-nvim" },
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    opts = { preset = "modern" },
+  },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    opts = {},
+  },
 
   -- Navigation
-  use "christoomey/vim-tmux-navigator"
-  use { "phaazon/hop.nvim", config = [[require("config.hop")]] }
+  { "christoomey/vim-tmux-navigator" },
+  {
+    "smoka7/hop.nvim",
+    config = function() require("config.hop") end,
+  },
 
   -- Completion
-  use { "hrsh7th/nvim-cmp", config = [[require("config.cmp")]] }
-  use "hrsh7th/cmp-nvim-lsp"
-  use "hrsh7th/cmp-nvim-lua"
-  use "hrsh7th/cmp-vsnip"
-  use "hrsh7th/cmp-path"
-  use "hrsh7th/cmp-buffer"
-  use "hrsh7th/cmp-calc"
-  use "ray-x/cmp-treesitter"
-  use "quangnguyen30192/cmp-nvim-tags"
+  {
+    "hrsh7th/nvim-cmp",
+    config = function() require("config.cmp") end,
+  },
+  { "hrsh7th/cmp-nvim-lsp" },
+  { "hrsh7th/cmp-nvim-lua" },
+  { "hrsh7th/cmp-path" },
+  { "hrsh7th/cmp-buffer" },
+  { "hrsh7th/cmp-calc" },
+  { "ray-x/cmp-treesitter" },
+  { "quangnguyen30192/cmp-nvim-tags" },
+  {
+    "L3MON4D3/LuaSnip",
+    build = "make install_jsregexp",
+    dependencies = { "rafamadriz/friendly-snippets" },
+    config = function()
+      require("luasnip.loaders.from_vscode").lazy_load()
+    end,
+  },
+  { "saadparwaiz1/cmp_luasnip" },
 
-  -- Text Operation
-  use "andymass/vim-matchup"
-  use "godlygeek/tabular"
-  use "hrsh7th/vim-vsnip"
-  use "hrsh7th/vim-vsnip-integ"
-  use "JoosepAlviste/nvim-ts-context-commentstring"
-  use "mattn/emmet-vim"
-  use "rafamadriz/friendly-snippets"
-  use "tpope/vim-commentary"
-  use "tpope/vim-surround"
-  use {
+  -- Text Operations
+  { "andymass/vim-matchup" },
+  { "godlygeek/tabular" },
+  { "JoosepAlviste/nvim-ts-context-commentstring" },
+  { "mattn/emmet-vim" },
+  {
+    "kylechui/nvim-surround",
+    event = "VeryLazy",
+    opts = {},
+  },
+  {
+    "numToStr/Comment.nvim",
+    dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
+    config = function()
+      require("Comment").setup({
+        pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+      })
+    end,
+  },
+  {
     "MeanderingProgrammer/render-markdown.nvim",
-    after = { "nvim-treesitter" },
-    requires = { "nvim-tree/nvim-web-devicons", opt = true },
-    config = [[require("render-markdown").setup({})]]
-  }
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      { "nvim-tree/nvim-web-devicons", optional = true },
+    },
+    config = function() require("render-markdown").setup({}) end,
+  },
 
   -- Languages/Frameworks
-  use { "elixir-tools/elixir-tools.nvim", tag = "stable", requires = { "nvim-lua/plenary.nvim" } }
-  use { "williamboman/mason.nvim", config = [[require("mason").setup()]] }
-  use { "neovim/nvim-lspconfig", config = [[require("config.lsp")]] }
-  -- use "elixir-editors/vim-elixir"
-  use "sheerun/vim-polyglot"
-  use "tpope/vim-bundler"
-  use "tpope/vim-rails"
-end)
+  {
+    "williamboman/mason.nvim",
+    config = function() require("mason").setup() end,
+  },
+  { "neovim/nvim-lspconfig", config = false },
+  { "tpope/vim-bundler" },
+  { "tpope/vim-rails" },
+
+}, {
+  ui = { border = "rounded" },
+})
 
 -- vim-test
 g["test#ruby#rspec#executable"] = "bin/rspec"

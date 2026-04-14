@@ -1,5 +1,3 @@
-local path_to_elixirls = vim.fn.expand("~/.elixir-ls/language_server.sh")
-
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -10,6 +8,11 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
     'additionalTextEdits',
   }
 }
+
+local ok, cmp_lsp = pcall(require, "cmp_nvim_lsp")
+if ok then
+  capabilities = vim.tbl_deep_extend("force", capabilities, cmp_lsp.default_capabilities())
+end
 
 local on_attach = function(_, bufnr)
   local function map(...)
@@ -28,45 +31,19 @@ local on_attach = function(_, bufnr)
   map("n", "<Leader>dp", [[<cmd>lua vim.diagnostic.goto_prev()<CR>]], opts)
   map("n", "<Leader>lL", [[<cmd>LspLog<CR>]], opts)
   map("n", "<Leader>lt", [[<cmd>lua vim.lsp.buf.type_definition()<CR>]], opts)
-  map("n", "<Leader>lef", ":ElixirFromPipe<cr>", opts)
-  map("n", "<Leader>let", ":ElixirToPipe<cr>", opts)
-  map("v", "<Leader>lem", ":ElixirExpandMacro<cr>", opts)
-
-  require("cmp_nvim_lsp").default_capabilities(capabilities)
 end
-
-local elixir = require("elixir")
-local elixirls = require("elixir.elixirls")
-
-elixir.setup {
-  nextls = {
-    enable = false,
-    on_attach = on_attach,
-    spitfire = true,
-    init_options = {
-      experimental = {
-        completions = {
-          enable = true,
-        },
-      },
-    },
-  },
-  elixirls = {
-    on_attach = on_attach,
-    cmd = { path_to_elixirls },
-    settings = elixirls.settings {
-      dialyzerEnabled = true,
-      fetchDeps = false,
-      enableTestLenses = false,
-      suggestSpecs = false
-    }
-  },
-  projectionist = {enable = true},
-}
 
 vim.lsp.config('*', {
   capabilities = capabilities,
   on_attach = on_attach,
+})
+
+vim.lsp.config('expert', {
+  cmd = { 'expert', '--stdio' },
+  filetypes = { 'elixir', 'eelixir', 'heex' },
+  root_dir = function(fname)
+    return vim.fs.dirname(vim.fs.find({ 'mix.exs' }, { upward = true, path = fname })[1])
+  end,
 })
 
 vim.lsp.config('lua_ls', {
@@ -123,4 +100,4 @@ vim.lsp.config('tailwindcss', {
   }
 })
 
-vim.lsp.enable({ 'lua_ls', 'solargraph', 'ts_ls', 'tailwindcss' })
+vim.lsp.enable({ 'expert', 'lua_ls', 'solargraph', 'ts_ls', 'tailwindcss' })

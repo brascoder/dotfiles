@@ -1,6 +1,4 @@
-require("nvim-treesitter.configs").setup {
-  sync_install = false,
-  auto_install = true,
+require("nvim-treesitter").setup({
   ensure_installed = {
     "eex",
     "elixir",
@@ -16,13 +14,7 @@ require("nvim-treesitter.configs").setup {
     "tsx",
     "typescript",
   },
-  ignore_install = {},
-  highlight = { enable = false },
+  auto_install = true,
+  highlight = { enable = true },
   indent = { enable = true },
-  matchup = {
-    enable = true
-  },
-  textobjects = {
-    enable = true,
-  }
-}
+})
