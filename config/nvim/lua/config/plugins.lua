@@ -27,24 +27,6 @@ require("packer").startup(function(use)
   use "vim-scripts/bufonly.vim"
   use "vim-test/vim-test"
   use "github/copilot.vim"
-  use {
-    "jackMort/ChatGPT.nvim",
-    config = function()
-      require("chatgpt").setup({
-        api_key_cmd = "op read op://private/OpenAI/APIKey --no-newline",
-        openai_params = {
-          model = "gpt-3.5-turbo",
-          max_tokens = 1000,
-          temperature = 0,
-        },
-      })
-    end,
-    requires = {
-      "MunifTanjim/nui.nvim",
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim"
-    }
-  }
 
   -- UI
   use {
@@ -115,12 +97,6 @@ require("packer").startup(function(use)
   -- Languages/Frameworks
   use { "elixir-tools/elixir-tools.nvim", tag = "stable", requires = { "nvim-lua/plenary.nvim" } }
   use { "williamboman/mason.nvim", config = [[require("mason").setup()]] }
-  use {
-    "williamboman/mason-lspconfig.nvim",
-    config = [[
-      require("mason-lspconfig").setup({})
-    ]]
-  }
   use { "neovim/nvim-lspconfig", config = [[require("config.lsp")]] }
   -- use "elixir-editors/vim-elixir"
   use "sheerun/vim-polyglot"

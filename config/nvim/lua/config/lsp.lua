@@ -1,5 +1,5 @@
-local lspconfig = require("lspconfig")
 local path_to_elixirls = vim.fn.expand("~/.elixir-ls/language_server.sh")
+
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -12,15 +12,12 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 }
 
 local on_attach = function(_, bufnr)
-  -- print("Attached to language server")
-
   local function map(...)
     vim.api.nvim_buf_set_keymap(bufnr, ...)
   end
 
   local opts = { noremap = true, silent = true }
 
-  -- map("n", "<Leader>lc", [[<cmd>lua vim.lsp.codelens.run()<CR>]], opts)
   map("n", "<Leader>ld", [[<cmd>lua vim.lsp.buf.definition()<CR>]], opts)
   map("n", "<Leader>lD", [[<cmd>lua vim.lsp.buf.implementation()<CR>]], opts)
   map("n", "<Leader>lf", [[<cmd>lua vim.lsp.buf.format({ async = true })<CR>]], opts)
@@ -67,21 +64,12 @@ elixir.setup {
   projectionist = {enable = true},
 }
 
--- lspconfig.elixirls.setup({
---   cmd = {path_to_elixirls},
---   capabilities = capabilities,
---   on_attach = on_attach,
---   settings = {
---     elixirLS = {
---       dialyzerEnabled = true,
---       enableTestLenses = true
---     }
---   }
--- })
-
-lspconfig.lua_ls.setup({
+vim.lsp.config('*', {
   capabilities = capabilities,
   on_attach = on_attach,
+})
+
+vim.lsp.config('lua_ls', {
   settings = {
     Lua = {
       diagnostics = {
@@ -95,9 +83,7 @@ lspconfig.lua_ls.setup({
   }
 })
 
-lspconfig.solargraph.setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
+vim.lsp.config('solargraph', {
   init_options = {
     formatting = true
   },
@@ -108,9 +94,7 @@ lspconfig.solargraph.setup({
   }
 })
 
-lspconfig.tsserver.setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
+vim.lsp.config('ts_ls', {
   cmd = { "typescript-language-server", "--stdio" },
   filetypes = {
     "javascript",
@@ -122,9 +106,7 @@ lspconfig.tsserver.setup({
   },
 })
 
-lspconfig.tailwindcss.setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
+vim.lsp.config('tailwindcss', {
   filetypes = {
     "eelixir",
     "elixir",
@@ -141,19 +123,4 @@ lspconfig.tailwindcss.setup({
   }
 })
 
--- lspconfig.efm.setup({
---   capabilities = capabilities,
---   on_attach = on_attach,
---   filetypes = {
---     "elixir",
---     "eelixir",
---     "heex",
---     "surface",
---     "javascript",
---     "lua",
---     "bash",
---     "zsh",
---     "html",
---     "on"
---   }
--- })
+vim.lsp.enable({ 'lua_ls', 'solargraph', 'ts_ls', 'tailwindcss' })

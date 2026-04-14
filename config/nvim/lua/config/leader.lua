@@ -36,19 +36,6 @@ nleader("bp", [[:bprevious<CR>]])
 nleader("bs", [[:Telescope current_buffer_fuzzy_find<CR>]])
 nleader("bt", [[:Telescope current_buffer_tags<CR>]])
 
--- ChatGPT
-lmap.c = {
-  name = "+ChatGPT",
-  a = "Act As",
-  c = "Chat",
-  e = "Edit",
-  r = "Run",
-}
-nleader("ca", [[:ChatGPTActAs<CR>]])
-nleader("cc", [[:ChatGPT<CR>]])
-nleader("ce", [[:ChatGPTEditWithInstructions<CR>]])
-vleader("ce", [[:ChatGPTEditWithInstructions<CR>]])
-
 -- Diagnostics
 lmap.d = {
   name = "+Diagnostics",
@@ -60,7 +47,7 @@ lmap.d = {
 nleader("dl", [[:Telescope diagnostics<CR>]])
 
 -- Environment
-lmap.E = {
+lmap.e = {
   name = "+Environment",
   a = "Toggle Spell Check",
   h = "Toggle Search Highlight",
@@ -192,9 +179,7 @@ lmap.l = {
   f = "Formatting",
   h = "Hover",
   H = "Signature Help",
-  i = "Info",
   L = "LSP Logs",
-  r = "Restart LSP",
   t = "Type Definition",
 
   e = {
@@ -204,8 +189,6 @@ lmap.l = {
     t = "To Pipe",
   },
 }
-nleader("li", [[:LspInfo<CR>]])
-nleader("lr", [[:LspRestart<CR>]])
 
 -- Project
 lmap.p = {
@@ -306,6 +289,7 @@ lmap.w = {
   w = "Show Windows",
 
   t = {
+    name = "+Tabs",
     c = "Close Tab",
     h = "Move Tab Left",
     j = "Move Tab End",

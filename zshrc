@@ -92,3 +92,6 @@ bindkey '^ ' autosuggest-execute
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Direnv for managing environment variables
+eval "$(direnv hook zsh)"
