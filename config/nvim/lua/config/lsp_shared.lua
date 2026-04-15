@@ -9,9 +9,9 @@ M.capabilities.textDocument.completion.completionItem.resolveSupport = {
     'additionalTextEdits',
   }
 }
-local ok, cmp_lsp = pcall(require, "cmp_nvim_lsp")
+local ok, blink = pcall(require, "blink.cmp")
 if ok then
-  M.capabilities = vim.tbl_deep_extend("force", M.capabilities, cmp_lsp.default_capabilities())
+  M.capabilities = vim.tbl_deep_extend("force", M.capabilities, blink.get_lsp_capabilities())
 end
 
 M.on_attach = function(_, bufnr)

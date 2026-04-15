@@ -88,11 +88,11 @@ nleader("pt", [[:Telescope tags<CR>]])
 nleader("pT", [[:! ctags<CR>]])
 
 -- Terminal
-cmd [[command! FocusVimux call feedkeys(":VimuxOpenRunner<CR>:TmuxNavigatePrevious<CR>", "t")]]
-nleader("zc", [[:VimuxCloseRunner<CR>]])
-nleader("zo", [[:VimuxOpenRunner<CR>]])
-nleader("zr", [[:VimuxPromptCommand<CR>]])
-nleader("zz", [[:FocusVimux<CR>]])
+nleader("zo", [[:ToggleTerm direction=horizontal<CR>]])
+nleader("zv", [[:ToggleTerm direction=vertical<CR>]])
+nleader("zf", [[:ToggleTerm direction=float<CR>]])
+nleader("zr", [[:ToggleTermSendCurrentLine<CR>]])
+vleader("zr", [[:ToggleTermSendVisualSelection<CR>]])
 
 -- Test
 nleader("tl", [[:TestLast<CR>]])

@@ -2,15 +2,18 @@ local shared = require("config.lsp_shared")
 
 vim.lsp.config('*', {
   capabilities = shared.capabilities,
-  on_attach = shared.on_attach,
+})
+
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(args)
+    shared.on_attach(vim.lsp.get_client_by_id(args.data.client_id), args.buf)
+  end,
 })
 
 vim.lsp.config('expert', {
   cmd = { 'expert', '--stdio' },
   filetypes = { 'elixir', 'eelixir', 'heex' },
-  root_dir = function(fname)
-    return vim.fs.dirname(vim.fs.find({ 'mix.exs' }, { upward = true, path = fname })[1])
-  end,
+  root_markers = { 'mix.exs' },
 })
 
 vim.lsp.config('lua_ls', {
@@ -67,6 +70,17 @@ vim.lsp.config('tailwindcss', {
   }
 })
 
+vim.lsp.config('emmet_ls', {
+  filetypes = {
+    "html",
+    "css",
+    "javascriptreact",
+    "typescriptreact",
+    "heex",
+    "eelixir",
+  },
+})
+
 vim.lsp.config('eslint', {
   filetypes = {
     "javascript",
@@ -79,5 +93,5 @@ vim.lsp.config('eslint', {
   settings = { workingDirectory = { mode = "auto" } },
 })
 
-vim.lsp.enable({ 'expert', 'lua_ls', 'solargraph', 'ts_ls', 'tailwindcss', 'eslint' })
+vim.lsp.enable({ 'expert', 'lua_ls', 'solargraph', 'ts_ls', 'tailwindcss', 'eslint', 'emmet_ls' })
 -- Note: dartls is NOT listed here — flutter-tools manages it via lspconfig

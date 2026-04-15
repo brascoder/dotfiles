@@ -3,20 +3,16 @@ local g = vim.g
 require("lazy").setup({
 
   -- Config
-  { "junegunn/fzf", build = function() vim.fn["fzf#install"]() end },
   {
     "nvim-telescope/telescope.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
   },
-  { "preservim/vimux" },
-  { "tpope/vim-dispatch" },
   { "tpope/vim-fugitive" },
   { "kdheepak/lazygit.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
   { "tpope/vim-projectionist" },
   { "tpope/vim-repeat" },
   { "vim-scripts/bufonly.vim" },
   { "vim-test/vim-test" },
-  { "github/copilot.vim" },
 
   -- UI
   {
@@ -37,11 +33,8 @@ require("lazy").setup({
     config = function() require("gitsigns").setup() end,
   },
   { "folke/tokyonight.nvim" },
-  { "navarasu/onedark.nvim" },
-  { "EdenEast/nightfox.nvim" },
-  { "ishan9299/nvim-solarized-lua" },
   {
-    "norcalli/nvim-colorizer.lua",
+    "catgoose/nvim-colorizer.lua",
     config = function() require("colorizer").setup() end,
   },
   {
@@ -67,47 +60,52 @@ require("lazy").setup({
     "smoka7/hop.nvim",
     config = function() require("config.hop") end,
   },
+  {
+    "akinsho/toggleterm.nvim",
+    version = "*",
+    opts = {
+      size = function(term)
+        if term.direction == "horizontal" then return 15
+        elseif term.direction == "vertical" then return vim.o.columns * 0.4
+        end
+      end,
+      open_mapping = [[<C-\>]],
+      direction = "horizontal",
+      shade_terminals = false,
+    },
+  },
 
   -- Completion
   {
-    "hrsh7th/nvim-cmp",
-    config = function() require("config.cmp") end,
+    "saghen/blink.cmp",
+    version = "*",
+    dependencies = {
+      {
+        "L3MON4D3/LuaSnip",
+        build = "make install_jsregexp",
+        dependencies = { "rafamadriz/friendly-snippets" },
+        config = function()
+          require("luasnip.loaders.from_vscode").lazy_load()
+        end,
+      },
+    },
+    opts = {
+      snippets = { preset = "luasnip" },
+      keymap = { preset = "default" },
+      sources = {
+        default = { "lsp", "path", "snippets", "buffer" },
+      },
+      completion = { documentation = { auto_show = true } },
+    },
   },
-  { "hrsh7th/cmp-nvim-lsp" },
-  { "hrsh7th/cmp-nvim-lua" },
-  { "hrsh7th/cmp-path" },
-  { "hrsh7th/cmp-buffer" },
-  { "hrsh7th/cmp-calc" },
-  { "ray-x/cmp-treesitter" },
-  { "quangnguyen30192/cmp-nvim-tags" },
-  {
-    "L3MON4D3/LuaSnip",
-    build = "make install_jsregexp",
-    dependencies = { "rafamadriz/friendly-snippets" },
-    config = function()
-      require("luasnip.loaders.from_vscode").lazy_load()
-    end,
-  },
-  { "saadparwaiz1/cmp_luasnip" },
 
   -- Text Operations
   { "andymass/vim-matchup" },
   { "godlygeek/tabular" },
-  { "JoosepAlviste/nvim-ts-context-commentstring" },
-  { "mattn/emmet-vim" },
   {
     "kylechui/nvim-surround",
     event = "VeryLazy",
     opts = {},
-  },
-  {
-    "numToStr/Comment.nvim",
-    dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
-    config = function()
-      require("Comment").setup({
-        pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
-      })
-    end,
   },
   {
     "MeanderingProgrammer/render-markdown.nvim",
@@ -128,7 +126,7 @@ require("lazy").setup({
     dependencies = { "williamboman/mason.nvim" },
     config = function()
       require("mason-tool-installer").setup({
-        ensure_installed = { "prettier", "eslint-lsp" },
+        ensure_installed = { "prettier", "eslint-lsp", "emmet-ls" },
       })
     end,
   },
@@ -147,7 +145,6 @@ require("lazy").setup({
       local shared = require("config.lsp_shared")
       require("flutter-tools").setup({
         lsp = {
-          on_attach = shared.on_attach,
           capabilities = shared.capabilities,
         },
       })
@@ -162,8 +159,5 @@ require("lazy").setup({
 
 -- vim-test
 g["test#ruby#rspec#executable"] = "bin/rspec"
-g["test#strategy"] = "vimux"
+g["test#strategy"] = "toggleterm"
 
--- vimux
-g.VimuxOrientation = "v"
-g.VimuxHeight = "25%"
