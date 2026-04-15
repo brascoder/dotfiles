@@ -36,6 +36,7 @@ nleader("epu", [[:Lazy update<CR>]])
 nleader("er", [[:Telescope registers<CR>]])
 nleader("eR", [[:luafile %<CR>]])
 nleader("es", [[:Scratch<CR>]])
+nleader("ef", [[:lua vim.g.conform_format_on_save = not vim.g.conform_format_on_save; print("Format on save: " .. tostring(vim.g.conform_format_on_save))<CR>]])
 nleader("et", [[:NvimTreeRefresh<CR>]])
 
 -- File
@@ -146,6 +147,13 @@ nleader("wtt", [[:tabnew<CR>]])
 nleader("wt,", [[:tabfirst<CR>]])
 nleader("wt.", [[:tablast<CR>]])
 
+-- Flutter
+nleader("vr", [[:FlutterRun<CR>]])
+nleader("vR", [[:FlutterRestart<CR>]])
+nleader("vh", [[:FlutterReload<CR>]])
+nleader("vd", [[:FlutterDevices<CR>]])
+nleader("vo", [[:FlutterOutlineToggle<CR>]])
+
 -- Quit
 nleader("qq", [[:qa<CR>]])
 nleader("qQ", [[:qa!<CR>]])
@@ -172,5 +180,7 @@ wk.add({
   { "<leader>x",  group = "Text" },
   { "<leader>xi", group = "Insert" },
   { "<leader>xa", group = "Align" },
+  { "<leader>ef", desc = "Toggle format on save" },
+  { "<leader>v",  group = "Flutter" },
   { "<leader>z",  group = "Terminal" },
 })

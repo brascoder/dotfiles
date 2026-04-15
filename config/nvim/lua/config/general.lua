@@ -29,3 +29,5 @@ opt.tabstop = 2
 opt.termguicolors = true
 opt.updatetime = 300
 opt.visualbell = true
+
+vim.g.conform_format_on_save = false

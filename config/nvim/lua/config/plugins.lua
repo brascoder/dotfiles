@@ -123,7 +123,36 @@ require("lazy").setup({
     "williamboman/mason.nvim",
     config = function() require("mason").setup() end,
   },
+  {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    dependencies = { "williamboman/mason.nvim" },
+    config = function()
+      require("mason-tool-installer").setup({
+        ensure_installed = { "prettier", "eslint-lsp" },
+      })
+    end,
+  },
   { "neovim/nvim-lspconfig", config = false },
+  {
+    "stevearc/conform.nvim",
+    event = { "BufWritePre" },
+    cmd = { "ConformInfo" },
+    config = function() require("config.conform") end,
+  },
+  {
+    "akinsho/flutter-tools.nvim",
+    lazy = false,
+    dependencies = { "nvim-lua/plenary.nvim", "stevearc/dressing.nvim" },
+    config = function()
+      local shared = require("config.lsp_shared")
+      require("flutter-tools").setup({
+        lsp = {
+          on_attach = shared.on_attach,
+          capabilities = shared.capabilities,
+        },
+      })
+    end,
+  },
   { "tpope/vim-bundler" },
   { "tpope/vim-rails" },
 
