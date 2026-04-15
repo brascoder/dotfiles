@@ -77,6 +77,21 @@ require("lazy").setup({
 
   -- Completion
   {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({
+        suggestion = {
+          enabled = true,
+          auto_trigger = true,
+          keymap = { accept = false },
+        },
+        panel = { enabled = false },
+      })
+    end,
+  },
+  {
     "saghen/blink.cmp",
     version = "*",
     dependencies = {
@@ -91,12 +106,35 @@ require("lazy").setup({
     },
     opts = {
       snippets = { preset = "luasnip" },
-      keymap = { preset = "default" },
+      keymap = {
+        preset = "default",
+        ["<Tab>"] = {
+          function()
+            local copilot = require("copilot.suggestion")
+            if copilot.is_visible() then
+              copilot.accept()
+              return true
+            end
+          end,
+          "snippet_forward",
+          "fallback",
+        },
+      },
       sources = {
         default = { "lsp", "path", "snippets", "buffer" },
       },
       completion = { documentation = { auto_show = true } },
     },
+  },
+
+  -- AI
+  {
+    "coder/claudecode.nvim",
+    config = function()
+      require("claudecode").setup({
+        terminal_provider = "native",
+      })
+    end,
   },
 
   -- Text Operations

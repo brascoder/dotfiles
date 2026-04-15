@@ -31,3 +31,5 @@ opt.updatetime = 300
 opt.visualbell = true
 
 vim.g.conform_format_on_save = false
+
+vim.api.nvim_set_hl(0, "CopilotSuggestion", { fg = "#6e7faa", italic = true })

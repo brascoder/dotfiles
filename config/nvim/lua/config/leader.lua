@@ -154,6 +154,14 @@ nleader("vh", [[:FlutterReload<CR>]])
 nleader("vd", [[:FlutterDevices<CR>]])
 nleader("vo", [[:FlutterOutlineToggle<CR>]])
 
+-- Claude Code
+nleader("cc", [[:ClaudeCode<CR>]])
+nleader("cf", [[:ClaudeCodeFocus<CR>]])
+nleader("ca", [[:ClaudeCodeAdd %<CR>]])
+nleader("cda", [[:ClaudeCodeDiffAccept<CR>]])
+nleader("cdd", [[:ClaudeCodeDiffDeny<CR>]])
+vleader("cs", [[:ClaudeCodeSend<CR>]])
+
 -- Quit
 nleader("qq", [[:qa<CR>]])
 nleader("qQ", [[:qa!<CR>]])
@@ -183,4 +191,6 @@ wk.add({
   { "<leader>ef", desc = "Toggle format on save" },
   { "<leader>v",  group = "Flutter" },
   { "<leader>z",  group = "Terminal" },
+  { "<leader>c",  group = "Claude" },
+  { "<leader>cd", group = "Claude diff" },
 })
