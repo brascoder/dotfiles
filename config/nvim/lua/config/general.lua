@@ -27,9 +27,12 @@ opt.splitbelow = true
 opt.splitright = true
 opt.tabstop = 2
 opt.termguicolors = true
+opt.autoread = true
 opt.updatetime = 300
 opt.visualbell = true
 
 vim.g.conform_format_on_save = false
+
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter" }, { command = "checktime" })
 
 vim.api.nvim_set_hl(0, "CopilotSuggestion", { fg = "#6e7faa", italic = true })

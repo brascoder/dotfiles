@@ -134,11 +134,18 @@ require("lazy").setup({
   },
 
   -- AI
+  { "brianhuster/unnest.nvim" },
   {
     "coder/claudecode.nvim",
     config = function()
       require("claudecode").setup({
         terminal_provider = "native",
+        diff_opts = {
+          open_in_new_tab = true,
+        },
+        env = {
+          EDITOR = "nvr --nostart --remote-wait-silent",
+        },
       })
     end,
   },
