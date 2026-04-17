@@ -1,5 +1,3 @@
-local g = vim.g
-
 require("lazy").setup({
 
   -- Config
@@ -18,7 +16,6 @@ require("lazy").setup({
   { "tpope/vim-projectionist" },
   { "tpope/vim-repeat" },
   { "vim-scripts/bufonly.vim" },
-  { "vim-test/vim-test" },
 
   -- UI
   {
@@ -39,6 +36,20 @@ require("lazy").setup({
     config = function() require("gitsigns").setup() end,
   },
   { "folke/tokyonight.nvim" },
+  {
+    "folke/trouble.nvim",
+    cmd = "Trouble",
+    opts = {},
+  },
+  {
+    "j-hui/fidget.nvim",
+    opts = {},
+  },
+  {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {},
+  },
   {
     "catgoose/nvim-colorizer.lua",
     config = function() require("colorizer").setup() end,
@@ -129,7 +140,10 @@ require("lazy").setup({
       sources = {
         default = { "lsp", "path", "snippets", "buffer" },
       },
-      completion = { documentation = { auto_show = true } },
+      completion = {
+        accept = { auto_brackets = { enabled = false } },
+        documentation = { auto_show = true },
+      },
     },
   },
 
@@ -150,8 +164,22 @@ require("lazy").setup({
     end,
   },
 
+  -- Completion
+  {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    config = function()
+      require("nvim-autopairs").setup({ check_ts = true })
+    end,
+  },
+
   -- Text Operations
   { "andymass/vim-matchup" },
+  {
+    "numToStr/Comment.nvim",
+    event = "VeryLazy",
+    opts = {},
+  },
   { "godlygeek/tabular" },
   {
     "kylechui/nvim-surround",
@@ -177,7 +205,17 @@ require("lazy").setup({
     dependencies = { "williamboman/mason.nvim" },
     config = function()
       require("mason-tool-installer").setup({
-        ensure_installed = { "prettier", "eslint-lsp", "emmet-ls" },
+        ensure_installed = {
+          "efm",
+          "emmet-ls",
+          "eslint-lsp",
+          "lua-language-server",
+          "prettier",
+          -- "solargraph",
+          "tailwindcss-language-server",
+          "typescript-language-server",
+          "js-debug-adapter",
+        },
       })
     end,
   },
@@ -203,12 +241,31 @@ require("lazy").setup({
   },
   { "tpope/vim-bundler" },
   { "tpope/vim-rails" },
+  {
+    "nvim-neotest/neotest",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "jfpedroza/neotest-elixir",
+      "nvim-neotest/neotest-jest",
+    },
+    config = function() require("config.neotest") end,
+  },
+
+  -- Debugging
+  {
+    "mfussenegger/nvim-dap",
+    dependencies = {
+      "rcarriga/nvim-dap-ui",
+      "nvim-neotest/nvim-nio",
+      "theHamsta/nvim-dap-virtual-text",
+      "mxsdev/nvim-dap-vscode-js",
+    },
+    config = function() require("config.dap") end,
+  },
 
 }, {
   ui = { border = "rounded" },
 })
 
--- vim-test
-g["test#ruby#rspec#executable"] = "bin/rspec"
-g["test#strategy"] = "toggleterm"
 

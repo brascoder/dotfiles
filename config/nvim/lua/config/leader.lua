@@ -30,10 +30,30 @@ nleader("cr", [[:ClaudeCode --resume<CR>]], "Resume session")
 nleader("ct", [[:ClaudeCodeTreeAdd<CR>]], "Add file from tree")
 nleader("cda", [[:ClaudeCodeDiffAccept<CR>]], "Accept diff")
 nleader("cdd", [[:ClaudeCodeDiffDeny<CR>]], "Deny diff")
+vim.keymap.set("n", "<Leader>cp", function()
+  local dir = vim.fn.getcwd() .. "/.claude/plans"
+  local handle = io.popen("ls -t " .. dir .. "/*.md 2>/dev/null | head -1")
+  local latest = handle:read("*l")
+  handle:close()
+  if latest then vim.cmd("edit " .. vim.fn.fnameescape(latest)) end
+end, { noremap = true, desc = "Open latest plan" })
 vleader("cs", [[:ClaudeCodeSend<CR>]], "Send selection to Claude")
 
 -- Diagnostics
-nleader("dl", [[:Telescope diagnostics<CR>]], "List diagnostics")
+nleader("dl", [[:Telescope diagnostics<CR>]],                              "List diagnostics")
+nleader("dt", "<cmd>Trouble diagnostics toggle<CR>",                       "Trouble diagnostics")
+nleader("df", "<cmd>Trouble diagnostics toggle filter.buf=0<CR>",          "File diagnostics")
+nleader("dq", "<cmd>Trouble qflist toggle<CR>",                            "Trouble quickfix")
+nleader("ds", "<cmd>Trouble symbols toggle<CR>",                           "Trouble symbols")
+
+-- Debug
+nleader("Db", "<cmd>lua require('dap').toggle_breakpoint()<CR>",           "Toggle breakpoint")
+nleader("Dc", "<cmd>lua require('dap').continue()<CR>",                    "Continue")
+nleader("Ds", "<cmd>lua require('dap').step_over()<CR>",                   "Step over")
+nleader("Di", "<cmd>lua require('dap').step_into()<CR>",                   "Step into")
+nleader("Do", "<cmd>lua require('dap').step_out()<CR>",                    "Step out")
+nleader("Du", "<cmd>lua require('dapui').toggle()<CR>",                    "Toggle DAP UI")
+nleader("Dt", "<cmd>lua require('dap').terminate()<CR>",                   "Terminate session")
 
 -- Environment
 cmd [[command! Scratch lua funcs.make_scratch()]]
@@ -110,10 +130,13 @@ nleader("zr", [[:ToggleTermSendCurrentLine<CR>]], "Send line to terminal")
 vleader("zr", [[:ToggleTermSendVisualSelection<CR>]], "Send selection to terminal")
 
 -- Test
-nleader("tl", [[:TestLast<CR>]], "Run last test")
-nleader("tn", [[:TestNearest<CR>]], "Run nearest test")
-nleader("ts", [[:TestSuite<CR>]], "Run test suite")
-nleader("tt", [[:TestFile<CR>]], "Run test file")
+nleader("tn", "<cmd>lua require('neotest').run.run()<CR>",                   "Run nearest test")
+nleader("tf", "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<CR>", "Run file tests")
+nleader("tS", "<cmd>lua require('neotest').run.run(vim.fn.getcwd())<CR>",    "Run test suite")
+nleader("tl", "<cmd>lua require('neotest').run.run_last()<CR>",              "Run last test")
+nleader("ts", "<cmd>lua require('neotest').summary.toggle()<CR>",            "Toggle test summary")
+nleader("to", "<cmd>lua require('neotest').output_panel.toggle()<CR>",       "Toggle test output")
+nleader("tt", "<cmd>lua require('neotest').run.stop()<CR>",                  "Stop test run")
 
 -- Text
 cmd [[command! InsertAbove call feedkeys("O<Esc>j", "t")]]
@@ -198,4 +221,5 @@ wk.add({
   { "<leader>z",  group = "Terminal" },
   { "<leader>c",  group = "Claude" },
   { "<leader>cd", group = "Claude diff" },
+  { "<leader>D",  group = "Debug" },
 })

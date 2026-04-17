@@ -1,1 +1,1 @@
-EXCLUDES="claude"
+EXCLUDES="claude README.md"

@@ -36,3 +36,10 @@ vim.g.conform_format_on_save = false
 vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter" }, { command = "checktime" })
 
 vim.api.nvim_set_hl(0, "CopilotSuggestion", { fg = "#6e7faa", italic = true })
+
+vim.g.projectionist_heuristics = {
+  ["mix.exs"] = {
+    ["lib/*.ex"]        = { alternate = "test/{}_test.exs", type = "source" },
+    ["test/*_test.exs"] = { alternate = "lib/{}.ex",        type = "test" },
+  },
+}
