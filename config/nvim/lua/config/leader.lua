@@ -27,6 +27,7 @@ nleader("ca", [[:ClaudeCodeAdd %<CR>]], "Add file to Claude")
 nleader("cC", [[:ClaudeCode --continue<CR>]], "Continue task")
 nleader("cm", [[:ClaudeCodeSelectModel<CR>]], "Select model")
 nleader("cr", [[:ClaudeCode --resume<CR>]], "Resume session")
+vleader("cs", [[:ClaudeCodeSend<CR>]], "Send selection to Claude")
 nleader("ct", [[:ClaudeCodeTreeAdd<CR>]], "Add file from tree")
 nleader("cda", [[:ClaudeCodeDiffAccept<CR>]], "Accept diff")
 nleader("cdd", [[:ClaudeCodeDiffDeny<CR>]], "Deny diff")
@@ -37,7 +38,6 @@ vim.keymap.set("n", "<Leader>cp", function()
   handle:close()
   if latest then vim.cmd("edit " .. vim.fn.fnameescape(latest)) end
 end, { noremap = true, desc = "Open latest plan" })
-vleader("cs", [[:ClaudeCodeSend<CR>]], "Send selection to Claude")
 
 -- Diagnostics
 nleader("dl", [[:Telescope diagnostics<CR>]],                              "List diagnostics")
