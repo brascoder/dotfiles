@@ -7,8 +7,14 @@ require("lazy").setup({
     "nvim-telescope/telescope.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
   },
-  { "tpope/vim-fugitive" },
-  { "kdheepak/lazygit.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
+  {
+    "NeogitOrg/neogit",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "sindrets/diffview.nvim",
+    },
+    config = function() require("neogit").setup() end,
+  },
   { "tpope/vim-projectionist" },
   { "tpope/vim-repeat" },
   { "vim-scripts/bufonly.vim" },
