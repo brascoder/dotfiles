@@ -3,7 +3,7 @@ local nleader = utils.nleader
 local vleader = utils.vleader
 local cmd = vim.cmd
 
-funcs = require("config.funcs")
+local funcs = require("config.funcs")
 
 -- Top Level
 nleader(" ", [[:Telescope commands<CR>]], "Commands")

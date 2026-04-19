@@ -2,14 +2,12 @@ local g, cmd, opt = vim.g, vim.cmd, vim.opt
 
 g.mapleader = [[ ]]
 cmd [[
-  syntax enable
   colorscheme tokyonight
   autocmd VimResized * :wincmd =
 ]]
 
 opt.background = "dark"
 opt.cmdheight = 2
-opt.completeopt = {"menuone", "noinsert", "noselect"}
 opt.cursorline = true
 opt.expandtab = true
 opt.hidden = true

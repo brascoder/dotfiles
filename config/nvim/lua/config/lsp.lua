@@ -93,5 +93,13 @@ vim.lsp.config('eslint', {
   settings = { workingDirectory = { mode = "auto" } },
 })
 
-vim.lsp.enable({ 'expert', 'lua_ls', 'solargraph', 'ts_ls', 'tailwindcss', 'eslint', 'emmet_ls' })
+vim.lsp.enable({
+  'expert',
+  'lua_ls',
+  -- 'solargraph',
+  'ts_ls',
+  'tailwindcss',
+  'eslint',
+  'emmet_ls'
+})
 -- Note: dartls is NOT listed here — flutter-tools manages it via lspconfig

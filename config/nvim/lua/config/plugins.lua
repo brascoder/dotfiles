@@ -164,7 +164,7 @@ require("lazy").setup({
     end,
   },
 
-  -- Completion
+  -- Editing
   {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
