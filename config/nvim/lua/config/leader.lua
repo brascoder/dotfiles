@@ -172,20 +172,20 @@ nleader("wo", [[:only<CR>]], "Close other windows")
 nleader("wx", [[:split<CR>]], "Horizontal split")
 nleader("wv", [[:vsplit<CR>]], "Vertical split")
 nleader("ww", [[:Windows<CR>]], "List windows")
-nleader("w,", [[:tabprevious<CR>]], "Previous tab")
-nleader("w.", [[:tabnext<CR>]], "Next tab")
 
--- Window/Tabs
-nleader("wtc", [[:tabclose<CR>]], "Close tab")
-nleader("wth", [[:tabmove -1<CR>]], "Move tab left")
-nleader("wtj", [[:tabmove $<CR>]], "Move tab to last")
-nleader("wtk", [[:tabmove 0<CR>]], "Move tab to first")
-nleader("wtl", [[:tabmove +1<CR>]], "Move tab right")
-nleader("wto", [[:tabonly<CR>]], "Close other tabs")
-nleader("wtt", [[:tabnew<CR>]], "New tab")
-nleader("wtT", [[:tabe %<CR>]], "New tab with current file")
-nleader("wt,", [[:tabfirst<CR>]], "First tab")
-nleader("wt.", [[:tablast<CR>]], "Last tab")
+-- Tabs
+nleader("T,", [[:tabprevious<CR>]], "Previous tab")
+nleader("T.", [[:tabnext<CR>]], "Next tab")
+nleader("T<", [[:tabfirst<CR>]], "First tab")
+nleader("T>", [[:tablast<CR>]], "Last tab")
+nleader("Tc", [[:tabclose<CR>]], "Close tab")
+nleader("Th", [[:tabmove -1<CR>]], "Move tab left")
+nleader("Tj", [[:tabmove $<CR>]], "Move tab to last")
+nleader("Tk", [[:tabmove 0<CR>]], "Move tab to first")
+nleader("Tl", [[:tabmove +1<CR>]], "Move tab right")
+nleader("To", [[:tabonly<CR>]], "Close other tabs")
+nleader("Tt", [[:tabnew<CR>]], "New tab")
+nleader("TT", [[:tabe %<CR>]], "New tab with current file")
 
 -- QuickFix
 nleader("Fc", [[:cclose<CR>]], "Close quickfix")
@@ -213,7 +213,7 @@ wk.add({
   { "<leader>q",  group = "Quit" },
   { "<leader>t",  group = "Test" },
   { "<leader>w",  group = "Window" },
-  { "<leader>wt", group = "Tabs" },
+  { "<leader>T",  group = "+Tabs" },
   { "<leader>x",  group = "Text" },
   { "<leader>xi", group = "Insert" },
   { "<leader>xa", group = "Align" },
