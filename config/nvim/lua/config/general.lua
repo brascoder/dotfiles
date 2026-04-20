@@ -29,7 +29,7 @@ opt.autoread = true
 opt.updatetime = 300
 opt.visualbell = true
 
-vim.g.conform_format_on_save = false
+vim.g.conform_format_on_save = true
 
 vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter" }, { command = "checktime" })
 
