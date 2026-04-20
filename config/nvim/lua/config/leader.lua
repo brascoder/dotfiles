@@ -40,20 +40,20 @@ vim.keymap.set("n", "<Leader>cp", function()
 end, { noremap = true, desc = "Open latest plan" })
 
 -- Diagnostics
-nleader("dl", [[:Telescope diagnostics<CR>]],                              "List diagnostics")
-nleader("dt", "<cmd>Trouble diagnostics toggle<CR>",                       "Trouble diagnostics")
-nleader("df", "<cmd>Trouble diagnostics toggle filter.buf=0<CR>",          "File diagnostics")
-nleader("dq", "<cmd>Trouble qflist toggle<CR>",                            "Trouble quickfix")
-nleader("ds", "<cmd>Trouble symbols toggle<CR>",                           "Trouble symbols")
+nleader("dl", [[:Telescope diagnostics<CR>]], "List diagnostics")
+nleader("dt", "<cmd>Trouble diagnostics toggle<CR>", "Trouble diagnostics")
+nleader("df", "<cmd>Trouble diagnostics toggle filter.buf=0<CR>", "File diagnostics")
+nleader("dq", "<cmd>Trouble qflist toggle<CR>", "Trouble quickfix")
+nleader("ds", "<cmd>Trouble symbols toggle<CR>", "Trouble symbols")
 
 -- Debug
-nleader("Db", "<cmd>lua require('dap').toggle_breakpoint()<CR>",           "Toggle breakpoint")
-nleader("Dc", "<cmd>lua require('dap').continue()<CR>",                    "Continue")
-nleader("Ds", "<cmd>lua require('dap').step_over()<CR>",                   "Step over")
-nleader("Di", "<cmd>lua require('dap').step_into()<CR>",                   "Step into")
-nleader("Do", "<cmd>lua require('dap').step_out()<CR>",                    "Step out")
-nleader("Du", "<cmd>lua require('dapui').toggle()<CR>",                    "Toggle DAP UI")
-nleader("Dt", "<cmd>lua require('dap').terminate()<CR>",                   "Terminate session")
+nleader("Db", "<cmd>lua require('dap').toggle_breakpoint()<CR>", "Toggle breakpoint")
+nleader("Dc", "<cmd>lua require('dap').continue()<CR>", "Continue")
+nleader("Ds", "<cmd>lua require('dap').step_over()<CR>", "Step over")
+nleader("Di", "<cmd>lua require('dap').step_into()<CR>", "Step into")
+nleader("Do", "<cmd>lua require('dap').step_out()<CR>", "Step out")
+nleader("Du", "<cmd>lua require('dapui').toggle()<CR>", "Toggle DAP UI")
+nleader("Dt", "<cmd>lua require('dap').terminate()<CR>", "Terminate session")
 
 -- Environment
 cmd [[command! Scratch lua funcs.make_scratch()]]
@@ -66,9 +66,11 @@ nleader("eps", [[:Lazy sync<CR>]], "Sync plugins")
 nleader("epS", [[:Lazy<CR>]], "Plugin manager")
 nleader("epu", [[:Lazy update<CR>]], "Update plugins")
 nleader("er", [[:Telescope registers<CR>]], "Registers")
-nleader("eR", [[:luafile %<CR>]], "Reload config")
+nleader("eR", [[:source $MYVIMRC<CR>]], "Reload config")
 nleader("es", [[:Scratch<CR>]], "Scratch buffer")
-nleader("ef", [[:lua vim.g.conform_format_on_save = not vim.g.conform_format_on_save; print("Format on save: " .. tostring(vim.g.conform_format_on_save))<CR>]], "Toggle format on save")
+nleader("ef",
+  [[:lua vim.g.conform_format_on_save = not vim.g.conform_format_on_save; print("Format on save: " .. tostring(vim.g.conform_format_on_save))<CR>]],
+  "Toggle format on save")
 nleader("et", [[:NvimTreeRefresh<CR>]], "Refresh file tree")
 
 -- File
@@ -83,6 +85,7 @@ nleader("fS", [[:wa<CR>]], "Save all files")
 nleader("ft", [[:NvimTreeToggle<CR>]], "Toggle file tree")
 nleader("fT", [[:NvimTreeFindFile<CR>]], "Reveal in file tree")
 nleader("fx", [[:x<CR>]], "Save and close")
+nleader("f.", [[:lua require('telescope.builtin').find_files({ hidden = true })<CR>]], "Find hidden file")
 
 -- Flutter
 nleader("vr", [[:FlutterRun<CR>]], "Run")
@@ -130,13 +133,13 @@ nleader("zr", [[:ToggleTermSendCurrentLine<CR>]], "Send line to terminal")
 vleader("zr", [[:ToggleTermSendVisualSelection<CR>]], "Send selection to terminal")
 
 -- Test
-nleader("tn", "<cmd>lua require('neotest').run.run()<CR>",                   "Run nearest test")
+nleader("tn", "<cmd>lua require('neotest').run.run()<CR>", "Run nearest test")
 nleader("tf", "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<CR>", "Run file tests")
-nleader("tS", "<cmd>lua require('neotest').run.run(vim.fn.getcwd())<CR>",    "Run test suite")
-nleader("tl", "<cmd>lua require('neotest').run.run_last()<CR>",              "Run last test")
-nleader("ts", "<cmd>lua require('neotest').summary.toggle()<CR>",            "Toggle test summary")
-nleader("to", "<cmd>lua require('neotest').output_panel.toggle()<CR>",       "Toggle test output")
-nleader("tt", "<cmd>lua require('neotest').run.stop()<CR>",                  "Stop test run")
+nleader("tS", "<cmd>lua require('neotest').run.run(vim.fn.getcwd())<CR>", "Run test suite")
+nleader("tl", "<cmd>lua require('neotest').run.run_last()<CR>", "Run last test")
+nleader("ts", "<cmd>lua require('neotest').summary.toggle()<CR>", "Toggle test summary")
+nleader("to", "<cmd>lua require('neotest').output_panel.toggle()<CR>", "Toggle test output")
+nleader("tt", "<cmd>lua require('neotest').run.stop()<CR>", "Stop test run")
 
 -- Text
 cmd [[command! InsertAbove call feedkeys("O<Esc>j", "t")]]
