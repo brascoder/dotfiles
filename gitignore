@@ -17,3 +17,4 @@ prof
 *.#*
 elm-stuff
 .elixir_ls/
+.claude/settings.local.json
