@@ -111,10 +111,6 @@ genv () {
   fi
 }
 
-gh() {
-  git config --get remote.origin.url | ruby -ne 'puts %{https://github.com/#{$_.split(/.com[\:\/]/)[-1].gsub(".git","")}}' | xargs open
-}
-
 weather () {
   curl http://wttr.in/${1:-33763}
 }

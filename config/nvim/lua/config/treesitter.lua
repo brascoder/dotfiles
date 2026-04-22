@@ -1,7 +1,6 @@
-require("nvim-treesitter.configs").setup {
-  sync_install = false,
-  auto_install = true,
+require("nvim-treesitter").setup({
   ensure_installed = {
+    "dart",
     "eex",
     "elixir",
     "erlang",
@@ -12,17 +11,14 @@ require("nvim-treesitter.configs").setup {
     "markdown",
     "markdown_inline",
     "ruby",
-    "surface",
     "tsx",
     "typescript",
   },
-  ignore_install = {},
-  highlight = { enable = false },
-  indent = { enable = true },
-  matchup = {
-    enable = true
-  },
-  textobjects = {
-    enable = true,
-  }
-}
+  auto_install = true,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  callback = function(ev)
+    pcall(vim.treesitter.start, ev.buf)
+  end,
+})

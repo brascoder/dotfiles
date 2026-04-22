@@ -1,137 +1,280 @@
-local execute = vim.api.nvim_command
-local fn = vim.fn
-local g = vim.g
+require("lazy").setup({
 
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-
-if fn.empty(fn.glob(install_path)) > 0 then
-  fn.system({ "git", "clone", "https://github.com/wbthomason/packer.nvim", install_path })
-  execute "packadd packer.nvim"
-end
-
-require("packer").startup(function(use)
   -- Config
-  use "wbthomason/packer.nvim"
-  use { "junegunn/fzf", run = function() fn["fzf#install"]() end }
-  use "junegunn/fzf.vim"
-  use {
+  {
     "nvim-telescope/telescope.nvim",
-    requires = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } }
-  }
-  use "preservim/vimux"
-  use "tpope/vim-dispatch"
-  use "tpope/vim-fugitive"
-  use "kdheepak/lazygit.nvim"
-  use "tpope/vim-projectionist"
-  use "tpope/vim-repeat"
-  use "vim-scripts/bufonly.vim"
-  use "vim-test/vim-test"
-  use "github/copilot.vim"
-  use {
-    "jackMort/ChatGPT.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+  },
+  {
+    "NeogitOrg/neogit",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "sindrets/diffview.nvim",
+    },
+    config = function() require("neogit").setup() end,
+  },
+  { "tpope/vim-projectionist" },
+  { "tpope/vim-repeat" },
+  { "vim-scripts/bufonly.vim" },
+
+  -- UI
+  {
+    "nvim-lualine/lualine.nvim",
+    dependencies = { { "nvim-tree/nvim-web-devicons", optional = true } },
     config = function()
-      require("chatgpt").setup({
-        api_key_cmd = "op read op://private/OpenAI/APIKey --no-newline",
-        openai_params = {
-          model = "gpt-3.5-turbo",
-          max_tokens = 1000,
-          temperature = 0,
+      require("lualine").setup { options = { theme = "tokyonight" } }
+    end,
+  },
+  { "junegunn/vim-peekaboo" },
+  {
+    "nvim-tree/nvim-tree.lua",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function() require("nvim-tree").setup() end,
+  },
+  {
+    "lewis6991/gitsigns.nvim",
+    config = function() require("gitsigns").setup() end,
+  },
+  {
+    "kdheepak/lazygit.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+  },
+  { "folke/tokyonight.nvim" },
+  {
+    "folke/trouble.nvim",
+    cmd = "Trouble",
+    opts = {},
+  },
+  {
+    "j-hui/fidget.nvim",
+    opts = {},
+  },
+  {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {},
+  },
+  {
+    "brenoprata10/nvim-highlight-colors",
+    config = function()
+      require("nvim-highlight-colors").setup({
+        render = "background",
+        enable_tailwind = true,
+      })
+    end,
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    config = function() require("config.treesitter") end,
+  },
+  { "onsails/lspkind-nvim" },
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    opts = { preset = "modern" },
+  },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    opts = {},
+  },
+
+  -- Navigation
+  { "christoomey/vim-tmux-navigator" },
+  {
+    "smoka7/hop.nvim",
+    config = function() require("config.hop") end,
+  },
+  {
+    "akinsho/toggleterm.nvim",
+    version = "*",
+    opts = {
+      size = function(term)
+        if term.direction == "horizontal" then return 15
+        elseif term.direction == "vertical" then return vim.o.columns * 0.4
+        end
+      end,
+      open_mapping = [[<C-\>]],
+      direction = "horizontal",
+      shade_terminals = false,
+    },
+  },
+
+  -- Completion
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({
+        suggestion = {
+          enabled = true,
+          auto_trigger = true,
+          keymap = { accept = false },
+        },
+        panel = { enabled = false },
+      })
+    end,
+  },
+  {
+    "saghen/blink.cmp",
+    version = "*",
+    dependencies = {
+      {
+        "L3MON4D3/LuaSnip",
+        build = "make install_jsregexp",
+        dependencies = { "rafamadriz/friendly-snippets" },
+        config = function()
+          require("luasnip.loaders.from_vscode").lazy_load()
+        end,
+      },
+    },
+    opts = {
+      snippets = { preset = "luasnip" },
+      keymap = {
+        preset = "default",
+        ["<Tab>"] = {
+          function()
+            local copilot = require("copilot.suggestion")
+            if copilot.is_visible() then
+              copilot.accept()
+              return true
+            end
+          end,
+          "snippet_forward",
+          "fallback",
+        },
+      },
+      sources = {
+        default = { "lsp", "path", "snippets", "buffer" },
+      },
+      completion = {
+        accept = { auto_brackets = { enabled = false } },
+        documentation = { auto_show = true },
+      },
+    },
+  },
+
+  -- AI
+  { "brianhuster/unnest.nvim" },
+  {
+    "coder/claudecode.nvim",
+    config = function()
+      require("claudecode").setup({
+        terminal_provider = "native",
+        diff_opts = {
+          open_in_new_tab = true,
+        },
+        env = {
+          EDITOR = "nvr --nostart --remote-wait-silent",
         },
       })
     end,
-    requires = {
-      "MunifTanjim/nui.nvim",
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim"
-    }
-  }
+  },
 
-  -- UI
-  use {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-    config = [[
-      require('lualine').setup {
-        options = {
-          theme = 'tokyonight'
-        }
-      }
-    ]]
-  }
-  use "junegunn/vim-peekaboo"
-  use {
-    "nvim-tree/nvim-tree.lua",
-    requires = { "nvim-tree/nvim-web-devicons" },
-    config = [[require("nvim-tree").setup()]]
-  }
-  use {
-    "lewis6991/gitsigns.nvim",
-    requires = { "nvim-lua/plenary.nvim" },
-    config = [[require("gitsigns").setup()]]
-  }
-  use 'folke/tokyonight.nvim'
-  use "navarasu/onedark.nvim"
-  use "EdenEast/nightfox.nvim"
-  use "ishan9299/nvim-solarized-lua"
-  use { "norcalli/nvim-colorizer.lua", config = [[require("colorizer").setup()]] }
-  use { "nvim-treesitter/nvim-treesitter", run = [[:TSUpdate]], config = [[require("config.treesitter")]] }
-  use "onsails/lspkind-nvim"
-  use { "powerline/fonts", config = [[vim.g.airline_powerline_fonts = 1]] }
-  use { "spinks/vim-leader-guide", config = [[require("config.leader")]] }
-  use { "Yggdroot/indentLine", config = [[vim.g.indentLine_color_gui = "#4c4c4b"]] }
+  -- Editing
+  {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    config = function()
+      require("nvim-autopairs").setup({ check_ts = true })
+    end,
+  },
 
-  -- Navigation
-  use "christoomey/vim-tmux-navigator"
-  use { "phaazon/hop.nvim", config = [[require("config.hop")]] }
-
-  -- Completion
-  use { "hrsh7th/nvim-cmp", config = [[require("config.cmp")]] }
-  use "hrsh7th/cmp-nvim-lsp"
-  use "hrsh7th/cmp-nvim-lua"
-  use "hrsh7th/cmp-vsnip"
-  use "hrsh7th/cmp-path"
-  use "hrsh7th/cmp-buffer"
-  use "hrsh7th/cmp-calc"
-  use "ray-x/cmp-treesitter"
-  use "quangnguyen30192/cmp-nvim-tags"
-
-  -- Text Operation
-  use "andymass/vim-matchup"
-  use "godlygeek/tabular"
-  use "hrsh7th/vim-vsnip"
-  use "hrsh7th/vim-vsnip-integ"
-  use "JoosepAlviste/nvim-ts-context-commentstring"
-  use "mattn/emmet-vim"
-  use "rafamadriz/friendly-snippets"
-  use "tpope/vim-commentary"
-  use "tpope/vim-surround"
-  use {
+  -- Text Operations
+  { "andymass/vim-matchup" },
+  {
+    "numToStr/Comment.nvim",
+    event = "VeryLazy",
+    opts = {},
+  },
+  { "godlygeek/tabular" },
+  {
+    "kylechui/nvim-surround",
+    event = "VeryLazy",
+    opts = {},
+  },
+  {
     "MeanderingProgrammer/render-markdown.nvim",
-    after = { "nvim-treesitter" },
-    requires = { "nvim-tree/nvim-web-devicons", opt = true },
-    config = [[require("render-markdown").setup({})]]
-  }
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      { "nvim-tree/nvim-web-devicons", optional = true },
+    },
+    config = function() require("render-markdown").setup({}) end,
+  },
 
   -- Languages/Frameworks
-  use { "elixir-tools/elixir-tools.nvim", tag = "stable", requires = { "nvim-lua/plenary.nvim" } }
-  use { "williamboman/mason.nvim", config = [[require("mason").setup()]] }
-  use {
-    "williamboman/mason-lspconfig.nvim",
-    config = [[
-      require("mason-lspconfig").setup({})
-    ]]
-  }
-  use { "neovim/nvim-lspconfig", config = [[require("config.lsp")]] }
-  -- use "elixir-editors/vim-elixir"
-  use "sheerun/vim-polyglot"
-  use "tpope/vim-bundler"
-  use "tpope/vim-rails"
-end)
+  {
+    "williamboman/mason.nvim",
+    config = function() require("mason").setup() end,
+  },
+  {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    dependencies = { "williamboman/mason.nvim" },
+    config = function()
+      require("mason-tool-installer").setup({
+        ensure_installed = {
+          "efm",
+          "emmet-ls",
+          "eslint-lsp",
+          "lua-language-server",
+          "prettier",
+          -- "solargraph",
+          "tailwindcss-language-server",
+          "typescript-language-server",
+          "js-debug-adapter",
+        },
+      })
+    end,
+  },
+  { "neovim/nvim-lspconfig", config = false },
+  {
+    "stevearc/conform.nvim",
+    event = { "BufWritePre" },
+    cmd = { "ConformInfo" },
+    config = function() require("config.conform") end,
+  },
+  {
+    "akinsho/flutter-tools.nvim",
+    lazy = false,
+    dependencies = { "nvim-lua/plenary.nvim", "stevearc/dressing.nvim" },
+    config = function()
+      local shared = require("config.lsp_shared")
+      require("flutter-tools").setup({
+        lsp = {
+          capabilities = shared.capabilities,
+        },
+      })
+    end,
+  },
+  { "tpope/vim-bundler" },
+  { "tpope/vim-rails" },
+  {
+    "nvim-neotest/neotest",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "jfpedroza/neotest-elixir",
+      "nvim-neotest/neotest-jest",
+    },
+    config = function() require("config.neotest") end,
+  },
 
--- vim-test
-g["test#ruby#rspec#executable"] = "bin/rspec"
-g["test#strategy"] = "vimux"
+  -- Debugging
+  {
+    "mfussenegger/nvim-dap",
+    dependencies = {
+      "rcarriga/nvim-dap-ui",
+      "nvim-neotest/nvim-nio",
+      "theHamsta/nvim-dap-virtual-text",
+      "mxsdev/nvim-dap-vscode-js",
+    },
+    config = function() require("config.dap") end,
+  },
 
--- vimux
-g.VimuxOrientation = "v"
-g.VimuxHeight = "25%"
+}, {
+  ui = { border = "rounded" },
+})
+
+

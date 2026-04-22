@@ -1,87 +1,22 @@
-local lspconfig = require("lspconfig")
-local path_to_elixirls = vim.fn.expand("~/.elixir-ls/language_server.sh")
-local capabilities = vim.lsp.protocol.make_client_capabilities()
+local shared = require("config.lsp_shared")
 
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-capabilities.textDocument.completion.completionItem.resolveSupport = {
-  properties = {
-    'documentation',
-    'detail',
-    'additionalTextEdits',
-  }
-}
+vim.lsp.config('*', {
+  capabilities = shared.capabilities,
+})
 
-local on_attach = function(_, bufnr)
-  -- print("Attached to language server")
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(args)
+    shared.on_attach(vim.lsp.get_client_by_id(args.data.client_id), args.buf)
+  end,
+})
 
-  local function map(...)
-    vim.api.nvim_buf_set_keymap(bufnr, ...)
-  end
+vim.lsp.config('expert', {
+  cmd = { 'expert', '--stdio' },
+  filetypes = { 'elixir', 'eelixir', 'heex' },
+  root_markers = { 'mix.exs' },
+})
 
-  local opts = { noremap = true, silent = true }
-
-  -- map("n", "<Leader>lc", [[<cmd>lua vim.lsp.codelens.run()<CR>]], opts)
-  map("n", "<Leader>ld", [[<cmd>lua vim.lsp.buf.definition()<CR>]], opts)
-  map("n", "<Leader>lD", [[<cmd>lua vim.lsp.buf.implementation()<CR>]], opts)
-  map("n", "<Leader>lf", [[<cmd>lua vim.lsp.buf.format({ async = true })<CR>]], opts)
-  map("n", "<Leader>lh", [[<cmd>lua vim.lsp.buf.hover()<CR>]], opts)
-  map("n", "<Leader>lH", [[<cmd>lua vim.lsp.buf.signature_help()<CR>]], opts)
-  map("n", "<Leader>dd", [[<cmd>lua vim.diagnostic.open_float()<CR>]], opts)
-  map("n", "<Leader>dn", [[<cmd>lua vim.diagnostic.goto_next()<CR>]], opts)
-  map("n", "<Leader>dp", [[<cmd>lua vim.diagnostic.goto_prev()<CR>]], opts)
-  map("n", "<Leader>lL", [[<cmd>LspLog<CR>]], opts)
-  map("n", "<Leader>lt", [[<cmd>lua vim.lsp.buf.type_definition()<CR>]], opts)
-  map("n", "<Leader>lef", ":ElixirFromPipe<cr>", opts)
-  map("n", "<Leader>let", ":ElixirToPipe<cr>", opts)
-  map("v", "<Leader>lem", ":ElixirExpandMacro<cr>", opts)
-
-  require("cmp_nvim_lsp").default_capabilities(capabilities)
-end
-
-local elixir = require("elixir")
-local elixirls = require("elixir.elixirls")
-
-elixir.setup {
-  nextls = {
-    enable = false,
-    on_attach = on_attach,
-    spitfire = true,
-    init_options = {
-      experimental = {
-        completions = {
-          enable = true,
-        },
-      },
-    },
-  },
-  elixirls = {
-    on_attach = on_attach,
-    cmd = { path_to_elixirls },
-    settings = elixirls.settings {
-      dialyzerEnabled = true,
-      fetchDeps = false,
-      enableTestLenses = false,
-      suggestSpecs = false
-    }
-  },
-  projectionist = {enable = true},
-}
-
--- lspconfig.elixirls.setup({
---   cmd = {path_to_elixirls},
---   capabilities = capabilities,
---   on_attach = on_attach,
---   settings = {
---     elixirLS = {
---       dialyzerEnabled = true,
---       enableTestLenses = true
---     }
---   }
--- })
-
-lspconfig.lua_ls.setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
+vim.lsp.config('lua_ls', {
   settings = {
     Lua = {
       diagnostics = {
@@ -95,9 +30,7 @@ lspconfig.lua_ls.setup({
   }
 })
 
-lspconfig.solargraph.setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
+vim.lsp.config('solargraph', {
   init_options = {
     formatting = true
   },
@@ -108,9 +41,7 @@ lspconfig.solargraph.setup({
   }
 })
 
-lspconfig.tsserver.setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
+vim.lsp.config('ts_ls', {
   cmd = { "typescript-language-server", "--stdio" },
   filetypes = {
     "javascript",
@@ -122,9 +53,7 @@ lspconfig.tsserver.setup({
   },
 })
 
-lspconfig.tailwindcss.setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
+vim.lsp.config('tailwindcss', {
   filetypes = {
     "eelixir",
     "elixir",
@@ -141,19 +70,36 @@ lspconfig.tailwindcss.setup({
   }
 })
 
--- lspconfig.efm.setup({
---   capabilities = capabilities,
---   on_attach = on_attach,
---   filetypes = {
---     "elixir",
---     "eelixir",
---     "heex",
---     "surface",
---     "javascript",
---     "lua",
---     "bash",
---     "zsh",
---     "html",
---     "on"
---   }
--- })
+vim.lsp.config('emmet_ls', {
+  filetypes = {
+    "html",
+    "css",
+    "javascriptreact",
+    "typescriptreact",
+    "heex",
+    "eelixir",
+  },
+})
+
+vim.lsp.config('eslint', {
+  filetypes = {
+    "javascript",
+    "javascriptreact",
+    "javascript.jsx",
+    "typescript",
+    "typescriptreact",
+    "typescript.tsx",
+  },
+  settings = { workingDirectory = { mode = "auto" } },
+})
+
+vim.lsp.enable({
+  'expert',
+  'lua_ls',
+  -- 'solargraph',
+  'ts_ls',
+  'tailwindcss',
+  'eslint',
+  'emmet_ls'
+})
+-- Note: dartls is NOT listed here — flutter-tools manages it via lspconfig
