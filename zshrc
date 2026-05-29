@@ -66,6 +66,9 @@ source $HOME/.bash_profile
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#cccccc,bg=black,bold"
 bindkey '^ ' autosuggest-execute
 
+fpath=($HOME/.asdf/completions $fpath)
+autoload -Uz compinit && compinit
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 

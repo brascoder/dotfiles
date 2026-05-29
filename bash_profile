@@ -5,7 +5,6 @@ fi
 
 # Homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 # General
 export ALTERNATE_EDITOR="vi"
@@ -43,6 +42,7 @@ alias emd="emacs --daemon"
 alias emc="emacsclient -c"
 
 # ASDF
+export PATH="$HOME/.asdf/shims:$PATH"
 alias update-nvim-nightly='asdf uninstall neovim nightly && asdf install neovim nightly'
 alias update-nvim-stable='asdf uninstall neovim stable && asdf install neovim stable'
 
