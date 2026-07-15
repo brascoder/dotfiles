@@ -15,7 +15,7 @@ opt.ignorecase = true
 opt.mouse = "a"
 opt.number = true
 opt.shiftwidth = 2
-opt.shortmess:append({c = true})
+opt.shortmess:append({ c = true })
 opt.showmatch = true
 opt.signcolumn = "yes"
 opt.smartcase = true
@@ -48,9 +48,19 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.api.nvim_set_hl(0, "CopilotSuggestion", { fg = "#6e7faa", italic = true })
 
+local function set_float_highlights()
+  vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#292e42" })
+  vim.api.nvim_set_hl(0, "RenderMarkdownCode", { bg = "#454750" })
+end
+
+set_float_highlights()
+vim.api.nvim_create_autocmd("ColorScheme", { callback = set_float_highlights })
+
 vim.g.projectionist_heuristics = {
   ["mix.exs"] = {
     ["lib/*.ex"]        = { alternate = "test/{}_test.exs", type = "source" },
-    ["test/*_test.exs"] = { alternate = "lib/{}.ex",        type = "test" },
+    ["test/*_test.exs"] = { alternate = "lib/{}.ex", type = "test" },
   },
 }
+
+return { set_float_highlights = set_float_highlights }

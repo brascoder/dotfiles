@@ -237,7 +237,21 @@ require("lazy").setup({
       "nvim-treesitter/nvim-treesitter",
       { "nvim-tree/nvim-web-devicons", optional = true },
     },
-    config = function() require("render-markdown").setup({}) end,
+    config = function()
+      require("render-markdown").setup({
+        file_types = { "markdown" },
+        overrides = {
+          buftype = {
+            nofile = {
+              render_modes = true,
+              sign = { enabled = false },
+              code = { left_pad = 0, right_pad = 0 },
+            },
+          },
+        },
+      })
+      require("config.general").set_float_highlights()
+    end,
   },
 
   -- Languages/Frameworks
