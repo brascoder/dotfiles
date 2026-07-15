@@ -33,6 +33,19 @@ vim.g.conform_format_on_save = true
 
 vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter" }, { command = "checktime" })
 
+-- Neovim's built-in markdown ftplugin enables wrap; schedule runs after it loads.
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function()
+    vim.schedule(function()
+      if vim.bo.filetype == "markdown" then
+        vim.opt_local.wrap = false
+        vim.opt_local.linebreak = false
+      end
+    end)
+  end,
+})
+
 vim.api.nvim_set_hl(0, "CopilotSuggestion", { fg = "#6e7faa", italic = true })
 
 vim.g.projectionist_heuristics = {

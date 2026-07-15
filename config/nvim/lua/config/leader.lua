@@ -76,6 +76,9 @@ nleader("ef",
   [[:lua vim.g.conform_format_on_save = not vim.g.conform_format_on_save; print("Format on save: " .. tostring(vim.g.conform_format_on_save))<CR>]],
   "Toggle format on save")
 nleader("et", [[:NvimTreeRefresh<CR>]], "Refresh file tree")
+vim.keymap.set("n", "<Leader>ew", function()
+  vim.opt_local.wrap = not vim.opt_local.wrap
+end, { noremap = true, desc = "Toggle word-wrap" })
 
 -- File
 nleader("fb", [[:Telescope file_browser<CR>]], "Browse files")
