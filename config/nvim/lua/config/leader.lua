@@ -5,8 +5,12 @@ local cmd = vim.cmd
 
 local funcs = require("config.funcs")
 
+local map = function(modes, keys, action, desc)
+  vim.keymap.set(modes, "<Leader>" .. keys, action, { noremap = true, desc = desc })
+end
+
 -- Top Level
-nleader(" ", [[:Telescope commands<CR>]], "Commands")
+map({ "n", "v" }, " ", [[:Telescope commands<CR>]], "Commands")
 
 -- Buffer
 cmd [[command! LastBuffer call feedkeys("<C-^>", "t")]]
@@ -133,6 +137,15 @@ nleader("zf", [[:ToggleTerm direction=float<CR>]], "Floating terminal")
 nleader("zr", [[:ToggleTermSendCurrentLine<CR>]], "Send line to terminal")
 vleader("zr", [[:ToggleTermSendVisualSelection<CR>]], "Send selection to terminal")
 
+-- Herdr (send to coding agent in sibling pane)
+local herdr = require("config.herdr")
+map("n", "za", function() herdr.send_file_to_agent() end, "Send file to agent")
+map("n", "zA", function() herdr.send_file_and_submit() end, "Send file and submit")
+map("v", "zl", function() herdr.send_selection_to_agent() end, "Send file+lines to agent")
+map("v", "zL", function() herdr.send_selection_and_submit() end, "Send file+lines and submit")
+map("v", "zs", function() herdr.send_visual_text_to_agent() end, "Send selection text to agent")
+map("n", "zS", function() herdr.submit_agent() end, "Submit agent prompt")
+
 -- Test
 nleader("tn", "<cmd>lua require('neotest').run.run()<CR>", "Run nearest test")
 nleader("tf", "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<CR>", "Run file tests")
@@ -222,7 +235,7 @@ wk.add({
   { "<leader>xi", group = "Insert" },
   { "<leader>xa", group = "Align" },
   { "<leader>v",  group = "Flutter" },
-  { "<leader>z",  group = "Terminal" },
+  { "<leader>z",  group = "Terminal / Herdr" },
   { "<leader>c",  group = "Claude" },
   { "<leader>cd", group = "Claude diff" },
   { "<leader>D",  group = "Debug" },
