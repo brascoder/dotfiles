@@ -77,7 +77,9 @@ nleader("ef",
   "Toggle format on save")
 nleader("et", [[:NvimTreeRefresh<CR>]], "Refresh file tree")
 vim.keymap.set("n", "<Leader>ew", function()
-  vim.opt_local.wrap = not vim.opt_local.wrap
+  local wrap = not vim.wo.wrap
+  vim.wo.wrap = wrap
+  vim.wo.linebreak = wrap
 end, { noremap = true, desc = "Toggle word-wrap" })
 
 -- File

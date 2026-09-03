@@ -12,8 +12,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 vim.lsp.config('expert', {
   cmd = { 'expert', '--stdio' },
-  filetypes = { 'elixir', 'eelixir', 'heex' },
-  root_markers = { 'mix.exs' },
+  filetypes = { 'elixir', 'eelixir', 'heex', 'surface' },
+  root_markers = { 'mix.exs', '.git' },
 })
 
 vim.lsp.config('lua_ls', {

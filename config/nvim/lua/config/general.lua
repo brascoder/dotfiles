@@ -12,6 +12,7 @@ opt.cursorline = true
 opt.expandtab = true
 opt.hidden = true
 opt.ignorecase = true
+opt.linebreak = true
 opt.mouse = "a"
 opt.number = true
 opt.shiftwidth = 2
@@ -32,19 +33,6 @@ opt.visualbell = true
 vim.g.conform_format_on_save = true
 
 vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter" }, { command = "checktime" })
-
--- Neovim's built-in markdown ftplugin enables wrap; schedule runs after it loads.
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "markdown",
-  callback = function()
-    vim.schedule(function()
-      if vim.bo.filetype == "markdown" then
-        vim.opt_local.wrap = false
-        vim.opt_local.linebreak = false
-      end
-    end)
-  end,
-})
 
 vim.api.nvim_set_hl(0, "CopilotSuggestion", { fg = "#6e7faa", italic = true })
 
